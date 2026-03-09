@@ -14,8 +14,7 @@ export const PRODUCTS: Product[] = [
       fr: '20x60 cm | encadré',
       es: '20x60 cm | enmarcado'
     },
-    // Fix: removed leading zero from numeric literal to resolve parsing error
-    price: 0.10,
+    price: 89.90,
     paymentLink: 'https://buy.stripe.com/test_festive_night_framed',
     description: {
       en: "On this first day of the year, beneath the glow of fireworks lighting up the night sky, the Sapeurs celebrate and adorn themselves in red. A red that, freed from the Western prism, does not signal danger, but calls forth life and success.\n\nIn Yoruba and Ashanti cultures, the transition between December 31st and January 1st represents a moment of great vulnerability, when the negative energies of the past year seek to make their way into the new one. To guard against this, it is customary to mark the entrance of homes or the foreheads of children with laterite or camwood before the celebration. Recognizable for their deep red tones and known for their protective properties.\n\nThrough this artwork, our wish is that this textile does more than simply adorn your space,  that it brings with it an aura of protection and renewed vitality. By welcoming “Festive Night” into your home, you invite the strength of a heritage that watches over every new beginning.",
