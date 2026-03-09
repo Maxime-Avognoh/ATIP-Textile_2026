@@ -27,9 +27,13 @@ const Header: React.FC<HeaderProps> = ({ onTitleClick }) => {
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const languages = [
-    { code: 'en', name: 'English', flag: '🇬🇧' },
-    { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'es', name: 'Español', flag: '🇪🇸' }
+    { code: 'en', name: 'English',    flag: '🇬🇧' },
+    { code: 'fr', name: 'Français',   flag: '🇫🇷' },
+    { code: 'es', name: 'Español',    flag: '🇪🇸' },
+    { code: 'it', name: 'Italiano',   flag: '🇮🇹' },
+    { code: 'de', name: 'Deutsch',    flag: '🇩🇪' },
+    { code: 'pt', name: 'Português',  flag: '🇵🇹' },
+    { code: 'nl', name: 'Nederlands', flag: '🇧🇪' },
   ];
 
   const currentLanguage = languages.find(l => l.code === locale) || languages[0];
