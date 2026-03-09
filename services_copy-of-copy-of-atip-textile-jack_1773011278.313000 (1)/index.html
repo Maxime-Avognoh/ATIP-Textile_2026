@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="https://storage.googleapis.com/atip_storage/FAVICON_ATIP_BIG.png" />
+    <link rel="apple-touch-icon" href="https://storage.googleapis.com/atip_storage/FAVICON_ATIP_BIG.png">
+    <link rel="icon" sizes="192x192" href="https://storage.googleapis.com/atip_storage/FAVICON_ATIP_BIG.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATIP Textile - Art Canvases</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <script>
+      // Workaround for Square SDK fetch polyfill issue in restricted environments
+      (function() {
+        try {
+          if (window.fetch && !Object.getOwnPropertyDescriptor(window, 'fetch')?.writable) {
+            const originalFetch = window.fetch;
+            Object.defineProperty(window, 'fetch', {
+              value: function() { return originalFetch.apply(this, arguments); },
+              writable: true,
+              configurable: true,
+              enumerable: true
+            });
+          }
+        } catch (e) {
+          console.warn("Square fetch workaround failed:", e);
+        }
+      })();
+    </script>
+    <script src="https://web.squarecdn.com/v1/square.js"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'background': 'var(--color-background)',
+              'title': 'var(--color-title)',
+              'subtitle': 'var(--color-subtitle)',
+              'red-button': 'var(--color-red-button)',
+              'black-button': 'var(--color-black-button)',
+              'black-button-text': 'var(--color-black-button-text)',
+            },
+            fontFamily: {
+              'aboreto': ['Aboreto', 'cursive'],
+              'playfair': ['"Playfair Display"', 'serif'],
+              'montserrat': ['Montserrat', 'sans-serif'],
+            },
+            animation: {
+              'fade-in': 'fade-in 0.5s ease-out forwards',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --color-background: #FFF9EE;
+        --color-background-end: #EFE5D5;
+        --color-title: #616b53;
+        --color-subtitle: #3d3d3d;
+        --color-red-button: #c47e55;
+        --color-black-button: #EAE0D5;
+        --color-black-button-text: #594a4a;
+      }
+
+      .dark {
+        --color-background: #1a2a2a;
+        --color-background-end: #0d1515;
+        --color-title: #FFE6B8;
+        --color-subtitle: #e5dfd3;
+        --color-red-button: #d98e65;
+        --color-black-button: #403636;
+        --color-black-button-text: #FFF9EE;
+      }
+
+      body {
+        background-color: var(--color-background);
+        background-image: linear-gradient(to bottom, var(--color-background), var(--color-background-end));
+        background-attachment: fixed;
+        color: var(--color-subtitle);
+        font-family: 'Montserrat', sans-serif;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      ::selection {
+        background: var(--color-red-button);
+        color: white;
+      }
+
+      @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      .animate-fade-in { 
+        animation: fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+        opacity: 0;
+      }
+
+      .stagger-1 { animation-delay: 0.15s; }
+      .stagger-2 { animation-delay: 0.3s; }
+      
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--color-title);
+        opacity: 0.3;
+        border-radius: 10px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^0.15.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.4",
+    "square": "https://aistudiocdn.com/square@^43.2.0",
+    "firebase/app": "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js",
+    "firebase/auth": "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.6.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-background">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

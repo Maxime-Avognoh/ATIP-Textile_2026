@@ -1,0 +1,22 @@
+{
+  "name": "ATIP Textile",
+  "short_name": "ATIP",
+  "icons": [
+    {
+      "src": "https://storage.googleapis.com/atip_storage/FAVICON_ATIP_BIG.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable" 
+    },
+    {
+      "src": "https://storage.googleapis.com/atip_storage/FAVICON_ATIP_BIG.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000"
+}

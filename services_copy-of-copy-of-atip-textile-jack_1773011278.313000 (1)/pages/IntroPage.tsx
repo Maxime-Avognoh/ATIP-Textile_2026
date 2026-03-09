@@ -1,0 +1,137 @@
+import React, { useState, useEffect } from 'react';
+import { useAsset } from '../context/AssetContext';
+
+interface IntroPageProps {
+  onEnter: (lang: string) => void;
+}
+
+const IntroPage: React.FC<IntroPageProps> = ({ onEnter }) => {
+  const { introLogo, introVideo } = useAsset();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const languages = [
+    { code: 'fr', name: 'Français', flag: '🇫🇷' },
+    { code: 'en', name: 'English', flag: '🇬🇧' },
+    { code: 'es', name: 'Español', flag: '🇪🇸' }
+  ];
+
+  // Prevent scrolling when modal is open
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isModalOpen]);
+
+  return (
+    <div className="h-screen w-screen relative overflow-hidden bg-[#000]">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-1/2 left-1/2 w-auto h-auto min-w-full min-h-full object-cover transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-80"
+        src={introVideo}
+      >
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/40 z-10"></div>
+
+      {/* Content */}
+      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center text-white p-6">
+        <div className="animate-fade-in">
+            <img 
+                src={introLogo} 
+                alt="ATIP Textile Logo" 
+                className="h-48 md:h-64 w-auto object-contain drop-shadow-2xl" 
+            />
+        </div>
+        
+        <p className="mt-6 text-lg md:text-xl font-playfair italic text-white/90 max-w-xl drop-shadow-lg animate-fade-in">
+          "L'art du textile imprimé sur coton de satin, sublimant vos espaces."
+        </p>
+
+        <div className="mt-12 animate-fade-in">
+            <button
+                onClick={() => setIsModalOpen(true)}
+                className="group relative px-10 py-4 text-sm font-aboreto tracking-[0.3em] uppercase transition-all duration-500 overflow-hidden rounded-sm"
+            >
+                <span className="relative z-10 text-white group-hover:text-black transition-colors duration-500">
+                    Enter the Shop
+                </span>
+                <div className="absolute inset-0 border border-white/50 group-hover:border-white transition-colors duration-500"></div>
+                <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+            </button>
+        </div>
+
+        <div className="absolute bottom-12 left-0 right-0 text-center animate-fade-in">
+            <span className="font-aboreto text-xs tracking-[0.4em] text-white/60 uppercase">
+                Art & Design
+            </span>
+        </div>
+      </div>
+
+      {/* Language Selection Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/80 backdrop-blur-sm animate-fade-in"
+            onClick={() => setIsModalOpen(false)}
+          ></div>
+
+          {/* Modal Content */}
+          <div className="relative z-10 w-full max-w-md bg-background rounded-sm shadow-2xl overflow-hidden animate-fade-in">
+            <div className="p-8 md:p-12">
+                <button 
+                    onClick={() => setIsModalOpen(false)}
+                    className="absolute top-4 right-4 text-subtitle/40 hover:text-title transition-colors"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+
+                <h3 className="text-2xl font-aboreto text-title text-center mb-8 tracking-widest uppercase">
+                    Select Language
+                </h3>
+                
+                <div className="space-y-4">
+                    {languages.map((lang) => (
+                        <button
+                            key={lang.code}
+                            onClick={() => onEnter(lang.code)}
+                            className="w-full flex items-center justify-between p-5 border border-subtitle/10 hover:border-red-button/50 hover:bg-black-button/30 transition-all duration-300 group rounded-sm"
+                        >
+                            <span className="flex items-center gap-4">
+                                <span className="text-2xl">{lang.flag}</span>
+                                <span className="font-aboreto tracking-widest text-subtitle group-hover:text-title">
+                                    {lang.name}
+                                </span>
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-subtitle/30 group-hover:text-red-button transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    ))}
+                </div>
+
+                <p className="mt-8 text-center text-xs font-playfair italic text-subtitle/60">
+                    Discover our collection of 20x60 cm satin cotton prints.
+                </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default IntroPage;

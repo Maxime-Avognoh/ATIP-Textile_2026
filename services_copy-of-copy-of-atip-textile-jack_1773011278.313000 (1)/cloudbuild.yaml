@@ -1,0 +1,40 @@
+steps:
+  # 1. Build the Docker image
+  # Uses the 'latest' tag and stores the image in the Artifact Registry.
+  - name: 'gcr.io/cloud-builders/docker'
+    id: Build Image
+    args: ['build', '-t', 'europe-west2-docker.pkg.dev/$PROJECT_ID/cloud-run-source/atip-app:latest', '.']
+  
+  # 2. Push the image to Artifact Registry (to make it available)
+  - name: 'gcr.io/cloud-builders/docker'
+    id: Push Image
+    args: ['push', 'europe-west2-docker.pkg.dev/$PROJECT_ID/cloud-run-source/atip-app:latest']
+
+  # 3. Deploy the image to Cloud Run in EUROPE-WEST2 (Primary Service)
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    id: Deploy Europe
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - atip-textile-eu
+      - --image=europe-west2-docker.pkg.dev/$PROJECT_ID/cloud-run-source/atip-app:latest
+      - --region=europe-west2
+      - --platform=managed
+      - --allow-unauthenticated 
+
+  # 4. Deploy the SAME image to Cloud Run in US-WEST1 (Secondary Service)
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    id: Deploy US
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - atip-textile-us
+      - --image=europe-west2-docker.pkg.dev/$PROJECT_ID/cloud-run-source/atip-app:latest
+      - --region=us-west1
+      - --platform=managed
+      - --allow-unauthenticated
+
+# Timeout configuration (optional, increased to avoid build failures on slow networks)
+timeout: '1600s'
