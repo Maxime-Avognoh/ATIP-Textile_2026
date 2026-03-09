@@ -229,7 +229,8 @@ const SQUARE_LOCATION_ID = 'LCH74A955F6NE';
 
 interface SquarePaymentFormProps {
   amount: number; // Montant en centimes (ex: 11000 pour 110.00€)
-  cartItems: { id: string; qty: number }[]; // ✅ AJOUTE CETTE LIGNE
+  cartItems: { id: string; qty: number }[];
+  orderContext?: any; // Customer info from checkout (shippingInfo, billingInfo, etc.)
   onPaymentSuccess: (result: any) => void;
   onPaymentFailure: (error: string) => void;
 }
@@ -241,12 +242,11 @@ export interface SquarePaymentFormRef {
 
 
 const SquarePaymentForm = forwardRef<SquarePaymentFormRef, SquarePaymentFormProps>(
-  ({ amount, cartItems, onPaymentSuccess, onPaymentFailure }, ref) => {
+  ({ amount, cartItems, orderContext, onPaymentSuccess, onPaymentFailure }, ref) => {
     const [card, setCard] = useState<any | null>(null);
     const [isLoadingSDK, setIsLoadingSDK] = useState(true);
     const [isProcessingTransaction, setIsProcessingTransaction] = useState(false);
     const [initializationError, setInitializationError] = useState<string | null>(null);
-    const [customerEmail, setCustomerEmail] = useState<string>('');
     const { t } = useLocale();
     const cardRef = useRef<any>(null);
     const isInitializing = useRef(false);
@@ -331,6 +331,7 @@ const SquarePaymentForm = forwardRef<SquarePaymentFormRef, SquarePaymentFormProp
           const idempotencyKey = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 
 
+          const customerEmail = orderContext?.shippingInfo?.email || orderContext?.email || '';
           const response = await fetch('/process-payment', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -339,9 +340,8 @@ const SquarePaymentForm = forwardRef<SquarePaymentFormRef, SquarePaymentFormProp
               amount,
               idempotencyKey,
               email: customerEmail,
-              cartItems, // ✅ AJOUT ICI
-
-
+              cartItems,
+              customer: orderContext,
             })
           });
 
@@ -389,18 +389,6 @@ const SquarePaymentForm = forwardRef<SquarePaymentFormRef, SquarePaymentFormProp
         <div className="relative min-h-[3.5rem] flex flex-col items-center justify-center border border-subtitle/10 rounded-md p-2 bg-white/50">
          
            
-<div className="w-full mb-2">
-  <input
-    type="email"
-    value={customerEmail}
-    onChange={(e) => setCustomerEmail(e.target.value)}
-    placeholder={t('checkout.emailPlaceholder') || 'Email'}
-    className="w-full px-3 py-2 rounded-md border border-subtitle/10 bg-white/70 text-sm outline-none focus:ring-1 focus:ring-red-button"
-    required
-  />
-</div>
-
-
             <div
                 id="card-container"
                 className={`w-full ${(isLoadingSDK || isProcessingTransaction) ? 'opacity-30 pointer-events-none' : 'opacity-100'} ${initializationError ? 'hidden' : 'block'}`}
