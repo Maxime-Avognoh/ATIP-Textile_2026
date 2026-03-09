@@ -5,7 +5,7 @@ steps:
     args:
       - build
       - -t
-      - us-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source/atip-app:latest
+      - $_AR_HOSTNAME/$_AR_PROJECT_ID/$_AR_REPOSITORY/$_SERVICE_NAME:latest
       - services_copy-of-copy-of-atip-textile-jack_1773011278.313000 (1)
 
   # 2. Push the image to Artifact Registry
@@ -13,7 +13,7 @@ steps:
     id: Push Image
     args:
       - push
-      - us-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source/atip-app:latest
+      - $_AR_HOSTNAME/$_AR_PROJECT_ID/$_AR_REPOSITORY/$_SERVICE_NAME:latest
 
   # 3. Deploy to Cloud Run in US-WEST1
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -22,10 +22,10 @@ steps:
     args:
       - run
       - deploy
-      - copy-of-copy-of-atip-textile-jack
-      - --image=us-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source/atip-app:latest
-      - --region=us-west1
-      - --platform=managed
+      - $_SERVICE_NAME
+      - --image=$_AR_HOSTNAME/$_AR_PROJECT_ID/$_AR_REPOSITORY/$_SERVICE_NAME:latest
+      - --region=$_DEPLOY_REGION
+      - --platform=$_PLATFORM
       - --allow-unauthenticated
 
 timeout: '1600s'
