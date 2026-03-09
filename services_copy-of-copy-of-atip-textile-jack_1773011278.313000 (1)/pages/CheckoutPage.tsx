@@ -375,11 +375,11 @@ const CheckoutPage: React.FC = () => {
 
 
     const [shippingInfo, setShippingInfo] = useState<ContactInfo>({
-        fullName: '', email: '', address: '', city: '', postalCode: '', country: ''
+        fullName: '', email: '', phone: '', address: '', city: '', postalCode: '', country: ''
     });
-   
+
     const [billingInfo, setBillingInfo] = useState<ContactInfo>({
-        fullName: '', email: '', address: '', city: '', postalCode: '', country: ''
+        fullName: '', email: '', phone: '', address: '', city: '', postalCode: '', country: ''
     });
 
 
@@ -532,6 +532,7 @@ const CheckoutPage: React.FC = () => {
                         </div>
                         <div className="space-y-6">
                             <InputField name="email" label={t('checkout.contact.email')} type="email" value={shippingInfo.email} onChange={handleShippingChange} />
+                            <InputField name="phone" label={t('checkout.contact.phone')} type="tel" value={shippingInfo.phone || ''} onChange={handleShippingChange} />
                             <InputField name="fullName" label={t('checkout.shipping.name')} value={shippingInfo.fullName} onChange={handleShippingChange} />
                             <InputField name="address" label={t('checkout.shipping.address')} value={shippingInfo.address} onChange={handleShippingChange} />
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

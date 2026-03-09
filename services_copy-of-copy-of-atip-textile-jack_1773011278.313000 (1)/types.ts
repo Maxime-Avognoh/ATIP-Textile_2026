@@ -23,6 +23,7 @@ export interface User {
 export interface ContactInfo {
   fullName: string;
   email: string;
+  phone?: string;
   address: string;
   city: string;
   postalCode: string;
