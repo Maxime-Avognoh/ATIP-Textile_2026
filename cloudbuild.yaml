@@ -1,0 +1,31 @@
+steps:
+  # 1. Build the Docker image from the project subfolder
+  - name: 'gcr.io/cloud-builders/docker'
+    id: Build Image
+    args:
+      - build
+      - -t
+      - us-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source/atip-app:latest
+      - services_copy-of-copy-of-atip-textile-jack_1773011278.313000 (1)
+
+  # 2. Push the image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    id: Push Image
+    args:
+      - push
+      - us-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source/atip-app:latest
+
+  # 3. Deploy to Cloud Run in US-WEST1
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    id: Deploy US
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - copy-of-copy-of-atip-textile-jack
+      - --image=us-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source/atip-app:latest
+      - --region=us-west1
+      - --platform=managed
+      - --allow-unauthenticated
+
+timeout: '1600s'
