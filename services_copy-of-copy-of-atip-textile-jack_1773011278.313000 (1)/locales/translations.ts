@@ -189,6 +189,7 @@ export const translations: { [key: string]: any } = {
       },
       contact: {
         email: 'Email Address',
+        phone: 'Phone Number',
       },
       payment: {
         title: 'Secure Payment',
@@ -453,6 +454,7 @@ export const translations: { [key: string]: any } = {
       },
       contact: {
         email: 'Adresse E-mail',
+        phone: 'Numéro de Téléphone',
       },
       payment: {
         title: 'Paiement Sécurisé',
@@ -700,6 +702,7 @@ export const translations: { [key: string]: any } = {
       },
       contact: {
         email: 'Dirección de Correo Electrónico',
+        phone: 'Número de Teléfono',
       },
       payment: {
         title: 'Información de Pago',
