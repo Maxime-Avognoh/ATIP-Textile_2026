@@ -79,17 +79,17 @@ export const translations: { [key: string]: any } = {
       language: 'Language',
     },
     intro: {
-      quote: ‘"The art of textile printed on satin cotton, elevating your spaces."’,
-      enterShop: ‘Enter the Shop’,
-      artAndDesign: ‘Art & Design’,
-      selectLanguage: ‘Select Language’,
-      discover: ‘Discover our collection of 20x60 cm satin cotton prints.’,
+      quote: '"The art of textile printed on satin cotton, elevating your spaces."',
+      enterShop: "Enter the Shop",
+      artAndDesign: "Art & Design",
+      selectLanguage: "Select Language",
+      discover: "Discover our collection of 20x60 cm satin cotton prints.",
     },
     home: {
-      tagline: ‘Contemporary Heritage’,
-      title: ‘Fragments of stories to enhance your walls’,
-      subtitle: ‘ATIP-Textile is a contemporary African textile art brand created to tell Africa’s story in a modern and authentic way. Through hand-drawn African patterns, each artwork becomes a fragment of history, memory, and emotion.’,
-      introText: ‘when Africa is told in patterns.’,
+      tagline: "Contemporary Heritage",
+      title: "Fragments of stories to enhance your walls",
+      subtitle: "ATIP-Textile is a contemporary African textile art brand created to tell Africa's story in a modern and authentic way. Through hand-drawn African patterns, each artwork becomes a fragment of history, memory, and emotion.",
+      introText: "when Africa is told in patterns.",
       values: {
         v1: {
           tagline: 'Authenticity',
