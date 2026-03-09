@@ -1,3 +1,4 @@
+import { getLocalized } from '../types';
 
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
@@ -112,14 +113,14 @@ const ProductPage: React.FC = () => {
             <span className="text-xs font-bold tracking-widest text-red-button uppercase mb-2 block">Fine Art Textile Heritage</span>
             <div className="flex items-start justify-between gap-4">
                 <div className="flex flex-col">
-                    <h1 className="text-4xl md:text-5xl font-aboreto text-title leading-tight">{product.name[locale]}</h1>
+                    <h1 className="text-4xl md:text-5xl font-aboreto text-title leading-tight">{getLocalized(product.name, locale)}</h1>
                     {product.subtitle && (
                         <p className="text-sm font-montserrat font-semibold tracking-[0.2em] uppercase text-red-button/70 mt-2">
-                            {product.subtitle[locale]}
+                            {getLocalized(product.subtitle, locale)}
                         </p>
                     )}
                 </div>
-                <ShareButton productId={product.id} productName={product.name[locale]} className="text-subtitle/60 hover:text-title transition-colors mt-2" />
+                <ShareButton productId={product.id} productName={getLocalized(product.name, locale)} className="text-subtitle/60 hover:text-title transition-colors mt-2" />
             </div>
           </div>
           <p className="text-3xl font-playfair italic text-subtitle/90 mb-8 border-b border-subtitle/10 pb-6 stagger-2">€ {product.price.toFixed(2)}</p>
@@ -129,9 +130,9 @@ const ProductPage: React.FC = () => {
               <h2 className="text-sm font-bold uppercase tracking-widest text-red-button/70 mb-3">{t('product.story')}</h2>
               <div className="relative">
                 <p className={`text-lg text-subtitle leading-loose font-montserrat whitespace-pre-wrap transition-all duration-500 ${!isDescriptionExpanded ? 'line-clamp-4' : ''}`}>
-                  {product.description[locale]}
+                  {getLocalized(product.description, locale)}
                 </p>
-                {product.description[locale].length > 150 && (
+                {getLocalized(product.description, locale).length > 150 && (
                   <button 
                     onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
                     className="mt-2 text-xs font-bold uppercase tracking-widest text-red-button hover:text-red-button/80 transition-colors flex items-center gap-1"

@@ -1,3 +1,4 @@
+import { getLocalized } from '../types';
 
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -22,10 +23,10 @@ const AddToCartToast: React.FC = () => {
             role="alert"
             aria-live="assertive"
         >
-            <img src={lastAddedItem.images[0]} alt={lastAddedItem.name[locale]} className="w-16 h-20 object-cover rounded-md flex-shrink-0" />
+            <img src={lastAddedItem.images[0]} alt={getLocalized(lastAddedItem.name, locale)} className="w-16 h-20 object-cover rounded-md flex-shrink-0" />
             <div className="ml-4 flex-grow">
                 <p className="text-sm font-semibold text-title/90">{t('product.added')}</p>
-                <p className="text-subtitle/90 truncate">{lastAddedItem.name[locale]}</p>
+                <p className="text-subtitle/90 truncate">{getLocalized(lastAddedItem.name, locale)}</p>
                 <Link 
                     to="/cart" 
                     onClick={handleClose} 

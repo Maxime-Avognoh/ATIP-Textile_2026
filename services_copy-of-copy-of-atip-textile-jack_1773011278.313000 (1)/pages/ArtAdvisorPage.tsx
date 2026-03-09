@@ -6,7 +6,7 @@ import { useLocale } from '../context/LocaleContext';
 import ProductCard from '../components/ProductCard';
 import Button from '../components/Button';
 import BackToCollectionLink from '../components/BackToCollectionLink';
-import { Product } from '../types';
+import { Product, getLocalized} from '../types';
 
 const ArtAdvisorPage: React.FC = () => {
     const { t, locale } = useLocale();
@@ -30,8 +30,8 @@ const ArtAdvisorPage: React.FC = () => {
 
             const productsForAI = products.map(p => ({
                 id: p.id,
-                name: p.name[locale],
-                description: p.description[locale],
+                name: getLocalized(p.name, locale),
+                description: getLocalized(p.description, locale),
             }));
 
             const userPrompt = `

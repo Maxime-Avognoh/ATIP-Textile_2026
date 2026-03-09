@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { useLocale } from '../context/LocaleContext';
-import { CartItem } from '../types';
+import { CartItem, getLocalized} from '../types';
 import Button from '../components/Button';
 
 const OrderConfirmationPage: React.FC = () => {
@@ -69,7 +69,7 @@ const OrderConfirmationPage: React.FC = () => {
                          <div className="text-subtitle/90">
                             {items.map((item: CartItem) => (
                                 <div key={item.cartItemId} className="flex justify-between items-baseline mb-1">
-                                    <span>{item.name[locale]} ({item.format}) x {item.quantity}</span>
+                                    <span>{getLocalized(item.name, locale)} ({item.format}) x {item.quantity}</span>
                                     <span className="font-semibold">€{(item.price * item.quantity).toFixed(2)}</span>
                                 </div>
                             ))}

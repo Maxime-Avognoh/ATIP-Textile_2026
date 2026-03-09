@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import { useLocale } from '../context/LocaleContext';
 import Button from '../components/Button';
 import BackToCollectionLink from '../components/BackToCollectionLink';
-import { Order } from '../types';
+import { Order, getLocalized} from '../types';
 
 const ProfilePage: React.FC = () => {
     const { currentUser, logout } = useAuth();
@@ -80,10 +80,10 @@ const ProfilePage: React.FC = () => {
                                     {order.items.map((item, idx) => (
                                         <div key={idx} className="flex items-center gap-4 mb-2 last:mb-0">
                                             <div className="w-12 h-16 bg-gray-200 rounded overflow-hidden flex-shrink-0">
-                                                <img src={item.images[0]} alt={item.name[locale]} className="w-full h-full object-cover" />
+                                                <img src={item.images[0]} alt={getLocalized(item.name, locale)} className="w-full h-full object-cover" />
                                             </div>
                                             <div className="text-sm">
-                                                <p className="font-medium text-title">{item.name[locale]}</p>
+                                                <p className="font-medium text-title">{getLocalized(item.name, locale)}</p>
                                                 <p className="text-subtitle/70">{item.format} x {item.quantity}</p>
                                             </div>
                                         </div>

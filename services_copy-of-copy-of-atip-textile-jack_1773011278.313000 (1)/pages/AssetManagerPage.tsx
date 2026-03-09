@@ -4,7 +4,7 @@ import { useAsset } from '../context/AssetContext';
 import { useProducts } from '../context/ProductContext';
 import { useLocale } from '../context/LocaleContext';
 import Button from '../components/Button';
-import { Product } from '../types';
+import { Product, getLocalized} from '../types';
 import BackToCollectionLink from '../components/BackToCollectionLink';
 
 const AssetUploader: React.FC<{ onUpload: (base64: string) => void, buttonText: string, accept: string }> = ({ onUpload, buttonText, accept }) => {
@@ -138,7 +138,7 @@ const ProductImageEditor: React.FC<{ product: Product }> = ({ product }) => {
 
     return (
         <div className="mt-4 pt-4 border-t border-subtitle/10">
-            <h4 className="text-xl font-aboreto text-title/90 mb-4">{product.name[locale]}</h4>
+            <h4 className="text-xl font-aboreto text-title/90 mb-4">{getLocalized(product.name, locale)}</h4>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-6">
                 {pendingImages.map((img, index) => (
                     <div key={index} className="relative group aspect-square">
