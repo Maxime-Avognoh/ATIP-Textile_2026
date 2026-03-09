@@ -115,13 +115,14 @@ const Header: React.FC<HeaderProps> = ({ onTitleClick }) => {
                 <button
                     type="button"
                     onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                    className="inline-flex justify-center items-center w-full rounded-md px-3 py-1 text-xs font-aboreto font-bold text-subtitle/80 hover:text-title focus:outline-none transition-colors border border-transparent hover:border-subtitle/20"
+                    className="inline-flex justify-center items-center gap-1.5 rounded-md px-3 py-1 text-xs font-aboreto font-bold text-subtitle/80 hover:text-title focus:outline-none transition-colors border border-transparent hover:border-subtitle/20"
                     id="menu-button"
-                    aria-expanded="true"
+                    aria-expanded={isLangMenuOpen}
                     aria-haspopup="true"
                 >
-                    {currentLanguage.code.toUpperCase()}
-                    <svg className="-mr-1 ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <span className="text-base leading-none">{currentLanguage.flag}</span>
+                    <span>{currentLanguage.code.toUpperCase()}</span>
+                    <svg className="h-3 w-3 opacity-60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                         <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                     </svg>
                 </button>
@@ -202,9 +203,10 @@ const Header: React.FC<HeaderProps> = ({ onTitleClick }) => {
                             setLocale(lang.code);
                             setIsMenuOpen(false);
                           }}
-                          className={`px-4 py-2 text-xs font-bold font-aboreto rounded-md transition-colors ${locale === lang.code ? 'bg-black-button text-title' : 'text-subtitle hover:bg-black-button/50'}`}
+                          className={`flex items-center gap-1.5 px-3 py-2 text-xs font-bold font-aboreto rounded-md transition-colors ${locale === lang.code ? 'bg-black-button text-title' : 'text-subtitle hover:bg-black-button/50'}`}
                         >
-                            {lang.code.toUpperCase()}
+                            <span className="text-base leading-none">{lang.flag}</span>
+                            <span>{lang.name}</span>
                         </button>
                     ))}
                 </div>
