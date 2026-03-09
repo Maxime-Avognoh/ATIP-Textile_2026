@@ -110,7 +110,7 @@ const ProductPage: React.FC = () => {
 
         <div className="lg:col-span-5 flex flex-col justify-center">
           <div className="mb-2 stagger-1">
-            <span className="text-xs font-bold tracking-widest text-red-button uppercase mb-2 block">Fine Art Textile Heritage</span>
+            <span className="text-xs font-bold tracking-widest text-red-button uppercase mb-2 block">{t('product.tagline')}</span>
             <div className="flex items-start justify-between gap-4">
                 <div className="flex flex-col">
                     <h1 className="text-4xl md:text-5xl font-aboreto text-title leading-tight">{getLocalized(product.name, locale)}</h1>
@@ -160,9 +160,9 @@ const ProductPage: React.FC = () => {
             <div className="bg-black-button/10 p-4 rounded-sm border-l-2 border-red-button/30">
               <h3 className="text-[10px] font-bold uppercase tracking-widest text-subtitle/60 mb-2">{t('product.details')}</h3>
               <ul className="text-xs space-y-1 text-subtitle/80 font-aboreto">
-                <li>• Format : 20 x 60 cm (Panoramique)</li>
-                <li>• Support : Coton de satin d'exception</li>
-                <li>• Rendu : Haute définition - Rythmes visuels profonds</li>
+                <li>• {t('product.detailFormat')}</li>
+                <li>• {t('product.detailSupport')}</li>
+                <li>• {t('product.detailRender')}</li>
               </ul>
             </div>
           </div>

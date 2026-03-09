@@ -111,7 +111,7 @@ const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 items-start animate-fade-in stagger-1">
               <div className="lg:col-span-5 flex flex-col items-start text-left">
                   <span className="text-[10px] font-montserrat font-semibold tracking-[0.5em] text-red-button uppercase mb-4 block">
-                      Contemporary Heritage
+                      {t('home.tagline')}
                   </span>
                   <h2 className="text-2xl md:text-4xl lg:text-5xl font-aboreto text-title tracking-[0.1em] uppercase leading-tight">
                       {t('home.title')}
