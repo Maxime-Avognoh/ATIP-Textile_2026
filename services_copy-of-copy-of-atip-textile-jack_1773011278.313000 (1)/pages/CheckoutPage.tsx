@@ -8,7 +8,7 @@
 // import Button from '../components/Button';
 // import SquarePaymentForm, { SquarePaymentFormRef } from '../components/SquarePaymentForm';
 import PayPalButton from '../components/PayPalButton';
-// import { CartItem, Order, ContactInfo } from '../types';
+// import { CartItem, Order, ContactInfo, getLocalized} from '../types';
 
 
 // interface InputFieldProps {
@@ -272,9 +272,9 @@ import PayPalButton from '../components/PayPalButton';
 //                         <div className="space-y-4 divide-y divide-subtitle/10">
 //                             {cartItems.map((item: CartItem) => (
 //                                 <div key={item.cartItemId} className="flex items-center gap-4 pt-4 first:pt-0">
-//                                     <img src={item.images[0]} alt={item.name[locale]} className="w-16 h-20 object-cover rounded-md"/>
+//                                     <img src={item.images[0]} alt={getLocalized(item.name, locale)} className="w-16 h-20 object-cover rounded-md"/>
 //                                     <div className="flex-grow">
-//                                         <p className="text-title font-semibold">{item.name[locale]}</p>
+//                                         <p className="text-title font-semibold">{getLocalized(item.name, locale)}</p>
 //                                         <p className="text-sm text-subtitle/80">{item.format}</p>
 //                                         <p className="text-sm text-subtitle/80">{t('cart.quantity')} {item.quantity}</p>
 //                                     </div>
@@ -315,7 +315,7 @@ import { useLocale } from '../context/LocaleContext';
 import { useAuth } from '../context/AuthContext';
 import Button from '../components/Button';
 import SquarePaymentForm, { SquarePaymentFormRef } from '../components/SquarePaymentForm';
-import { CartItem, Order, ContactInfo } from '../types';
+import { CartItem, Order, ContactInfo, getLocalized} from '../types';
 
 
 interface InputFieldProps {
@@ -609,9 +609,9 @@ const CheckoutPage: React.FC = () => {
                         <div className="space-y-4 divide-y divide-subtitle/10">
                             {cartItems.map((item: CartItem) => (
                                 <div key={item.cartItemId} className="flex items-center gap-4 pt-4 first:pt-0">
-                                    <img src={item.images[0]} alt={item.name[locale]} className="w-16 h-20 object-cover rounded-md"/>
+                                    <img src={item.images[0]} alt={getLocalized(item.name, locale)} className="w-16 h-20 object-cover rounded-md"/>
                                     <div className="flex-grow">
-                                        <p className="text-title font-semibold">{item.name[locale]}</p>
+                                        <p className="text-title font-semibold">{getLocalized(item.name, locale)}</p>
                                         <p className="text-sm text-subtitle/80">{item.format}</p>
                                         <p className="text-sm text-subtitle/80">{t('cart.quantity')} {item.quantity}</p>
                                     </div>

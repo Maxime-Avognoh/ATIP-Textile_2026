@@ -1,7 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Product } from '../types';
+import { Product, getLocalized} from '../types';
 import { useCart } from '../context/CartContext';
 import { useLocale } from '../context/LocaleContext';
 import ProtectedImage from './ProtectedImage';
@@ -80,8 +80,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
     const base = window.location.href.split('#')[0];
     const url = new URL(productPath, base).href;
     const shareData = {
-        title: t('share.shareTextTitle', { productName: product.name[locale] }),
-        text: t('share.shareTextBody', { productName: product.name[locale] }),
+        title: t('share.shareTextTitle', { productName: getLocalized(product.name, locale) }),
+        text: t('share.shareTextBody', { productName: getLocalized(product.name, locale) }),
         url: url,
     };
     if (navigator.share) {
@@ -115,7 +115,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
             <div className={`absolute inset-0 transition-all duration-1000 ease-out transform group-hover:scale-105 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`}>
                 <ProtectedImage
                     src={product.images[0]}
-                    alt={`Toile textile ATIP : ${product.name[locale]} - Artisanat d'exception sur coton de satin`}
+                    alt={`Toile textile ATIP : ${getLocalized(product.name, locale)} - Artisanat d'exception sur coton de satin`}
                     loading="lazy"
                     className="object-cover w-full h-full"
                     onLoad={() => setIsImageLoaded(true)}
@@ -137,11 +137,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
 
             <div className={`absolute inset-x-0 bottom-0 p-4 md:p-6 text-white z-10 flex flex-col justify-end items-center pointer-events-none transition-all duration-700 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`}>
                  <h3 className="text-lg md:text-xl font-aboreto font-bold tracking-[0.1em] uppercase leading-tight text-center drop-shadow-lg w-full transition-transform duration-700 group-hover:translate-y-[-8px]">
-                    {product.name[locale]}
+                    {getLocalized(product.name, locale)}
                  </h3>
                  {product.subtitle && (
                     <p className="text-[10px] md:text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-white/70 mt-1 drop-shadow-md text-center transition-transform duration-700 delay-50 group-hover:translate-y-[-8px]">
-                        {product.subtitle[locale]}
+                        {getLocalized(product.subtitle, locale)}
                     </p>
                  )}
                  <p className="text-sm md:text-base font-playfair italic text-white/80 mt-2 font-medium drop-shadow-md text-center transition-transform duration-700 delay-75 group-hover:translate-y-[-8px]">

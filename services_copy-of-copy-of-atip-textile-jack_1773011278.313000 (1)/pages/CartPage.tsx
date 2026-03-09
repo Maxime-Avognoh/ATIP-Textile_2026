@@ -1,3 +1,4 @@
+import { getLocalized } from '../types';
 
 import React from 'react';
 import { useCart } from '../context/CartContext';
@@ -44,13 +45,13 @@ const CartPage: React.FC = () => {
               <div className="w-24 h-32 flex-shrink-0 self-center sm:self-auto rounded-md overflow-hidden">
                 <ProtectedImage 
                     src={item.images[0]} 
-                    alt={item.name[locale]} 
+                    alt={getLocalized(item.name, locale)} 
                     loading="lazy" 
                     className="w-full h-full object-cover" 
                 />
               </div>
               <div className="flex-grow">
-                <h2 className="text-xl font-aboreto text-title">{item.name[locale]}</h2>
+                <h2 className="text-xl font-aboreto text-title">{getLocalized(item.name, locale)}</h2>
                 <p className="text-sm text-subtitle/70">{item.format}</p>
                 <div className="flex items-center gap-2 mt-2">
                     <span className="text-subtitle/80 mr-2">{t('cart.quantity')}</span>

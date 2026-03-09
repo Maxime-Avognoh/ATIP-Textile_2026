@@ -1,3 +1,4 @@
+import { getLocalized } from '../types';
 
 import React, { useRef, useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
@@ -136,7 +137,7 @@ const HomePage: React.FC = () => {
                   {product.subtitle && (
                     <div className="text-center animate-fade-in stagger-3">
                       <p className="text-[10px] md:text-xs font-montserrat font-bold tracking-[0.3em] uppercase text-red-button/80">
-                        {product.subtitle[locale]}
+                        {getLocalized(product.subtitle, locale)}
                       </p>
                     </div>
                   )}

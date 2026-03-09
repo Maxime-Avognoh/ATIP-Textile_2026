@@ -39,3 +39,15 @@ export interface Order {
   shippingInfo: ContactInfo;
   billingInfo: ContactInfo;
 }
+
+/**
+ * Returns the localized value for a product field,
+ * falling back to English, then French, then the first available value.
+ */
+export function getLocalized(
+  field: { [key: string]: string } | undefined,
+  locale: string
+): string {
+  if (!field) return '';
+  return field[locale] || field['en'] || field['fr'] || Object.values(field)[0] || '';
+}
