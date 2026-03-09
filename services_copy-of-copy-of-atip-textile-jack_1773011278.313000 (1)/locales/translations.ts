@@ -78,10 +78,18 @@ export const translations: { [key: string]: any } = {
       quickLinks: 'Quick Links',
       language: 'Language',
     },
+    intro: {
+      quote: ‘"The art of textile printed on satin cotton, elevating your spaces."’,
+      enterShop: ‘Enter the Shop’,
+      artAndDesign: ‘Art & Design’,
+      selectLanguage: ‘Select Language’,
+      discover: ‘Discover our collection of 20x60 cm satin cotton prints.’,
+    },
     home: {
-      title: 'Fragments of stories to enhance your walls',
-      subtitle: 'ATIP-Textile is a contemporary African textile art brand created to tell Africa’s story in a modern and authentic way. Through hand-drawn African patterns, each artwork becomes a fragment of history, memory, and emotion.',
-      introText: 'when Africa is told in patterns.',
+      tagline: ‘Contemporary Heritage’,
+      title: ‘Fragments of stories to enhance your walls’,
+      subtitle: ‘ATIP-Textile is a contemporary African textile art brand created to tell Africa’s story in a modern and authentic way. Through hand-drawn African patterns, each artwork becomes a fragment of history, memory, and emotion.’,
+      introText: ‘when Africa is told in patterns.’,
       values: {
         v1: {
           tagline: 'Authenticity',
@@ -108,7 +116,11 @@ export const translations: { [key: string]: any } = {
       seeMore: 'See More',
       seeLess: 'See Less',
       story: 'The Radiance of transition',
+      tagline: 'Fine Art Textile Heritage',
       details: 'Fiber & Technical Details',
+      detailFormat: 'Format: 20 x 60 cm (Panoramic)',
+      detailSupport: 'Support: Exceptional satin cotton',
+      detailRender: 'Render: High definition – Deep visual rhythms',
       format: {
         title: 'Format',
         vertical: 'Vertical',
@@ -343,7 +355,15 @@ export const translations: { [key: string]: any } = {
       quickLinks: 'Liens Rapides',
       language: 'Langue',
     },
+    intro: {
+      quote: '"L\'art du textile imprimé sur coton de satin, sublimant vos espaces."',
+      enterShop: 'Entrer dans la Boutique',
+      artAndDesign: 'Art & Design',
+      selectLanguage: 'Choisir la Langue',
+      discover: 'Découvrez notre collection de tirages sur coton de satin 20x60 cm.',
+    },
     home: {
+      tagline: 'Héritage Contemporain',
       title: 'Des fragments d\'histoires pour sublimer vos murs',
       subtitle: 'ATIP-Textile est une marque d’art textile africain contemporain créée pour raconter l’histoire de l’Afrique de manière moderne et authentique. À travers des motifs africains dessinés à la main, chaque œuvre devient un fragment d’histoire, de mémoire et d’émotion.',
       introText: 'quand l\'Afrique se raconte en motifs.',
@@ -373,7 +393,11 @@ export const translations: { [key: string]: any } = {
       seeMore: 'Voir plus',
       seeLess: 'Voir moins',
       story: 'L\'Éclat de la transition',
+      tagline: 'Patrimoine Textile d\'Art',
       details: 'Fibre & Détails Techniques',
+      detailFormat: 'Format : 20 x 60 cm (Panoramique)',
+      detailSupport: 'Support : Coton de satin d\'exception',
+      detailRender: 'Rendu : Haute définition – Rythmes visuels profonds',
       format: {
         title: 'Format',
         vertical: 'Vertical',
@@ -614,6 +638,16 @@ export const translations: { [key: string]: any } = {
         }
       }
     },
+    intro: {
+      quote: '"El arte del textil impreso en algodón satinado, realzando tus espacios."',
+      enterShop: 'Entrar a la Tienda',
+      artAndDesign: 'Arte & Diseño',
+      selectLanguage: 'Seleccionar Idioma',
+      discover: 'Descubre nuestra colección de impresiones de algodón satinado 20x60 cm.',
+    },
+    home: {
+      tagline: 'Patrimonio Contemporáneo',
+    },
     product: {
       addToCart: '¡Añadir al Carrito!',
       added: '¡Añadido!',
@@ -622,6 +656,10 @@ export const translations: { [key: string]: any } = {
       seeMore: 'Ver más',
       seeLess: 'Ver menos',
       story: 'El Resplandor de la transición',
+      tagline: 'Patrimonio Textil de Arte',
+      detailFormat: 'Formato: 20 x 60 cm (Panorámico)',
+      detailSupport: 'Soporte: Algodón de satén de excepción',
+      detailRender: 'Calidad: Alta definición – Ritmos visuales profundos',
       format: {
         title: 'Formato',
         vertical: 'Vertical',
@@ -854,8 +892,22 @@ export const translations: { [key: string]: any } = {
         v3: { tagline: 'Design', title: 'Estetica Identitaria', text: 'Decorazione moderna pensata per interni contemporanei. Grafica, eleganza e forza visiva che affermano un\'identità forte.' },
       },
     },
+    intro: {
+      quote: '"L\'arte del tessile stampato su cotone satinato, valorizzando i tuoi spazi."',
+      enterShop: 'Entra nel Negozio',
+      artAndDesign: 'Arte & Design',
+      selectLanguage: 'Seleziona la Lingua',
+      discover: 'Scopri la nostra collezione di stampe su cotone satinato 20x60 cm.',
+    },
+    home: {
+      tagline: 'Patrimonio Contemporaneo',
+    },
     product: {
       addToCart: 'Aggiungi alla Collezione',
+      tagline: 'Patrimonio Tessile d\'Arte',
+      detailFormat: 'Formato: 20 x 60 cm (Panoramico)',
+      detailSupport: 'Supporto: Cotone satinato d\'eccezione',
+      detailRender: 'Resa: Alta definizione – Ritmi visivi profondi',
       added: 'Acquisito!',
       buyNow: 'Acquista Ora',
       addedSuccess: 'Questo pezzo è stato aggiunto con successo alla tua selezione.',
@@ -999,8 +1051,22 @@ export const translations: { [key: string]: any } = {
         v3: { tagline: 'Design', title: 'Identitätsästhetik', text: 'Moderne Wanddekoration für zeitgenössische Innenräume. Grafik, Eleganz und visuelle Stärke für eine ausgeprägte Identität.' },
       },
     },
+    intro: {
+      quote: '"Die Kunst des auf Satinbaumwolle gedruckten Textils, das Ihre Räume veredelt."',
+      enterShop: 'In den Shop eintreten',
+      artAndDesign: 'Kunst & Design',
+      selectLanguage: 'Sprache auswählen',
+      discover: 'Entdecken Sie unsere Kollektion aus Satinbaumwoll-Drucken 20x60 cm.',
+    },
+    home: {
+      tagline: 'Zeitgenössisches Erbe',
+    },
     product: {
       addToCart: 'Zur Kollektion hinzufügen',
+      tagline: 'Kunsttextiles Erbe',
+      detailFormat: 'Format: 20 x 60 cm (Panoramisch)',
+      detailSupport: 'Träger: Außergewöhnlicher Satin-Baumwollstoff',
+      detailRender: 'Darstellung: Hochauflösend – Tiefe visuelle Rhythmen',
       added: 'Erworben!',
       buyNow: 'Jetzt kaufen',
       addedSuccess: 'Dieses Stück wurde erfolgreich zu Ihrer Auswahl hinzugefügt.',
@@ -1144,8 +1210,22 @@ export const translations: { [key: string]: any } = {
         v3: { tagline: 'Design', title: 'Estética Identitária', text: 'Decoração moderna concebida para interiores contemporâneos. Gráficos, elegância e força visual afirmando uma identidade forte.' },
       },
     },
+    intro: {
+      quote: '"A arte do têxtil impresso em algodão acetinado, valorizando os seus espaços."',
+      enterShop: 'Entrar na Loja',
+      artAndDesign: 'Arte & Design',
+      selectLanguage: 'Selecionar Idioma',
+      discover: 'Descubra a nossa coleção de impressões em algodão acetinado 20x60 cm.',
+    },
+    home: {
+      tagline: 'Património Contemporâneo',
+    },
     product: {
       addToCart: 'Adicionar à Coleção',
+      tagline: 'Património Têxtil de Arte',
+      detailFormat: 'Formato: 20 x 60 cm (Panorâmico)',
+      detailSupport: 'Suporte: Algodão acetinado de exceção',
+      detailRender: 'Qualidade: Alta definição – Ritmos visuais profundos',
       added: 'Adquirido!',
       buyNow: 'Comprar Agora',
       addedSuccess: 'Esta peça foi adicionada com sucesso à sua seleção.',
@@ -1289,8 +1369,22 @@ export const translations: { [key: string]: any } = {
         v3: { tagline: 'Design', title: 'Identiteitsesthetiek', text: 'Moderne wanddecoratie voor hedendaagse interieurs. Grafisch, elegant en visueel sterk met een uitgesproken identiteit.' },
       },
     },
+    intro: {
+      quote: '"De kunst van op satijnen katoen gedrukt textiel, uw ruimtes verheffend."',
+      enterShop: 'De Winkel Betreden',
+      artAndDesign: 'Kunst & Design',
+      selectLanguage: 'Taal Selecteren',
+      discover: 'Ontdek onze collectie van 20x60 cm satijnen katoenen prints.',
+    },
+    home: {
+      tagline: 'Hedendaags Erfgoed',
+    },
     product: {
       addToCart: 'Toevoegen aan Collectie',
+      tagline: 'Kunsttextiel Erfgoed',
+      detailFormat: 'Formaat: 20 x 60 cm (Panoramisch)',
+      detailSupport: 'Drager: Uitzonderlijk satijnen katoen',
+      detailRender: 'Weergave: Hoge definitie – Diepe visuele ritmes',
       added: 'Verworven!',
       buyNow: 'Nu Kopen',
       addedSuccess: 'Dit stuk is succesvol aan uw selectie toegevoegd.',

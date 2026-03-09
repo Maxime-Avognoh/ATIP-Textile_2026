@@ -132,7 +132,7 @@ const Header: React.FC<HeaderProps> = ({ onTitleClick }) => {
                 </button>
                 {isLangMenuOpen && (
                     <div
-                        className="origin-top-right absolute right-0 mt-2 w-40 rounded-sm shadow-xl bg-background/95 backdrop-blur-sm ring-1 ring-black ring-opacity-5 focus:outline-none z-10"
+                        className="origin-top-right absolute right-0 mt-2 w-48 rounded-sm shadow-xl bg-background ring-1 ring-subtitle/10 focus:outline-none z-50"
                         role="menu"
                         aria-orientation="vertical"
                         aria-labelledby="menu-button"

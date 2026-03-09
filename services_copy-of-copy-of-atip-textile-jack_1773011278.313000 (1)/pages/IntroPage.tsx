@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAsset } from '../context/AssetContext';
+import { useLocale } from '../context/LocaleContext';
 
 interface IntroPageProps {
   onEnter: (lang: string) => void;
@@ -7,15 +8,19 @@ interface IntroPageProps {
 
 const IntroPage: React.FC<IntroPageProps> = ({ onEnter }) => {
   const { introLogo, introVideo } = useAsset();
+  const { t } = useLocale();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const languages = [
-    { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'en', name: 'English', flag: '🇬🇧' },
-    { code: 'es', name: 'Español', flag: '🇪🇸' }
+    { code: 'fr', name: 'Français',   flag: '🇫🇷' },
+    { code: 'en', name: 'English',    flag: '🇬🇧' },
+    { code: 'es', name: 'Español',    flag: '🇪🇸' },
+    { code: 'it', name: 'Italiano',   flag: '🇮🇹' },
+    { code: 'de', name: 'Deutsch',    flag: '🇩🇪' },
+    { code: 'pt', name: 'Português',  flag: '🇵🇹' },
+    { code: 'nl', name: 'Nederlands', flag: '🇧🇪' },
   ];
 
-  // Prevent scrolling when modal is open
   useEffect(() => {
     if (isModalOpen) {
       document.body.style.overflow = 'hidden';
@@ -47,15 +52,15 @@ const IntroPage: React.FC<IntroPageProps> = ({ onEnter }) => {
       {/* Content */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full text-center text-white p-6">
         <div className="animate-fade-in">
-            <img 
-                src={introLogo} 
-                alt="ATIP Textile Logo" 
-                className="h-48 md:h-64 w-auto object-contain drop-shadow-2xl" 
+            <img
+                src={introLogo}
+                alt="ATIP Textile Logo"
+                className="h-48 md:h-64 w-auto object-contain drop-shadow-2xl"
             />
         </div>
-        
+
         <p className="mt-6 text-lg md:text-xl font-playfair italic text-white/90 max-w-xl drop-shadow-lg animate-fade-in">
-          "L'art du textile imprimé sur coton de satin, sublimant vos espaces."
+          {t('intro.quote')}
         </p>
 
         <div className="mt-12 animate-fade-in">
@@ -64,7 +69,7 @@ const IntroPage: React.FC<IntroPageProps> = ({ onEnter }) => {
                 className="group relative px-10 py-4 text-sm font-aboreto tracking-[0.3em] uppercase transition-all duration-500 overflow-hidden rounded-sm"
             >
                 <span className="relative z-10 text-white group-hover:text-black transition-colors duration-500">
-                    Enter the Shop
+                    {t('intro.enterShop')}
                 </span>
                 <div className="absolute inset-0 border border-white/50 group-hover:border-white transition-colors duration-500"></div>
                 <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
@@ -73,7 +78,7 @@ const IntroPage: React.FC<IntroPageProps> = ({ onEnter }) => {
 
         <div className="absolute bottom-12 left-0 right-0 text-center animate-fade-in">
             <span className="font-aboreto text-xs tracking-[0.4em] text-white/60 uppercase">
-                Art & Design
+                {t('intro.artAndDesign')}
             </span>
         </div>
       </div>
@@ -82,7 +87,7 @@ const IntroPage: React.FC<IntroPageProps> = ({ onEnter }) => {
       {isModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           {/* Backdrop */}
-          <div 
+          <div
             className="absolute inset-0 bg-black/80 backdrop-blur-sm animate-fade-in"
             onClick={() => setIsModalOpen(false)}
           ></div>
@@ -90,7 +95,7 @@ const IntroPage: React.FC<IntroPageProps> = ({ onEnter }) => {
           {/* Modal Content */}
           <div className="relative z-10 w-full max-w-md bg-background rounded-sm shadow-2xl overflow-hidden animate-fade-in">
             <div className="p-8 md:p-12">
-                <button 
+                <button
                     onClick={() => setIsModalOpen(false)}
                     className="absolute top-4 right-4 text-subtitle/40 hover:text-title transition-colors"
                 >
@@ -100,15 +105,15 @@ const IntroPage: React.FC<IntroPageProps> = ({ onEnter }) => {
                 </button>
 
                 <h3 className="text-2xl font-aboreto text-title text-center mb-8 tracking-widest uppercase">
-                    Select Language
+                    {t('intro.selectLanguage')}
                 </h3>
-                
-                <div className="space-y-4">
+
+                <div className="space-y-3">
                     {languages.map((lang) => (
                         <button
                             key={lang.code}
                             onClick={() => onEnter(lang.code)}
-                            className="w-full flex items-center justify-between p-5 border border-subtitle/10 hover:border-red-button/50 hover:bg-black-button/30 transition-all duration-300 group rounded-sm"
+                            className="w-full flex items-center justify-between p-4 border border-subtitle/10 hover:border-red-button/50 hover:bg-black-button/30 transition-all duration-300 group rounded-sm"
                         >
                             <span className="flex items-center gap-4">
                                 <span className="text-2xl">{lang.flag}</span>
@@ -124,7 +129,7 @@ const IntroPage: React.FC<IntroPageProps> = ({ onEnter }) => {
                 </div>
 
                 <p className="mt-8 text-center text-xs font-playfair italic text-subtitle/60">
-                    Discover our collection of 20x60 cm satin cotton prints.
+                    {t('intro.discover')}
                 </p>
             </div>
           </div>
