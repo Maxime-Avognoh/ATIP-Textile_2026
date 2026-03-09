@@ -1,7 +1,7 @@
 import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
 import { translations } from '../locales/translations';
 
-const SUPPORTED_LOCALES = ['en', 'fr', 'es'];
+const SUPPORTED_LOCALES = ['en', 'fr', 'es', 'it', 'de', 'pt', 'nl'];
 const STORAGE_KEY = 'atip-locale';
 
 function detectInitialLocale(): string {
