@@ -2,7 +2,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 const DEFAULTS = {
-    headerLogo: 'https://storage.googleapis.com/atip_storage/ATIP%20LOGO%20left%20long.png',
+    headerLogo: 'https://storage.googleapis.com/atip_storage/ATIP%20LOGO%20MINI%20HEADER.png',
     introLogo: 'https://storage.googleapis.com/atip_storage/ATIP%20LOGO%20MINI%20YY_1.png',
     aboutUsImage: 'https://storage.googleapis.com/atip_storage/ATIP_textile_photo-2.jpg',
     introVideo: 'https://videos.pexels.com/video-files/856943/856943-hd_1920_1080_25fps.mp4',
