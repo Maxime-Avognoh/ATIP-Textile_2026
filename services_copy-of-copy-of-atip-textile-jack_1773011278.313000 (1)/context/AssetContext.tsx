@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 
 const DEFAULTS = {
     headerLogo: 'https://storage.googleapis.com/atip_storage/ATIP%20LOGO%20left%20long.png',
-    introLogo: 'https://storage.googleapis.com/atip_storage/ATIP%20LOGO%20MINI%20whitewhite_1.png',
+    introLogo: 'https://storage.googleapis.com/atip_storage/ATIP%20LOGO%20MINI%20YY_1.png',
     aboutUsImage: 'https://storage.googleapis.com/atip_storage/ATIP_textile_photo-2.jpg',
     introVideo: 'https://videos.pexels.com/video-files/856943/856943-hd_1920_1080_25fps.mp4',
     collectionHeroPattern: 'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e05?q=80&w=2555&auto=format&fit=crop', // Default textile pattern
