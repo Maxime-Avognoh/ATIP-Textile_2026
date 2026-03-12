@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useAsset } from '../context/AssetContext';
 import { useLocale } from '../context/LocaleContext';
 
@@ -10,6 +10,14 @@ const IntroPage: React.FC<IntroPageProps> = ({ onEnter }) => {
   const { introLogo, introVideo } = useAsset();
   const { t } = useLocale();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.play().catch(() => setVideoError(true));
+  }, [introVideo]);
 
   const languages = [
     { code: 'fr', name: 'Français',   flag: '🇫🇷' },
@@ -35,16 +43,25 @@ const IntroPage: React.FC<IntroPageProps> = ({ onEnter }) => {
   return (
     <div className="h-screen w-screen relative overflow-hidden bg-[#000]">
       {/* Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute top-1/2 left-1/2 w-auto h-auto min-w-full min-h-full object-cover transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-80"
-        src={introVideo}
-      >
-        Your browser does not support the video tag.
-      </video>
+      {!videoError ? (
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute top-1/2 left-1/2 w-auto h-auto min-w-full min-h-full object-cover transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-80"
+          onError={() => setVideoError(true)}
+        >
+          <source src={introVideo} type="video/mp4" />
+        </video>
+      ) : (
+        <div
+          className="absolute inset-0 z-0 opacity-80 bg-cover bg-center"
+          style={{ backgroundImage: `url(${introLogo})`, filter: 'blur(8px) brightness(0.4)' }}
+        />
+      )}
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/40 z-10"></div>
