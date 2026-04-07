@@ -64,7 +64,7 @@ const HomePage: React.FC = () => {
   }, []);
 
   // ❤️ MODIFIER ICI POUR CHANGER LE NOMBRE DE PRODUITS AFFICHÉS
-  const featuredProducts = products.filter(p => p.id === '1' || p.id === '2');
+  const featuredProducts = products.filter(p => p.id === '1' || p.id === '2' || p.id === '3');
 
   return (
     <div className="pb-12">
@@ -128,7 +128,7 @@ const HomePage: React.FC = () => {
 
           {/* ❤️ MODIFIER ICI POUR CHANGER LA GRILLE (ex: lg:grid-cols-2 pour 2 colonnes) */}
           <div className="w-full animate-fade-in stagger-2">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12 lg:gap-16">
               {featuredProducts.map((product, index) => (
                 <div key={product.id} className="flex flex-col gap-4">
                   <div className="transition-transform duration-700 hover:-translate-y-4">
