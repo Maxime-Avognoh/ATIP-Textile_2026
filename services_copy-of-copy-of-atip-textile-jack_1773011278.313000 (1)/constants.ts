@@ -3,6 +3,30 @@ import { Product } from './types';
 
 export const PRODUCTS: Product[] = [
   {
+    id: '3',
+    name: {
+      en: 'Aloe Flowers',
+      fr: 'Aloe Flowers',
+      es: 'Aloe Flowers'
+    },
+    subtitle: {
+      en: '60x20 cm | unframed',
+      fr: '60x20 cm | sans cadre',
+      es: '60x20 cm | sin marco'
+    },
+    price: 76.00,
+    description: {
+      en: 'Aloe Flowers is an unframed textile piece celebrating the striking beauty of aloe blossoms. With its vibrant colors and organic forms, this artwork brings a touch of nature and life to your interior.',
+      fr: 'Aloe Flowers est une toile non encadrée célébrant la beauté saisissante des fleurs d\'aloès. Avec ses couleurs vives et ses formes organiques, cette œuvre apporte une touche de nature et de vie à votre intérieur.',
+      es: 'Aloe Flowers es una pieza textil sin enmarcar que celebra la llamativa belleza de las flores de aloe. Con sus colores vibrantes y formas orgánicas, esta obra de arte aporta un toque de naturaleza y vida a su interior.'
+    },
+    images: [
+      'https://storage.googleapis.com/atip_storage/Aloe%20Flower%201.jpg',
+      'https://storage.googleapis.com/atip_storage/Aloe%20Flower%202.jpg',
+      'https://storage.googleapis.com/atip_storage/Aloe%20Flower%203.jpg',
+    ],
+  },
+  {
     id: '2',
     name: {
       en: 'Festive Night',
