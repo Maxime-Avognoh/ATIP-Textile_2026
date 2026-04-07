@@ -70,7 +70,7 @@ const ProductPage: React.FC = () => {
   }
 
   const suggestedProducts = products
-    .filter(p => (p.id === '1' || p.id === '2') && p.id !== id);
+    .filter(p => p.id !== id);
 
   if (!isReady) return <div className="min-h-screen bg-background" />;
 
