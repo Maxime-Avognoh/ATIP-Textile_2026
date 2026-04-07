@@ -3,6 +3,30 @@ import { Product } from './types';
 
 export const PRODUCTS: Product[] = [
   {
+    id: '3',
+    name: {
+      en: 'Aloe Flowers',
+      fr: 'Aloe Flowers',
+      es: 'Aloe Flowers'
+    },
+    subtitle: {
+      en: '60x20 cm | unframed',
+      fr: '60x20 cm | sans cadre',
+      es: '60x20 cm | sin marco'
+    },
+    price: 76.00,
+    description: {
+      en: "In sub-Saharan Africa, when the dry season gives way to the first rains, the aloe bursts into bloom. Its torches of orange and red rise above the savanna like a flame that refuses to go out, a silent signal that life persists, even in the harshest conditions.\n\nAmong the Zulu, the aloe has long been more than a plant. Around the kraal — that sacred enclosure where family, livestock and ancestors coexist — aloes are planted in tight rows to form living fences. These izindonga zezitshalo are impenetrable barriers: their rigid, thorny leaves keep predators out and hold the community within a protected, defined space. But they are also living walls, which flower every year, reminding the inhabitants that the boundary between inside and outside is not a wall of stone or wood, but a pact between human beings and nature.\n\nBy bringing \"Aloe Flowers\" into your home, you welcome this ancestral wisdom: that the most enduring boundaries are those that grow, that bloom, and that protect without enclosing.",
+      fr: "En Afrique subsaharienne, quand la saison sèche cède la place aux premières pluies, l'aloès explose en fleurs. Ses torches orangées et rouges s'élèvent au-dessus de la savane comme une flamme qui refuse de s'éteindre, signal silencieux que la vie persiste, même dans les conditions les plus rudes.\n\nChez les Zulu, l'aloès est depuis longtemps bien plus qu'une plante. Autour du kraal — cet enclos sacré où cohabitent la famille, le bétail et les ancêtres — les aloès sont plantés en rangs serrés pour former des clôtures vivantes. Ces izindonga zezitshalo sont des barrières infranchissables : leurs feuilles rigides et épineuses tiennent les prédateurs à l'écart et maintiennent la communauté dans un espace protégé et délimité. Mais ce sont aussi des murs vivants, qui fleurissent chaque année, rappelant aux habitants que la frontière entre l'intérieur et l'extérieur n'est pas un mur de pierre ou de bois, mais un pacte entre les êtres humains et la nature.\n\nEn accueillant « Aloe Flowers » chez vous, vous accueillez cette sagesse ancestrale : que les frontières les plus durables sont celles qui poussent, qui fleurissent, et qui protègent sans enfermer.",
+      es: "En el África subsahariana, cuando la estación seca cede ante las primeras lluvias, el aloe estalla en flor. Sus antorchas de naranja y rojo se elevan sobre la sabana como una llama que se niega a apagarse, una señal silenciosa de que la vida persiste, incluso en las condiciones más duras.\n\nEntre los zulúes, el aloe ha sido durante mucho tiempo mucho más que una planta. Alrededor del kraal — ese recinto sagrado donde conviven la familia, el ganado y los antepasados — los aloes se plantan en filas apretadas para formar cercas vivas. Estas izindonga zezitshalo son barreras infranqueables: sus hojas rígidas y espinosas mantienen a los depredadores alejados y preservan a la comunidad en un espacio protegido y definido. Pero también son muros vivos, que florecen cada año, recordando a los habitantes que el límite entre el interior y el exterior no es un muro de piedra o madera, sino un pacto entre los seres humanos y la naturaleza.\n\nAl dar la bienvenida a \"Aloe Flowers\" en su hogar, acoge esta sabiduría ancestral: que las fronteras más duraderas son las que crecen, florecen y protegen sin encerrar."
+    },
+    images: [
+      'https://storage.googleapis.com/atip_storage/Aloe%20Flower%201.jpg',
+      'https://storage.googleapis.com/atip_storage/Aloe%20Flower%202.jpg',
+      'https://storage.googleapis.com/atip_storage/Aloe%20Flower%203.jpg',
+    ],
+  },
+  {
     id: '2',
     name: {
       en: 'Festive Night',
