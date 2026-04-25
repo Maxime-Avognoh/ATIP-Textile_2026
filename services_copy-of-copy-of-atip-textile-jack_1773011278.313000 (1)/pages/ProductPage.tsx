@@ -49,12 +49,26 @@ const ProductPage: React.FC = () => {
       addToCart(product, 'Standard');
       setAdded(true);
       setTimeout(() => setAdded(false), 2000);
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'add_to_cart', {
+          currency: 'EUR',
+          value: product.price,
+          items: [{ item_id: product.id, item_name: product.name['en'] ?? product.name[Object.keys(product.name)[0]], price: product.price, quantity: 1 }],
+        });
+      }
     }
   };
-  
+
   const handleBuyNow = () => {
     if (product) {
       addToCart(product, 'Standard');
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'add_to_cart', {
+          currency: 'EUR',
+          value: product.price,
+          items: [{ item_id: product.id, item_name: product.name['en'] ?? product.name[Object.keys(product.name)[0]], price: product.price, quantity: 1 }],
+        });
+      }
       navigate('/checkout');
     }
   };

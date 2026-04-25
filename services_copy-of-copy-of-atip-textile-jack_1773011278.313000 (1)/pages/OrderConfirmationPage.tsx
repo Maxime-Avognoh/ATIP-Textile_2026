@@ -14,6 +14,20 @@ const OrderConfirmationPage: React.FC = () => {
     useEffect(() => {
         if (!order) {
             navigate('/');
+            return;
+        }
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'purchase', {
+                transaction_id: order.orderNumber,
+                currency: 'EUR',
+                value: order.total,
+                items: order.items.map((item: CartItem) => ({
+                    item_id: item.id,
+                    item_name: item.name['en'] ?? item.name[Object.keys(item.name)[0]],
+                    price: item.price,
+                    quantity: item.quantity,
+                })),
+            });
         }
     }, [order, navigate]);
 
