@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+Disallow: /checkout
+Disallow: /cart
+Disallow: /confirmation
+Disallow: /payment-failure
+Disallow: /profile
+Disallow: /login
+Disallow: /register
+
+Sitemap: https://atip-textile.com/sitemap.xml
