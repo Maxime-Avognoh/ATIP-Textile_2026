@@ -13,6 +13,16 @@ const IntroPage: React.FC<IntroPageProps> = ({ onEnter }) => {
   const [videoError, setVideoError] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const [showMobileIntro, setShowMobileIntro] = useState(isMobile);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = mobileVideoRef.current;
+    if (!video || !showMobileIntro) return;
+    video.play().catch(() => setShowMobileIntro(false));
+  }, [showMobileIntro]);
+
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -39,6 +49,31 @@ const IntroPage: React.FC<IntroPageProps> = ({ onEnter }) => {
       document.body.style.overflow = 'unset';
     };
   }, [isModalOpen]);
+
+  if (showMobileIntro) {
+    return (
+      <div className="h-screen w-screen relative overflow-hidden bg-black">
+        <video
+          ref={mobileVideoRef}
+          autoPlay
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          onEnded={() => setShowMobileIntro(false)}
+          onError={() => setShowMobileIntro(false)}
+        >
+          <source src="/intro-mobile.mp4" type="video/mp4" />
+        </video>
+        <button
+          onClick={() => setShowMobileIntro(false)}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 font-aboreto text-xs tracking-[0.3em] uppercase text-white/70 border border-white/30 px-6 py-3 hover:text-white hover:border-white transition-all duration-300"
+        >
+          Passer
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="h-screen w-screen relative overflow-hidden bg-[#000]">
