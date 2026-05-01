@@ -21,7 +21,7 @@ export const PRODUCTS: Product[] = [
       es: "En el África subsahariana, cuando la estación seca cede ante las primeras lluvias, el aloe estalla en flor. Sus antorchas de naranja y rojo se elevan sobre la sabana como una llama que se niega a apagarse, una señal silenciosa de que la vida persiste, incluso en las condiciones más duras.\n\nEntre los zulúes, el aloe ha sido durante mucho tiempo mucho más que una planta. Alrededor del kraal — ese recinto sagrado donde conviven la familia, el ganado y los antepasados — los aloes se plantan en filas apretadas para formar cercas vivas. Estas izindonga zezitshalo son barreras infranqueables: sus hojas rígidas y espinosas mantienen a los depredadores alejados y preservan a la comunidad en un espacio protegido y definido. Pero también son muros vivos, que florecen cada año, recordando a los habitantes que el límite entre el interior y el exterior no es un muro de piedra o madera, sino un pacto entre los seres humanos y la naturaleza.\n\nAl dar la bienvenida a \"Aloe Flowers\" en su hogar, acoge esta sabiduría ancestral: que las fronteras más duraderas son las que crecen, florecen y protegen sin encerrar."
     },
     images: [
-      'https://storage.googleapis.com/atip_storage/Festive-Night_Framed.jpg',
+      'https://storage.googleapis.com/atip_storage/Face_F_Aloe_Flowers.jpg',
       'https://storage.googleapis.com/atip_storage/Inckine_F_Aloe_Flowers.jpg',
       'https://storage.googleapis.com/atip_storage/Incliine_F_Aloe_Flowers.jpg',
       'https://storage.googleapis.com/atip_storage/Right_F_Aloe_Flowers.jpg',
