@@ -64,7 +64,7 @@ const HomePage: React.FC = () => {
   }, []);
 
   // ❤️ MODIFIER ICI POUR CHANGER LE NOMBRE DE PRODUITS AFFICHÉS
-  const featuredProducts = products.filter(p => p.id === '1' || p.id === '2' || p.id === '3');
+  const featuredProducts = products.filter(p => p.id === '1' || p.id === '2' || p.id === '3' || p.id === '4');
 
   return (
     <div className="pb-12">
