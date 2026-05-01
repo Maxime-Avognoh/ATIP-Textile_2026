@@ -6,12 +6,22 @@ import { useLocale } from '../context/LocaleContext';
 import { useProducts } from '../context/ProductContext';
 import { useAsset } from '../context/AssetContext';
 
+const MOBILE_INTRO_VIDEO = 'https://storage.googleapis.com/atip_storage/VID_20260425_085507_061_bsl.mp4';
+
 const HomePage: React.FC = () => {
   const { t, locale } = useLocale();
   const { products } = useProducts();
   const { introLogo, introVideo } = useAsset();
   const mainContentRef = useRef<HTMLDivElement>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   const scrollToContent = () => {
     if (isTransitioning) return;
@@ -76,7 +86,7 @@ const HomePage: React.FC = () => {
           muted
           playsInline
           className="absolute top-1/2 left-1/2 w-auto h-auto min-w-full min-h-full object-cover transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-70"
-          src={introVideo}
+          src={isMobile ? MOBILE_INTRO_VIDEO : introVideo}
         >
           Your browser does not support the video tag.
         </video>
