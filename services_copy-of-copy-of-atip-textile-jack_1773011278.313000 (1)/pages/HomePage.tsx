@@ -2,9 +2,12 @@ import { getLocalized } from '../types';
 
 import React, { useRef, useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
+import ScrollReveal from '../components/ScrollReveal';
 import { useLocale } from '../context/LocaleContext';
 import { useProducts } from '../context/ProductContext';
 import { useAsset } from '../context/AssetContext';
+
+const MOBILE_INTRO_VIDEO = 'https://storage.googleapis.com/atip_storage/VID_20260425_085507_061_bsl.mp4';
 
 const HomePage: React.FC = () => {
   const { t, locale } = useLocale();
@@ -12,6 +15,14 @@ const HomePage: React.FC = () => {
   const { introLogo, introVideo } = useAsset();
   const mainContentRef = useRef<HTMLDivElement>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   const scrollToContent = () => {
     if (isTransitioning) return;
@@ -76,7 +87,7 @@ const HomePage: React.FC = () => {
           muted
           playsInline
           className="absolute top-1/2 left-1/2 w-auto h-auto min-w-full min-h-full object-cover transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-70"
-          src={introVideo}
+          src={isMobile ? MOBILE_INTRO_VIDEO : introVideo}
         >
           Your browser does not support the video tag.
         </video>
@@ -108,7 +119,7 @@ const HomePage: React.FC = () => {
         <div className="w-full pt-32 pb-24 flex flex-col gap-16 md:gap-32">
           
           {/* 1. TEXTES (Titre et Introduction) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 items-start animate-fade-in stagger-1">
+          <ScrollReveal className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 items-start">
               <div className="lg:col-span-5 flex flex-col items-start text-left">
                   <span className="text-[10px] font-montserrat font-semibold tracking-[0.5em] text-red-button uppercase mb-4 block">
                       {t('home.tagline')}
@@ -117,41 +128,41 @@ const HomePage: React.FC = () => {
                       {t('home.title')}
                   </h2>
               </div>
-              
+
               <div className="lg:col-span-7 flex flex-col items-start text-left">
                   <div className="w-20 h-px bg-red-button/30 mb-6 mt-2 hidden lg:block"></div>
                   <p className="text-lg md:text-2xl text-red-button font-playfair italic leading-relaxed max-w-2xl">
                       {t('home.subtitle')}
                   </p>
               </div>
-          </div>
+          </ScrollReveal>
 
           {/* ❤️ MODIFIER ICI POUR CHANGER LA GRILLE (ex: lg:grid-cols-2 pour 2 colonnes) */}
-          <div className="w-full animate-fade-in stagger-2">
+          <div className="w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12 lg:gap-16">
               {featuredProducts.map((product, index) => (
-                <div key={product.id} className="flex flex-col gap-4">
+                <ScrollReveal key={product.id} delay={index * 120} className="flex flex-col gap-4">
                   <div className="transition-transform duration-700 hover:-translate-y-4">
                       <ProductCard product={product} index={index} />
                   </div>
                   {product.subtitle && (
-                    <div className="text-center animate-fade-in stagger-3">
+                    <div className="text-center">
                       <p className="text-[10px] md:text-xs font-montserrat font-bold tracking-[0.3em] uppercase text-red-button/80">
                         {getLocalized(product.subtitle, locale)}
                       </p>
                     </div>
                   )}
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
 
           {/* 3. VALEURS (Authenticité, Artisanat, Design) */}
-          <section className="w-full animate-fade-in stagger-3 border-t border-subtitle/10 pt-24 pb-12">
+          <section className="w-full border-t border-subtitle/10 pt-24 pb-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24">
-              
+
               {/* Valeur 1: Authenticité */}
-              <div className="flex flex-col items-center text-center">
+              <ScrollReveal delay={0} className="flex flex-col items-center text-center">
                 <div className="mb-8 p-6 rounded-full bg-red-button/5">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-red-button" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -166,10 +177,10 @@ const HomePage: React.FC = () => {
                 <p className="text-sm text-subtitle/80 font-playfair italic leading-relaxed max-w-xs">
                   {t('home.values.v1.text')}
                 </p>
-              </div>
+              </ScrollReveal>
 
               {/* Valeur 2: Artisanat */}
-              <div className="flex flex-col items-center text-center">
+              <ScrollReveal delay={150} className="flex flex-col items-center text-center">
                 <div className="mb-8 p-6 rounded-full bg-red-button/5">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-red-button" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
@@ -184,10 +195,10 @@ const HomePage: React.FC = () => {
                 <p className="text-sm text-subtitle/80 font-playfair italic leading-relaxed max-w-xs">
                   {t('home.values.v2.text')}
                 </p>
-              </div>
+              </ScrollReveal>
 
               {/* Valeur 3: Design */}
-              <div className="flex flex-col items-center text-center">
+              <ScrollReveal delay={300} className="flex flex-col items-center text-center">
                 <div className="mb-8 p-6 rounded-full bg-red-button/5">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-red-button" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5z M4 7h16 M7 4v16" />
@@ -202,7 +213,7 @@ const HomePage: React.FC = () => {
                 <p className="text-sm text-subtitle/80 font-playfair italic leading-relaxed max-w-xs">
                   {t('home.values.v3.text')}
                 </p>
-              </div>
+              </ScrollReveal>
 
             </div>
           </section>

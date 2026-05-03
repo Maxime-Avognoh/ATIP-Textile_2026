@@ -19,6 +19,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
 import ArtAdvisorPage from './pages/ArtAdvisorPage';
+import CollectionPage from './pages/CollectionPage';
 import { CartProvider } from './context/CartContext';
 import { LocaleProvider } from './context/LocaleContext';
 import { ProductProvider } from './context/ProductContext';
@@ -63,7 +64,7 @@ function AppContent() {
       <Header onTitleClick={handleShowIntro} />
       <main className="flex-grow">
         {/* L'animation globale est maintenant uniquement un fondu (animate-fade-in) sans mouvement */}
-        <div key={location.pathname} className="animate-fade-in">
+        <div key={location.pathname} className="animate-page-enter">
           <Routes location={location}>
             <Route path="/" element={<HomePage />} />
             <Route path="/product/:id" element={<ProductPage />} />
@@ -81,6 +82,7 @@ function AppContent() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/advisor" element={<ArtAdvisorPage />} />
+            <Route path="/collection" element={<CollectionPage />} />
           </Routes>
         </div>
       </main>
