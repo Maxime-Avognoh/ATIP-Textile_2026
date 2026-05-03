@@ -8,6 +8,28 @@
     <link rel="icon" sizes="192x192" href="https://storage.googleapis.com/atip_storage/FAVICON_ATIP_BIG.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ATIP Textile - Art Canvases</title>
+    <meta name="description" content="ATIP Textile creates high-end African-inspired art canvases, blending ancestral heritage with contemporary design. Discover our framed and unframed textile collections." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ATIP Textile" />
+    <meta property="og:title" content="ATIP Textile - Art Canvases" />
+    <meta property="og:description" content="High-end African-inspired art canvases. Where ancestral heritage meets contemporary design." />
+    <meta property="og:image" content="https://storage.googleapis.com/atip_storage/FAVICON_ATIP_BIG.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ATIP Textile - Art Canvases" />
+    <meta name="twitter:description" content="High-end African-inspired art canvases. Where ancestral heritage meets contemporary design." />
+    <meta name="twitter:image" content="https://storage.googleapis.com/atip_storage/FAVICON_ATIP_BIG.png" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ATIP Textile",
+      "description": "High-end African-inspired art canvases blending ancestral heritage with contemporary design.",
+      "logo": "https://storage.googleapis.com/atip_storage/FAVICON_ATIP_BIG.png",
+      "sameAs": []
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -99,13 +121,36 @@
         to { opacity: 1; }
       }
 
-      .animate-fade-in { 
-        animation: fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+      @keyframes page-enter {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      .animate-fade-in {
+        animation: fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        opacity: 0;
+      }
+
+      .animate-page-enter {
+        animation: page-enter 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         opacity: 0;
       }
 
       .stagger-1 { animation-delay: 0.15s; }
       .stagger-2 { animation-delay: 0.3s; }
+
+      /* Scroll reveal */
+      .scroll-reveal {
+        opacity: 0;
+        transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .scroll-reveal-up    { transform: translateY(50px); }
+      .scroll-reveal-left  { transform: translateX(-50px); }
+      .scroll-reveal-right { transform: translateX(50px); }
+      .scroll-reveal-visible {
+        opacity: 1 !important;
+        transform: translate(0, 0) !important;
+      }
       
       ::-webkit-scrollbar {
         width: 4px;

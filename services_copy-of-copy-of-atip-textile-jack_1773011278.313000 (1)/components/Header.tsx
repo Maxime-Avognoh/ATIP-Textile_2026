@@ -110,6 +110,7 @@ const Header: React.FC<HeaderProps> = ({ onTitleClick }) => {
           
           <div className="hidden md:flex items-center space-x-10">
             <NavLink to="/" className={navLinkClasses}>{t('nav.home')}</NavLink>
+            <NavLink to="/collection" className={navLinkClasses}>Collection</NavLink>
             <NavLink to="/about" className={navLinkClasses}>{t('nav.about')}</NavLink>
             <NavLink to="/contact" className={navLinkClasses}>{t('nav.contact')}</NavLink>
           </div>
@@ -195,6 +196,7 @@ const Header: React.FC<HeaderProps> = ({ onTitleClick }) => {
          {isMenuOpen && (
           <div className="md:hidden mt-4 space-y-2 pb-4 bg-background/95 backdrop-blur-md rounded-lg shadow-inner">
              <NavLink to="/" className={mobileNavLinkClasses} onClick={() => setIsMenuOpen(false)}>{t('nav.home')}</NavLink>
+             <NavLink to="/collection" className={mobileNavLinkClasses} onClick={() => setIsMenuOpen(false)}>Collection</NavLink>
              <NavLink to="/about" className={mobileNavLinkClasses} onClick={() => setIsMenuOpen(false)}>{t('nav.about')}</NavLink>
              <NavLink to="/contact" className={mobileNavLinkClasses} onClick={() => setIsMenuOpen(false)}>{t('nav.contact')}</NavLink>
              <NavLink to={currentUser ? "/profile" : "/login"} className={mobileNavLinkClasses} onClick={() => setIsMenuOpen(false)}>{currentUser ? t('nav.profile') : t('nav.login')}</NavLink>
