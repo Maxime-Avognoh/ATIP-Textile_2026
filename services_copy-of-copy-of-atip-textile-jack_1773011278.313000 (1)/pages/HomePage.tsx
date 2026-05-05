@@ -1,6 +1,6 @@
 import { getLocalized } from '../types';
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import ProductCard from '../components/ProductCard';
 import ScrollReveal from '../components/ScrollReveal';
 import { useLocale } from '../context/LocaleContext';
@@ -16,6 +16,15 @@ const HomePage: React.FC = () => {
   const mainContentRef = useRef<HTMLDivElement>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+  const [activeFilter, setActiveFilter] = useState<'all' | 'framed' | 'unframed'>('all');
+
+  const FILTER_LABELS: Record<'all' | 'framed' | 'unframed', Record<string, string>> = {
+    all:      { en: 'All', fr: 'Tous', es: 'Todos', it: 'Tutti', de: 'Alle', pt: 'Todos', nl: 'Alle' },
+    framed:   { en: 'Framed', fr: 'Encadrés', es: 'Enmarcados', it: 'Incorniciati', de: 'Gerahmt', pt: 'Emoldurados', nl: 'Ingelijst' },
+    unframed: { en: 'Unframed', fr: 'Sans cadre', es: 'Sin marco', it: 'Senza cornice', de: 'Ohne Rahmen', pt: 'Sem moldura', nl: 'Zonder lijst' },
+  };
+  const filterLabel = useCallback((key: 'all' | 'framed' | 'unframed') =>
+    FILTER_LABELS[key][locale] ?? FILTER_LABELS[key].en, [locale]);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 767px)');
@@ -75,7 +84,13 @@ const HomePage: React.FC = () => {
   }, []);
 
   // ❤️ MODIFIER ICI POUR CHANGER LE NOMBRE DE PRODUITS AFFICHÉS
-  const featuredProducts = products.filter(p => p.id === '1' || p.id === '2' || p.id === '3' || p.id === '4');
+  const allFeatured = products.filter(p => p.id === '1' || p.id === '2' || p.id === '3' || p.id === '4');
+  const isFramed = (subtitle: { [key: string]: string }) => !subtitle.en?.toLowerCase().includes('unframed');
+  const featuredProducts = allFeatured.filter(p => {
+    if (activeFilter === 'framed') return isFramed(p.subtitle);
+    if (activeFilter === 'unframed') return !isFramed(p.subtitle);
+    return true;
+  });
 
   return (
     <div className="pb-12">
@@ -136,6 +151,23 @@ const HomePage: React.FC = () => {
                   </p>
               </div>
           </ScrollReveal>
+
+          {/* Filtres encadré / sans cadre */}
+          <div className="flex justify-center gap-3 flex-wrap -mt-8">
+            {(['all', 'framed', 'unframed'] as const).map(key => (
+              <button
+                key={key}
+                onClick={() => setActiveFilter(key)}
+                className={`px-6 py-2.5 text-xs font-montserrat font-medium tracking-[0.3em] uppercase rounded-sm border transition-all duration-300 ${
+                  activeFilter === key
+                    ? 'bg-red-button text-white border-red-button'
+                    : 'bg-transparent text-subtitle border-subtitle/30 hover:border-red-button hover:text-red-button'
+                }`}
+              >
+                {filterLabel(key)}
+              </button>
+            ))}
+          </div>
 
           {/* ❤️ MODIFIER ICI POUR CHANGER LA GRILLE (ex: lg:grid-cols-2 pour 2 colonnes) */}
           <div className="w-full">

@@ -2,8 +2,8 @@
 export const translations: { [key: string]: any } = {
   en: {
     nav: {
-      home: 'The Collection',
-      about: 'Our Heritage',
+      home: 'Home',
+      about: 'About the Creator',
       contact: 'Contact',
       importLogo: 'Import Logo',
       importLogoTitle: 'Import new logo',
@@ -279,8 +279,8 @@ export const translations: { [key: string]: any } = {
   },
   fr: {
     nav: {
-      home: 'La Collection',
-      about: 'Notre Héritage',
+      home: 'Home',
+      about: 'About the Creator',
       contact: 'Contact',
       importLogo: 'Importer le logo',
       importLogoTitle: 'Importer un nouveau logo',
@@ -549,8 +549,8 @@ export const translations: { [key: string]: any } = {
   },
   es: {
     nav: {
-      home: 'Colección',
-      about: 'Sobre Nosotros',
+      home: 'Home',
+      about: 'About the Creator',
       contact: 'Contacto',
       importLogo: 'Importar logo',
       importLogoTitle: 'Importar nuevo logo',
@@ -806,8 +806,8 @@ export const translations: { [key: string]: any } = {
   },
   it: {
     nav: {
-      home: 'La Collezione',
-      about: 'La Nostra Storia',
+      home: 'Home',
+      about: 'About the Creator',
       contact: 'Contatto',
       importLogo: 'Importa logo',
       importLogoTitle: 'Importa nuovo logo',
@@ -971,8 +971,8 @@ export const translations: { [key: string]: any } = {
   },
   de: {
     nav: {
-      home: 'Die Kollektion',
-      about: 'Unser Erbe',
+      home: 'Home',
+      about: 'About the Creator',
       contact: 'Kontakt',
       importLogo: 'Logo importieren',
       importLogoTitle: 'Neues Logo importieren',
@@ -1130,8 +1130,8 @@ export const translations: { [key: string]: any } = {
   },
   pt: {
     nav: {
-      home: 'A Coleção',
-      about: 'A Nossa História',
+      home: 'Home',
+      about: 'About the Creator',
       contact: 'Contacto',
       importLogo: 'Importar logo',
       importLogoTitle: 'Importar novo logo',
@@ -1289,8 +1289,8 @@ export const translations: { [key: string]: any } = {
   },
   nl: {
     nav: {
-      home: 'De Collectie',
-      about: 'Ons Erfgoed',
+      home: 'Home',
+      about: 'About the Creator',
       contact: 'Contact',
       importLogo: 'Logo importeren',
       importLogoTitle: 'Nieuw logo importeren',
