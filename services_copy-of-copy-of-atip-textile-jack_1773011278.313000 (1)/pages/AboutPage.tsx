@@ -12,7 +12,15 @@ const AboutPage: React.FC = () => {
       <div>
         <BackToCollectionLink />
       </div>
-      <h1 className="text-4xl font-aboreto text-title text-center mb-12">{t('about.title')}</h1>
+      <h1 className="text-4xl font-aboreto text-title text-center mb-8">{t('about.title')}</h1>
+
+      <div className="max-w-3xl mx-auto mb-16 text-center">
+        <p className="text-2xl md:text-3xl font-playfair italic text-red-button leading-relaxed">
+          &ldquo;{t('about.manifesto')}&rdquo;
+        </p>
+        <div className="mt-6 w-16 h-px bg-red-button/40 mx-auto"></div>
+      </div>
+
       <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
         <div className="w-full aspect-[4/5] rounded-lg overflow-hidden shadow-2xl">
           <img src={aboutUsImage} alt="Artistic textile patterns" className="w-full h-full object-cover" />
