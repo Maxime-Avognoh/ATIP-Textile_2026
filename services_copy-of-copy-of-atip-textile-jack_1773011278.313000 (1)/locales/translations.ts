@@ -152,6 +152,7 @@ export const translations: { [key: string]: any } = {
       p2: 'Not as a museum preserving the past under glass, but as a living creation that reinterprets it for today. Each hand-drawn pattern is an act of memory. Each piece, a fragment of story that continues to live on your wall — carrying the weight of cultures that deserve to be seen, not as curiosities, but as sources of beauty and wisdom.',
       p3: 'When you bring an ATIP piece into your home, you don\'t simply acquire a decorative object. You become a guardian of living heritage. You choose to give space — in your daily life — to something that took centuries to be woven, and that only exists now because someone refused to let it be forgotten.',
       p4: 'ATIP — Art That Inspires People. But behind those words, a conviction: contemporary African art does not need to be explained to be felt. It does not need to be exoticized to be appreciated. It just needs space — in your interior, and perhaps a little in you.',
+      p5: 'The ATIP signature piece — 60×20 cm, framed — is built for presence. A vertical format that commands a wall without overwhelming it. Chosen not for convention, but because some things deserve to stand tall.',
     },
     contact: {
       title: 'Enquire About Our Pieces',
@@ -430,6 +431,7 @@ export const translations: { [key: string]: any } = {
       p2: 'Non pas comme un musée qui conserve le passé sous verre, mais comme une création vivante qui le réinterprète pour aujourd\'hui. Chaque motif dessiné à la main est un acte de mémoire. Chaque oeuvre, un fragment d\'histoire qui continue de vivre sur votre mur — portant le poids de cultures qui méritent d\'être vues, non comme des curiosités, mais comme des sources de beauté et de sagesse.',
       p3: 'En accueillant une oeuvre ATIP chez vous, vous ne devenez pas simplement propriétaire d\'un objet décoratif. Vous devenez gardien(ne) d\'un héritage vivant. Vous choisissez de faire de la place — dans votre quotidien — à quelque chose qui a mis des siècles à être tissé, et qui n\'existe aujourd\'hui que parce que quelqu\'un a refusé de le laisser disparaître.',
       p4: 'ATIP — Art That Inspires People. Mais derrière ces mots, une conviction : l\'art africain contemporain n\'a pas besoin d\'être expliqué pour être ressenti. Il n\'a pas besoin d\'être exotisé pour être apprécié. Il a juste besoin d\'un espace — dans votre intérieur, et peut-être un peu en vous.',
+      p5: 'La pièce signature ATIP — 60×20 cm, encadrée — est conçue pour s\'imposer. Un format vertical qui occupe le mur sans l\'écraser. Choisi non par convention, mais parce que certaines choses méritent de se tenir debout.',
     },
     contact: {
       title: 'Demande d\'Informations',
@@ -693,6 +695,7 @@ export const translations: { [key: string]: any } = {
       p2: 'No como un museo que conserva el pasado bajo cristal, sino como una creación viva que lo reinterpreta para hoy. Cada motivo dibujado a mano es un acto de memoria. Cada obra, un fragmento de historia que sigue viviendo en su pared — cargando el peso de culturas que merecen ser vistas, no como curiosidades, sino como fuentes de belleza y sabiduría.',
       p3: 'Cuando acoge una obra de ATIP en su hogar, no se convierte simplemente en propietario de un objeto decorativo. Se convierte en guardián(a) de un patrimonio vivo. Elige dar espacio — en su vida cotidiana — a algo que tardó siglos en ser tejido, y que solo existe hoy porque alguien se negó a dejarlo desaparecer.',
       p4: 'ATIP — Art That Inspires People. Pero detrás de esas palabras, una convicción: el arte africano contemporáneo no necesita ser explicado para ser sentido. No necesita ser exotizado para ser apreciado. Solo necesita espacio — en su interior, y quizás un poco en usted.',
+      p5: 'La pieza signature de ATIP — 60×20 cm, enmarcada — está diseñada para imponerse. Un formato vertical que ocupa la pared sin abrumarla. Elegido no por convención, sino porque algunas cosas merecen estar de pie.',
     },
     contact: {
       title: 'Contáctanos',
@@ -932,6 +935,7 @@ export const translations: { [key: string]: any } = {
       p2: 'Non come un museo che conserva il passato sotto vetro, ma come una creazione viva che lo reinterpreta per oggi. Ogni motivo disegnato a mano è un atto di memoria. Ogni opera, un frammento di storia che continua a vivere sulla vostra parete.',
       p3: 'Quando accogliete un\'opera ATIP nella vostra casa, non diventate semplicemente proprietari di un oggetto decorativo. Diventate custodi di un patrimonio vivente. Scegliete di dare spazio — nella vostra vita quotidiana — a qualcosa che ha impiegato secoli per essere tessuto.',
       p4: 'ATIP — Art That Inspires People. Ma dietro queste parole, una convinzione: l\'arte africana contemporanea non ha bisogno di essere spiegata per essere sentita. Ha solo bisogno di spazio — nel vostro interno, e forse un poco in voi.',
+      p5: 'Il pezzo signature ATIP — 60×20 cm, incorniciato — è costruito per imporsi. Un formato verticale che occupa la parete senza sopraffarla. Scelto non per convenzione, ma perché alcune cose meritano di stare in piedi.',
     },
     contact: {
       title: 'Richiesta di Informazioni',
@@ -1092,6 +1096,7 @@ export const translations: { [key: string]: any } = {
       p2: 'Nicht als Museum, das die Vergangenheit hinter Glas bewahrt, sondern als lebendige Schöpfung, die sie für heute neu interpretiert. Jedes von Hand gezeichnete Muster ist ein Akt der Erinnerung. Jedes Werk, ein Geschichtsfragment, das an Ihrer Wand weiterlebt.',
       p3: 'Wenn Sie ein ATIP-Werk in Ihr Zuhause aufnehmen, werden Sie nicht einfach Eigentümer eines Dekorationsobjekts. Sie werden Hüter eines lebendigen Erbes. Sie entscheiden sich, in Ihrem Alltag Raum zu schaffen für etwas, das Jahrhunderte brauchte, um gewoben zu werden.',
       p4: 'ATIP — Art That Inspires People. Aber hinter diesen Worten steckt eine Überzeugung: Zeitgenössische afrikanische Kunst muss nicht erklärt werden, um gespürt zu werden. Sie braucht nur Raum — in Ihrem Interieur und vielleicht ein wenig in Ihnen.',
+      p5: 'Das ATIP-Signaturstück — 60×20 cm, gerahmt — ist für Präsenz gemacht. Ein vertikales Format, das eine Wand einnimmt, ohne sie zu erdrücken. Gewählt nicht aus Konvention, sondern weil manche Dinge das Recht haben, aufrecht zu stehen.',
     },
     contact: {
       title: 'Anfrage zu unseren Werken',
@@ -1252,6 +1257,7 @@ export const translations: { [key: string]: any } = {
       p2: 'Não como um museu que conserva o passado sob vidro, mas como uma criação viva que o reinterpreta para hoje. Cada motivo desenhado à mão é um ato de memória. Cada obra, um fragmento de história que continua a viver na sua parede.',
       p3: 'Quando acolhe uma obra ATIP em sua casa, não se torna simplesmente proprietário de um objeto decorativo. Torna-se guardião(ã) de um património vivo. Escolhe dar espaço — no seu quotidiano — a algo que demorou séculos a ser tecido.',
       p4: 'ATIP — Art That Inspires People. Mas por trás dessas palavras, uma convicção: a arte africana contemporânea não precisa de ser explicada para ser sentida. Só precisa de espaço — no seu interior, e talvez um pouco em si.',
+      p5: 'A peça signature ATIP — 60×20 cm, emoldurada — foi feita para se impor. Um formato vertical que ocupa a parede sem a esmagar. Escolhido não por convenção, mas porque algumas coisas merecem estar de pé.',
     },
     contact: {
       title: 'Pedido de Informações',
@@ -1412,6 +1418,7 @@ export const translations: { [key: string]: any } = {
       p2: 'Niet als een museum dat het verleden achter glas bewaart, maar als een levende creatie die het herinterpreteert voor vandaag. Elk handgetekend patroon is een daad van herinnering. Elk werk, een fragment van geschiedenis dat blijft leven op uw muur.',
       p3: 'Wanneer u een ATIP-werk in uw huis verwelkomt, wordt u niet zomaar eigenaar van een decoratief object. U wordt hoeder van een levend erfgoed. U kiest ervoor om ruimte te geven — in uw dagelijks leven — aan iets dat eeuwen nodig had om geweven te worden.',
       p4: 'ATIP — Art That Inspires People. Maar achter die woorden schuilt een overtuiging: hedendaagse Afrikaanse kunst hoeft niet uitgelegd te worden om gevoeld te worden. Ze heeft alleen ruimte nodig — in uw interieur, en misschien een beetje in uzelf.',
+      p5: 'Het ATIP signature stuk — 60×20 cm, ingelijst — is gemaakt voor aanwezigheid. Een verticaal formaat dat een muur vult zonder hem te overstelpen. Niet gekozen uit conventie, maar omdat sommige dingen het recht hebben om rechtop te staan.',
     },
     contact: {
       title: 'Informatie Aanvragen',

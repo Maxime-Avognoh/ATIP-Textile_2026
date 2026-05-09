@@ -30,6 +30,7 @@ const AboutPage: React.FC = () => {
           <p>{t('about.p2')}</p>
           <p>{t('about.p3')}</p>
           <p>{t('about.p4')}</p>
+          <p className="text-sm font-montserrat tracking-widest uppercase text-red-button/70 border-t border-red-button/20 pt-6">{t('about.p5')}</p>
         </div>
       </div>
     </div>
