@@ -1,7 +1,7 @@
 import { getLocalized } from '../types';
 
 import React, { useState, useEffect, useLayoutEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import ImageCarousel from '../components/ImageCarousel';
 import Button from '../components/Button';
 import { useCart } from '../context/CartContext';
@@ -18,7 +18,7 @@ const ProductPage: React.FC = () => {
   const { locale, t } = useLocale();
   const { getProductById, products } = useProducts();
   const navigate = useNavigate();
-  
+
   const product = id ? getProductById(id) : undefined;
 
   const [added, setAdded] = useState(false);
@@ -34,14 +34,8 @@ const ProductPage: React.FC = () => {
   }, [id]);
 
   useEffect(() => {
-    if (isFullScreen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
+    document.body.style.overflow = isFullScreen ? 'hidden' : 'unset';
+    return () => { document.body.style.overflow = 'unset'; };
   }, [isFullScreen]);
 
   const handleAddToCart = () => {
@@ -83,124 +77,179 @@ const ProductPage: React.FC = () => {
     );
   }
 
-  const suggestedProducts = products
-    .filter(p => (p.id === '1' || p.id === '2') && p.id !== id);
+  const suggestedProducts = products.filter(p => (p.id === '1' || p.id === '2') && p.id !== id);
 
   if (!isReady) return <div className="min-h-screen bg-background" />;
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-12 max-w-7xl animate-fade-in">
-      <div className="mb-8">
-        <BackToCollectionLink />
-      </div>
-      
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-        <div className="lg:col-span-7 flex flex-col-reverse md:flex-row gap-6">
-          {product.images.length > 1 && (
-            <div className="flex md:flex-col gap-4 overflow-x-auto md:overflow-y-auto hide-scrollbar md:h-[600px] py-2 px-1">
-              {product.images.map((img, index) => (
-                <button
-                  key={img}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`relative w-20 h-24 md:w-24 md:h-32 rounded-sm overflow-hidden flex-shrink-0 transition-all duration-300 ${
-                    currentImageIndex === index 
-                      ? 'ring-2 ring-red-button ring-offset-2 ring-offset-background' 
-                      : 'opacity-70 hover:opacity-100'
-                  }`}
-                  aria-label={t('product.thumbnailAlt', { index: (index + 1).toString() })}
-                >
-                  <ProtectedImage src={img} alt={t('product.thumbnailAlt', { index: (index + 1).toString() })} className="w-full h-full object-cover" />
-                </button>
-              ))}
-            </div>
-          )}
-          <div className="flex-1">
-            <div className="h-[360px] md:h-[480px] rounded-sm overflow-hidden shadow-2xl bg-black-button/10 relative">
-                <ImageCarousel images={product.images} currentIndex={currentImageIndex} onIndexChange={setCurrentImageIndex} onFullScreenToggle={() => setIsFullScreen(true)} objectFit="contain" />
-            </div>
+    <div className="animate-page-enter">
+
+      {/* ── HERO GRID ─────────────────────────────────────────────── */}
+      <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] min-h-screen">
+
+        {/* LEFT — image gallery */}
+        <div className="relative bg-black-button/5">
+          <div className="lg:sticky lg:top-0 h-[70vw] max-h-[80vh] lg:h-screen overflow-hidden">
+            <ImageCarousel
+              images={product.images}
+              currentIndex={currentImageIndex}
+              onIndexChange={setCurrentImageIndex}
+              onFullScreenToggle={() => setIsFullScreen(true)}
+              objectFit="cover"
+            />
+
+            {/* Thumbnails — bottom overlay */}
+            {product.images.length > 1 && (
+              <div className="absolute bottom-5 left-0 right-0 flex justify-center gap-2 px-4 z-20">
+                {product.images.map((img, index) => (
+                  <button
+                    key={img}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-12 h-16 rounded-sm overflow-hidden flex-shrink-0 border-2 transition-all duration-300 ${
+                      currentImageIndex === index
+                        ? 'border-white scale-110'
+                        : 'border-white/30 opacity-60 hover:opacity-90'
+                    }`}
+                    aria-label={t('product.thumbnailAlt', { index: (index + 1).toString() })}
+                  >
+                    <ProtectedImage
+                      src={img}
+                      alt={t('product.thumbnailAlt', { index: (index + 1).toString() })}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
-        <div className="lg:col-span-5 flex flex-col justify-center">
-          <div className="mb-2 stagger-1">
-            <span className="text-xs font-bold tracking-widest text-red-button uppercase mb-2 block">{t('product.tagline')}</span>
-            <div className="flex items-start justify-between gap-4">
-                <div className="flex flex-col">
-                    <h1 className="text-4xl md:text-5xl font-aboreto text-title leading-tight">{getLocalized(product.name, locale)}</h1>
-                    {product.subtitle && (
-                        <p className="text-sm font-montserrat font-semibold tracking-[0.2em] uppercase text-red-button/70 mt-2">
-                            {getLocalized(product.subtitle, locale)}
-                        </p>
-                    )}
-                </div>
-                <ShareButton productId={product.id} productName={getLocalized(product.name, locale)} className="text-subtitle/60 hover:text-title transition-colors mt-2" />
+        {/* RIGHT — product info */}
+        <div className="flex flex-col justify-center px-8 lg:px-14 py-16 lg:py-24">
+          <div className="max-w-md">
+
+            <div className="mb-8">
+              <BackToCollectionLink />
             </div>
-          </div>
-          <p className="text-3xl font-playfair italic text-subtitle/90 mb-8 border-b border-subtitle/10 pb-6 stagger-2">€ {product.price.toFixed(2)}</p>
-          
-          <div className="space-y-8 stagger-3">
-            <div>
-              <h2 className="text-sm font-bold uppercase tracking-widest text-red-button/70 mb-3">{t('product.story')}</h2>
-              <div className="relative">
-                <p className={`text-lg text-subtitle leading-loose font-montserrat whitespace-pre-wrap transition-all duration-500 ${!isDescriptionExpanded ? 'line-clamp-4' : ''}`}>
-                  {getLocalized(product.description, locale)}
+
+            {/* Tagline */}
+            <span className="text-[10px] font-montserrat font-semibold tracking-[0.5em] text-red-button uppercase mb-3 block">
+              {t('product.tagline')}
+            </span>
+
+            {/* Title + share */}
+            <div className="flex items-start justify-between gap-4 mb-3">
+              <h1 className="text-4xl md:text-5xl font-aboreto text-title leading-tight">
+                {getLocalized(product.name, locale)}
+              </h1>
+              <ShareButton
+                productId={product.id}
+                productName={getLocalized(product.name, locale)}
+                className="text-subtitle/50 hover:text-title transition-colors mt-2 flex-shrink-0"
+              />
+            </div>
+
+            {/* Subtitle */}
+            {product.subtitle && (
+              <p className="text-xs font-montserrat font-semibold tracking-[0.3em] uppercase text-red-button/70 mb-6">
+                {getLocalized(product.subtitle, locale)}
+              </p>
+            )}
+
+            {/* Price */}
+            <p className="text-4xl font-playfair italic text-subtitle mb-8">
+              € {product.price.toFixed(2)}
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col gap-3 mb-10">
+              <Button variant="red" onClick={handleAddToCart} className="w-full uppercase tracking-[0.2em] h-14 text-sm">
+                {added ? t('product.added') : t('product.addToCart')}
+              </Button>
+              <Button variant="gray" onClick={handleBuyNow} className="w-full uppercase tracking-[0.15em] h-12 text-xs">
+                {t('product.buyNow')}
+              </Button>
+              {added && (
+                <p className="text-center text-green-600 text-sm font-medium animate-fade-in">
+                  {t('product.addedSuccess')}
                 </p>
-                {getLocalized(product.description, locale).length > 150 && (
-                  <button 
-                    onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
-                    className="mt-2 text-xs font-bold uppercase tracking-widest text-red-button hover:text-red-button/80 transition-colors flex items-center gap-1"
-                  >
-                    {isDescriptionExpanded ? (
-                      <>
-                        {t('product.seeLess')}
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                        </svg>
-                      </>
-                    ) : (
-                      <>
-                        {t('product.seeMore')}
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </>
-                    )}
-                  </button>
-                )}
-              </div>
+              )}
             </div>
-            
-            <div className="bg-black-button/10 p-4 rounded-sm border-l-2 border-red-button/30">
-              <h3 className="text-[10px] font-bold uppercase tracking-widest text-subtitle/60 mb-2">{t('product.details')}</h3>
-              <ul className="text-xs space-y-1 text-subtitle/80 font-aboreto">
-                <li>• {t('product.detailFormat')}</li>
-                <li>• {t('product.detailSupport')}</li>
-                <li>• {t('product.detailRender')}</li>
+
+            {/* Divider */}
+            <div className="border-t border-subtitle/10 mb-8" />
+
+            {/* Story */}
+            <div className="mb-8">
+              <h2 className="text-[10px] font-montserrat font-semibold tracking-[0.5em] text-subtitle/50 uppercase mb-4">
+                {t('product.story')}
+              </h2>
+              <p className={`text-base text-subtitle/80 leading-relaxed font-montserrat whitespace-pre-wrap transition-all duration-500 ${!isDescriptionExpanded ? 'line-clamp-5' : ''}`}>
+                {getLocalized(product.description, locale)}
+              </p>
+              {getLocalized(product.description, locale).length > 150 && (
+                <button
+                  onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
+                  className="mt-3 text-[10px] font-bold uppercase tracking-widest text-red-button hover:text-red-button/70 transition-colors flex items-center gap-1"
+                >
+                  {isDescriptionExpanded ? (
+                    <>{t('product.seeLess')} <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" /></svg></>
+                  ) : (
+                    <>{t('product.seeMore')} <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg></>
+                  )}
+                </button>
+              )}
+            </div>
+
+            {/* Technical details */}
+            <div className="bg-black-button/20 rounded-md p-5">
+              <h3 className="text-[10px] font-montserrat font-semibold tracking-[0.5em] text-subtitle/50 uppercase mb-3">
+                {t('product.details')}
+              </h3>
+              <ul className="space-y-1.5 text-xs text-subtitle/70 font-montserrat">
+                <li className="flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-red-button/50 flex-shrink-0" />
+                  {t('product.detailFormat')}
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-red-button/50 flex-shrink-0" />
+                  {t('product.detailSupport')}
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-red-button/50 flex-shrink-0" />
+                  {t('product.detailRender')}
+                </li>
               </ul>
             </div>
+
           </div>
-          
-          <div className="space-y-4 mt-12 stagger-5">
-            <Button variant="red" onClick={handleAddToCart} className="w-full uppercase tracking-[0.2em]">{added ? t('product.added') : t('product.addToCart')}</Button>
-            <Button variant="gray" onClick={handleBuyNow} className="w-full uppercase h-12 tracking-[0.1em]">{t('product.buyNow')}</Button>
-          </div>
-          {added && <p className="mt-4 text-center text-green-600 font-medium animate-fade-in">{t('product.addedSuccess')}</p>}
         </div>
       </div>
 
+      {/* ── FULLSCREEN ────────────────────────────────────────────── */}
       {isFullScreen && (
-        <div className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] overflow-y-auto animate-fade-in" onClick={() => setIsFullScreen(false)} role="dialog" aria-modal="true">
-          <button onClick={() => setIsFullScreen(false)} className="fixed top-6 right-6 text-white/80 hover:text-red-button transition-colors z-[101]">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+        <div
+          className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] overflow-y-auto animate-fade-in"
+          onClick={() => setIsFullScreen(false)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            onClick={() => setIsFullScreen(false)}
+            className="fixed top-6 right-6 text-white/80 hover:text-red-button transition-colors z-[101]"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
           </button>
-          <div className="flex flex-col items-center py-16 px-4 gap-4" onClick={(e) => e.stopPropagation()}>
+          <div className="flex flex-col items-center py-16 px-4 gap-6" onClick={(e) => e.stopPropagation()}>
             <img
               src={product.images[currentImageIndex]}
-              alt={product.images[currentImageIndex]}
+              alt={getLocalized(product.name, locale)}
               className="max-w-4xl w-full h-auto object-contain"
             />
             {product.images.length > 1 && (
-              <div className="flex gap-3 mt-4">
+              <div className="flex gap-3">
                 {product.images.map((_, i) => (
                   <button
                     key={i}
@@ -214,12 +263,15 @@ const ProductPage: React.FC = () => {
         </div>
       )}
 
+      {/* ── SUGGESTIONS ───────────────────────────────────────────── */}
       {suggestedProducts.length > 0 && (
-        <div className="mt-32 border-t border-subtitle/10 pt-16">
-          <h2 className="text-3xl font-aboreto text-title text-center mb-16 tracking-widest uppercase">{t('product.suggestions.title')}</h2>
-          <div className="grid grid-cols-2 lg:grid-cols-2 max-w-4xl mx-auto gap-x-3 gap-y-8 md:gap-x-12 md:gap-y-12">
+        <div className="container mx-auto px-6 lg:px-16 mt-24 pb-24 border-t border-subtitle/10 pt-16">
+          <h2 className="text-2xl font-aboreto text-title text-center mb-12 tracking-widest uppercase">
+            {t('product.suggestions.title')}
+          </h2>
+          <div className="grid grid-cols-2 max-w-3xl mx-auto gap-6 md:gap-12">
             {suggestedProducts.map((p, index) => (
-                 <ProductCard key={p.id} product={p} index={index} />
+              <ProductCard key={p.id} product={p} index={index} />
             ))}
           </div>
         </div>
