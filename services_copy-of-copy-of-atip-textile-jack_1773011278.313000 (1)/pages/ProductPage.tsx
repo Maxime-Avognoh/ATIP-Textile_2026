@@ -3,7 +3,6 @@ import { getLocalized } from '../types';
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ImageCarousel from '../components/ImageCarousel';
-import Button from '../components/Button';
 import { useCart } from '../context/CartContext';
 import ShareButton from '../components/ShareButton';
 import BackToCollectionLink from '../components/BackToCollectionLink';
@@ -45,8 +44,7 @@ const ProductPage: React.FC = () => {
       setTimeout(() => setAdded(false), 2000);
       if (typeof window.gtag === 'function') {
         window.gtag('event', 'add_to_cart', {
-          currency: 'EUR',
-          value: product.price,
+          currency: 'EUR', value: product.price,
           items: [{ item_id: product.id, item_name: product.name['en'] ?? product.name[Object.keys(product.name)[0]], price: product.price, quantity: 1 }],
         });
       }
@@ -58,8 +56,7 @@ const ProductPage: React.FC = () => {
       addToCart(product, 'Standard');
       if (typeof window.gtag === 'function') {
         window.gtag('event', 'add_to_cart', {
-          currency: 'EUR',
-          value: product.price,
+          currency: 'EUR', value: product.price,
           items: [{ item_id: product.id, item_name: product.name['en'] ?? product.name[Object.keys(product.name)[0]], price: product.price, quantity: 1 }],
         });
       }
@@ -77,103 +74,115 @@ const ProductPage: React.FC = () => {
     );
   }
 
-  const suggestedProducts = products.filter(p => (p.id === '1' || p.id === '2') && p.id !== id);
+  const suggestedProducts = products.filter(p => p.id !== id).slice(0, 2);
 
   if (!isReady) return <div className="min-h-screen bg-background" />;
 
   return (
     <div className="animate-page-enter">
 
-      {/* ── HERO GRID ─────────────────────────────────────────────── */}
-      <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] min-h-screen">
+      {/* ── SPLIT GRID ────────────────────────────────────────────────────
+          items-start = columns only as tall as content → no empty gap
+          Left sticky offset = 4rem (header height)
+      ──────────────────────────────────────────────────────────────────── */}
+      <div className="grid grid-cols-1 lg:grid-cols-[56%_44%] items-start">
 
-        {/* LEFT — image gallery */}
-        <div className="relative bg-black-button/5">
-          <div className="lg:sticky lg:top-0 h-[70vw] max-h-[80vh] lg:h-screen overflow-hidden">
-            <ImageCarousel
-              images={product.images}
-              currentIndex={currentImageIndex}
-              onIndexChange={setCurrentImageIndex}
-              onFullScreenToggle={() => setIsFullScreen(true)}
-              objectFit="cover"
-            />
+        {/* ── LEFT: sticky image ───────────────────────────────────────── */}
+        <div className="lg:sticky lg:top-16 h-[72vw] max-h-[88vh] lg:h-[calc(100vh-4rem)] overflow-hidden relative bg-[#f0ebe2]">
 
-            {/* Thumbnails — bottom overlay */}
-            {product.images.length > 1 && (
-              <div className="absolute bottom-5 left-0 right-0 flex justify-center gap-2 px-4 z-20">
-                {product.images.map((img, index) => (
-                  <button
-                    key={img}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`w-12 h-16 rounded-sm overflow-hidden flex-shrink-0 border-2 transition-all duration-300 ${
-                      currentImageIndex === index
-                        ? 'border-white scale-110'
-                        : 'border-white/30 opacity-60 hover:opacity-90'
-                    }`}
-                    aria-label={t('product.thumbnailAlt', { index: (index + 1).toString() })}
-                  >
-                    <ProtectedImage
-                      src={img}
-                      alt={t('product.thumbnailAlt', { index: (index + 1).toString() })}
-                      className="w-full h-full object-cover"
-                    />
-                  </button>
-                ))}
-              </div>
-            )}
+          <ImageCarousel
+            images={product.images}
+            currentIndex={currentImageIndex}
+            onIndexChange={setCurrentImageIndex}
+            onFullScreenToggle={() => setIsFullScreen(true)}
+            objectFit="cover"
+          />
+
+          {/* Image counter — top right */}
+          <div className="absolute top-5 right-5 z-20 bg-black/30 backdrop-blur-sm text-white/80 text-[10px] font-montserrat tracking-[0.2em] px-2.5 py-1 rounded-full">
+            {currentImageIndex + 1} / {product.images.length}
           </div>
+
+          {/* Thumbnails — bottom strip */}
+          {product.images.length > 1 && (
+            <div className="absolute bottom-5 left-0 right-0 flex justify-center gap-2 px-4 z-20">
+              {product.images.map((img, index) => (
+                <button
+                  key={img}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`w-10 h-14 rounded-sm overflow-hidden flex-shrink-0 border transition-all duration-300 ${
+                    currentImageIndex === index
+                      ? 'border-white opacity-100 scale-105'
+                      : 'border-white/20 opacity-50 hover:opacity-80'
+                  }`}
+                  aria-label={t('product.thumbnailAlt', { index: (index + 1).toString() })}
+                >
+                  <ProtectedImage src={img} alt="" className="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* RIGHT — product info */}
-        <div className="flex flex-col justify-center px-8 lg:px-14 py-16 lg:py-24">
-          <div className="max-w-md">
+        {/* ── RIGHT: product info ──────────────────────────────────────── */}
+        <div className="flex flex-col px-8 lg:px-14 pt-28 lg:pt-32 pb-20">
+          <div className="max-w-sm mx-auto lg:mx-0 w-full">
 
-            <div className="mb-8">
+            {/* Back link */}
+            <div className="mb-10">
               <BackToCollectionLink />
             </div>
 
             {/* Tagline */}
-            <span className="text-[10px] font-montserrat font-semibold tracking-[0.5em] text-red-button uppercase mb-3 block">
+            <p className="text-[9px] font-montserrat font-semibold tracking-[0.55em] text-red-button uppercase mb-4">
               {t('product.tagline')}
-            </span>
+            </p>
 
-            {/* Title + share */}
-            <div className="flex items-start justify-between gap-4 mb-3">
-              <h1 className="text-4xl md:text-5xl font-aboreto text-title leading-tight">
+            {/* Name + share */}
+            <div className="flex items-start justify-between gap-3 mb-2">
+              <h1 className="text-3xl md:text-4xl font-aboreto text-title leading-tight">
                 {getLocalized(product.name, locale)}
               </h1>
               <ShareButton
                 productId={product.id}
                 productName={getLocalized(product.name, locale)}
-                className="text-subtitle/50 hover:text-title transition-colors mt-2 flex-shrink-0"
+                className="text-subtitle/40 hover:text-red-button transition-colors mt-1 flex-shrink-0"
               />
             </div>
 
             {/* Subtitle */}
             {product.subtitle && (
-              <p className="text-xs font-montserrat font-semibold tracking-[0.3em] uppercase text-red-button/70 mb-6">
+              <p className="text-[10px] font-montserrat font-medium tracking-[0.35em] uppercase text-red-button/60 mb-8">
                 {getLocalized(product.subtitle, locale)}
               </p>
             )}
 
             {/* Price */}
-            <p className="text-4xl font-playfair italic text-subtitle mb-8">
+            <p className="text-3xl font-playfair italic text-title mb-10">
               € {product.price.toFixed(2)}
             </p>
 
-            {/* CTAs */}
+            {/* ── CTAs ── */}
             <div className="flex flex-col gap-3 mb-10">
-              <Button variant="red" onClick={handleAddToCart} className="w-full uppercase tracking-[0.2em] h-14 text-sm">
+              {/* Primary */}
+              <button
+                onClick={handleAddToCart}
+                className={`w-full h-12 text-[11px] font-montserrat font-semibold tracking-[0.35em] uppercase rounded-sm transition-all duration-300 ${
+                  added
+                    ? 'bg-green-600/80 text-white'
+                    : 'bg-red-button text-white hover:bg-red-button/85 active:scale-[0.98]'
+                }`}
+              >
                 {added ? t('product.added') : t('product.addToCart')}
-              </Button>
-              <Button variant="gray" onClick={handleBuyNow} className="w-full uppercase tracking-[0.15em] h-12 text-xs">
+              </button>
+
+              {/* Secondary */}
+              <button
+                onClick={handleBuyNow}
+                className="w-full h-11 text-[10px] font-montserrat font-medium tracking-[0.3em] uppercase rounded-sm border border-subtitle/25 text-subtitle/70 hover:border-title hover:text-title transition-all duration-300 active:scale-[0.98]"
+              >
                 {t('product.buyNow')}
-              </Button>
-              {added && (
-                <p className="text-center text-green-600 text-sm font-medium animate-fade-in">
-                  {t('product.addedSuccess')}
-                </p>
-              )}
+              </button>
             </div>
 
             {/* Divider */}
@@ -181,44 +190,37 @@ const ProductPage: React.FC = () => {
 
             {/* Story */}
             <div className="mb-8">
-              <h2 className="text-[10px] font-montserrat font-semibold tracking-[0.5em] text-subtitle/50 uppercase mb-4">
+              <p className="text-[9px] font-montserrat font-semibold tracking-[0.55em] text-subtitle/40 uppercase mb-4">
                 {t('product.story')}
-              </h2>
-              <p className={`text-base text-subtitle/80 leading-relaxed font-montserrat whitespace-pre-wrap transition-all duration-500 ${!isDescriptionExpanded ? 'line-clamp-5' : ''}`}>
+              </p>
+              <p className={`text-sm text-subtitle/80 leading-[1.9] font-montserrat whitespace-pre-wrap transition-all duration-500 ${!isDescriptionExpanded ? 'line-clamp-5' : ''}`}>
                 {getLocalized(product.description, locale)}
               </p>
               {getLocalized(product.description, locale).length > 150 && (
                 <button
                   onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
-                  className="mt-3 text-[10px] font-bold uppercase tracking-widest text-red-button hover:text-red-button/70 transition-colors flex items-center gap-1"
+                  className="mt-3 text-[9px] font-bold uppercase tracking-[0.4em] text-red-button/70 hover:text-red-button transition-colors flex items-center gap-1.5"
                 >
-                  {isDescriptionExpanded ? (
-                    <>{t('product.seeLess')} <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" /></svg></>
-                  ) : (
-                    <>{t('product.seeMore')} <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg></>
-                  )}
+                  {isDescriptionExpanded
+                    ? <>{t('product.seeLess')} <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" /></svg></>
+                    : <>{t('product.seeMore')} <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg></>
+                  }
                 </button>
               )}
             </div>
 
             {/* Technical details */}
-            <div className="bg-black-button/20 rounded-md p-5">
-              <h3 className="text-[10px] font-montserrat font-semibold tracking-[0.5em] text-subtitle/50 uppercase mb-3">
+            <div className="rounded-sm border border-subtitle/10 p-5">
+              <p className="text-[9px] font-montserrat font-semibold tracking-[0.55em] text-subtitle/40 uppercase mb-4">
                 {t('product.details')}
-              </h3>
-              <ul className="space-y-1.5 text-xs text-subtitle/70 font-montserrat">
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-red-button/50 flex-shrink-0" />
-                  {t('product.detailFormat')}
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-red-button/50 flex-shrink-0" />
-                  {t('product.detailSupport')}
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-red-button/50 flex-shrink-0" />
-                  {t('product.detailRender')}
-                </li>
+              </p>
+              <ul className="space-y-2 text-[11px] text-subtitle/70 font-montserrat leading-relaxed">
+                {[t('product.detailFormat'), t('product.detailSupport'), t('product.detailRender')].map((detail, i) => (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <span className="w-1 h-1 rounded-full bg-red-button/40 mt-1.5 flex-shrink-0" />
+                    {detail}
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -226,19 +228,18 @@ const ProductPage: React.FC = () => {
         </div>
       </div>
 
-      {/* ── FULLSCREEN ────────────────────────────────────────────── */}
+      {/* ── FULLSCREEN MODAL ──────────────────────────────────────────── */}
       {isFullScreen && (
         <div
           className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] overflow-y-auto animate-fade-in"
           onClick={() => setIsFullScreen(false)}
-          role="dialog"
-          aria-modal="true"
+          role="dialog" aria-modal="true"
         >
           <button
             onClick={() => setIsFullScreen(false)}
-            className="fixed top-6 right-6 text-white/80 hover:text-red-button transition-colors z-[101]"
+            className="fixed top-6 right-6 text-white/70 hover:text-white transition-colors z-[101]"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -254,7 +255,7 @@ const ProductPage: React.FC = () => {
                   <button
                     key={i}
                     onClick={() => setCurrentImageIndex(i)}
-                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === currentImageIndex ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/70'}`}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${i === currentImageIndex ? 'bg-white scale-125' : 'bg-white/30 hover:bg-white/60'}`}
                   />
                 ))}
               </div>
@@ -263,13 +264,13 @@ const ProductPage: React.FC = () => {
         </div>
       )}
 
-      {/* ── SUGGESTIONS ───────────────────────────────────────────── */}
+      {/* ── SUGGESTIONS ───────────────────────────────────────────────── */}
       {suggestedProducts.length > 0 && (
-        <div className="container mx-auto px-6 lg:px-16 mt-24 pb-24 border-t border-subtitle/10 pt-16">
-          <h2 className="text-2xl font-aboreto text-title text-center mb-12 tracking-widest uppercase">
+        <div className="container mx-auto px-6 lg:px-16 py-24 border-t border-subtitle/10">
+          <p className="text-[9px] font-montserrat font-semibold tracking-[0.55em] text-subtitle/40 uppercase text-center mb-12">
             {t('product.suggestions.title')}
-          </h2>
-          <div className="grid grid-cols-2 max-w-3xl mx-auto gap-6 md:gap-12">
+          </p>
+          <div className="grid grid-cols-2 max-w-2xl mx-auto gap-6 md:gap-10">
             {suggestedProducts.map((p, index) => (
               <ProductCard key={p.id} product={p} index={index} />
             ))}
