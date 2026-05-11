@@ -9,14 +9,16 @@ interface ImageCarouselProps {
   onIndexChange: (index: number) => void;
   onFullScreenToggle?: () => void;
   objectFit?: 'cover' | 'contain';
+  showDots?: boolean;
 }
 
-const ImageCarousel: React.FC<ImageCarouselProps> = ({ 
-  images, 
-  currentIndex, 
-  onIndexChange, 
+const ImageCarousel: React.FC<ImageCarouselProps> = ({
+  images,
+  currentIndex,
+  onIndexChange,
   onFullScreenToggle,
-  objectFit = 'cover'
+  objectFit = 'cover',
+  showDots = true,
 }) => {
   const { t } = useLocale();
   const touchStartRef = useRef<number | null>(null);
@@ -115,18 +117,20 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
             </svg>
         </button>
       )}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => onIndexChange(index)}
-            className={`w-3 h-3 rounded-full transition-colors ${
-              currentIndex === index ? 'bg-white' : 'bg-white/50 hover:bg-white/75'
-            }`}
-            aria-label={`Go to image ${index + 1}`}
-          ></button>
-        ))}
-      </div>
+      {showDots && (
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => onIndexChange(index)}
+              className={`w-3 h-3 rounded-full transition-colors ${
+                currentIndex === index ? 'bg-white' : 'bg-white/50 hover:bg-white/75'
+              }`}
+              aria-label={`Go to image ${index + 1}`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

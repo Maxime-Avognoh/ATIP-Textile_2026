@@ -88,7 +88,7 @@ const ProductPage: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-[56%_44%] items-start">
 
         {/* ── LEFT: sticky image ───────────────────────────────────────── */}
-        <div className="lg:sticky lg:top-16 h-[72vw] max-h-[88vh] lg:h-[calc(100vh-4rem)] overflow-hidden relative bg-[#f0ebe2]">
+        <div className="lg:sticky lg:top-20 h-[72vw] max-h-[88vh] lg:h-[calc(100vh-5rem)] overflow-hidden relative bg-[#f0ebe2]">
 
           <ImageCarousel
             images={product.images}
@@ -96,6 +96,7 @@ const ProductPage: React.FC = () => {
             onIndexChange={setCurrentImageIndex}
             onFullScreenToggle={() => setIsFullScreen(true)}
             objectFit="cover"
+            showDots={false}
           />
 
           {/* Image counter — top right */}
@@ -125,7 +126,7 @@ const ProductPage: React.FC = () => {
         </div>
 
         {/* ── RIGHT: product info ──────────────────────────────────────── */}
-        <div className="flex flex-col px-8 lg:px-14 pt-28 lg:pt-32 pb-20">
+        <div className="flex flex-col px-8 lg:px-14 pt-32 lg:pt-36 pb-20">
           <div className="max-w-sm mx-auto lg:mx-0 w-full">
 
             {/* Back link */}
