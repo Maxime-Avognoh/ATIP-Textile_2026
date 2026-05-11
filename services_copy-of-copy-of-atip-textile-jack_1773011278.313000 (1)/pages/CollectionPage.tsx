@@ -43,12 +43,12 @@ const CollectionPage: React.FC = () => {
       </ScrollReveal>
 
       {/* Filtres */}
-      <ScrollReveal delay={100} className="flex justify-center gap-3 mb-16 flex-wrap">
+      <ScrollReveal delay={100} className="flex justify-center gap-2 md:gap-3 mb-16">
         {(['all', 'framed', 'unframed'] as Filter[]).map(key => (
           <button
             key={key}
             onClick={() => setActiveFilter(key)}
-            className={`px-6 py-2.5 text-xs font-montserrat font-medium tracking-[0.3em] uppercase rounded-sm border transition-all duration-300 ${
+            className={`whitespace-nowrap px-4 md:px-6 py-2.5 text-xs font-montserrat font-medium tracking-[0.2em] md:tracking-[0.3em] uppercase rounded-sm border transition-all duration-300 ${
               activeFilter === key
                 ? 'bg-red-button text-white border-red-button'
                 : 'bg-transparent text-subtitle border-subtitle/30 hover:border-red-button hover:text-red-button'

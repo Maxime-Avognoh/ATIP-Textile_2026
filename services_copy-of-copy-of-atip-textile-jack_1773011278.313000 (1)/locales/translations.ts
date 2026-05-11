@@ -88,7 +88,7 @@ export const translations: { [key: string]: any } = {
     home: {
       tagline: "Contemporary Heritage",
       title: "Fragments of stories to enhance your walls",
-      subtitle: "ATIP-Textile is a contemporary African textile art brand created to tell Africa's story in a modern and authentic way. Through hand-drawn African patterns, each artwork becomes a fragment of history, memory, and emotion.",
+      subtitle: "ATIP-Textile is a contemporary African textile art brand, born from the diaspora's refusal to let a heritage disappear. Through hand-drawn African patterns, each piece becomes a fragment of history that you carry into your home — and that continues to live there.",
       introText: "when Africa is told in patterns.",
       values: {
         v1: {
@@ -146,11 +146,13 @@ export const translations: { [key: string]: any } = {
       },
     },
     about: {
-      title: 'Our Heritage: The Memory of Hands',
-      p1: 'ATIP Textile is born from the intersection of ancestral African craftsmanship and the demanding standards of contemporary luxury. We do not just create fabrics; we weave visual rhythms that tell the story of a culture in perpetual motion.',
-      p2: 'ATIP stands for "Art That Inspires People". This vision guides our search for timeless elegance, where every fiber is a link between the memory of hands and the modern aesthetic of high-end interiors.',
-      p3: 'Our signature format of 20x20 cm, printed on exceptional satin cotton, offers a unique luminosity. This noble material, chosen for its delicate touch and vibrant color rendition, transforms your space into a private gallery of contemporary design.',
-      p4: 'Discover an exceptional textile heritage, designed for those who seek art that resonates with their soul and their history.',
+      title: 'The Origin of ATIP',
+      manifesto: 'We didn\'t create a brand. We refused to let a heritage disappear.',
+      p1: 'Growing up between two worlds means learning to hold Africa in your memory. Far from the continent but never truly absent — stories heard in one language, gestures learned in a kitchen, patterns seen on fabric worn at celebrations — quietly disappearing, one generation at a time. ATIP was born from a refusal to let that happen.',
+      p2: 'Not as a museum preserving the past under glass, but as a living creation that reinterprets it for today. Each hand-drawn pattern is an act of memory. Each piece, a fragment of story that continues to live on your wall — carrying the weight of cultures that deserve to be seen, not as curiosities, but as sources of beauty and wisdom.',
+      p3: 'When you bring an ATIP piece into your home, you don\'t simply acquire a decorative object. You become a guardian of living heritage. You choose to give space — in your daily life — to something that took centuries to be woven, and that only exists now because someone refused to let it be forgotten.',
+      p4: 'ATIP — Art That Inspires People. But behind those words, a conviction: contemporary African art does not need to be explained to be felt. It does not need to be exoticized to be appreciated. It just needs space — in your interior, and perhaps a little in you.',
+      p5: 'The ATIP signature piece — 60×20 cm, framed — is built for presence. A vertical format that commands a wall without overwhelming it. Chosen not for convention, but because some things deserve to stand tall.',
     },
     contact: {
       title: 'Enquire About Our Pieces',
@@ -365,7 +367,7 @@ export const translations: { [key: string]: any } = {
     home: {
       tagline: 'Héritage Contemporain',
       title: 'Des fragments d\'histoires pour sublimer vos murs',
-      subtitle: 'ATIP-Textile est une marque d’art textile africain contemporain créée pour raconter l’histoire de l’Afrique de manière moderne et authentique. À travers des motifs africains dessinés à la main, chaque œuvre devient un fragment d’histoire, de mémoire et d’émotion.',
+      subtitle: ‘ATIP-Textile est une marque d’art textile africain contemporain, née du refus de la diaspora de laisser un héritage disparaître. À travers des motifs africains dessinés à la main, chaque pièce devient un fragment d’histoire que vous accueillez chez vous — et qui continue d’y vivre.’,
       introText: 'quand l\'Afrique se raconte en motifs.',
       values: {
         v1: {
@@ -423,11 +425,13 @@ export const translations: { [key: string]: any } = {
       },
     },
     about: {
-      title: 'Notre Héritage : La Mémoire des Mains',
-      p1: 'ATIP Textile naît de la rencontre entre l\'artisanat ancestral africain et l\'exigence du design contemporain. Nous ne créons pas de simples tissus ; nous tissons des rythmes visuels qui racontent l\'histoire d\'une culture en mouvement.',
-      p2: 'ATIP signifie "Art That Inspires People". Cette vision guide notre quête d\'une élégance intemporelle, où chaque fibre est un lien entre la mémoire des mains et l\'esthétique moderne des intérieurs de luxe.',
-      p3: 'Notre format signature de 20x20 cm, imprimé sur un coton de satin d\'exception, offre une luminosité unique. Cette matière noble, choisie pour son toucher délicat et son rendu vibrant, transforme votre espace en une galerie privée de design africain haut de gamme.',
-      p4: 'Découvrez un héritage culturel contemporain, conçu pour ceux qui cherchent un art qui résonne avec leur âme et leur histoire.',
+      title: 'L\'Origine d\'ATIP',
+      manifesto: 'Nous n\'avons pas créé une marque. Nous avons refusé de laisser un héritage disparaître.',
+      p1: 'Grandir entre deux mondes, c\'est apprendre à tenir l\'Afrique dans sa mémoire. Loin du continent mais jamais vraiment absent — des histoires entendues dans une langue, des gestes appris dans une cuisine, des motifs vus sur des tissus portés lors des fêtes — qui disparaissent silencieusement, génération après génération. ATIP est né d\'un refus de laisser faire.',
+      p2: 'Non pas comme un musée qui conserve le passé sous verre, mais comme une création vivante qui le réinterprète pour aujourd\'hui. Chaque motif dessiné à la main est un acte de mémoire. Chaque oeuvre, un fragment d\'histoire qui continue de vivre sur votre mur — portant le poids de cultures qui méritent d\'être vues, non comme des curiosités, mais comme des sources de beauté et de sagesse.',
+      p3: 'En accueillant une oeuvre ATIP chez vous, vous ne devenez pas simplement propriétaire d\'un objet décoratif. Vous devenez gardien(ne) d\'un héritage vivant. Vous choisissez de faire de la place — dans votre quotidien — à quelque chose qui a mis des siècles à être tissé, et qui n\'existe aujourd\'hui que parce que quelqu\'un a refusé de le laisser disparaître.',
+      p4: 'ATIP — Art That Inspires People. Mais derrière ces mots, une conviction : l\'art africain contemporain n\'a pas besoin d\'être expliqué pour être ressenti. Il n\'a pas besoin d\'être exotisé pour être apprécié. Il a juste besoin d\'un espace — dans votre intérieur, et peut-être un peu en vous.',
+      p5: 'La pièce signature ATIP — 60×20 cm, encadrée — est conçue pour s\'imposer. Un format vertical qui occupe le mur sans l\'écraser. Choisi non par convention, mais parce que certaines choses méritent de se tenir debout.',
     },
     contact: {
       title: 'Demande d\'Informations',
@@ -618,7 +622,7 @@ export const translations: { [key: string]: any } = {
     },
     home: {
       title: 'Fragmentos de historias para realzar sus paredes',
-      subtitle: 'ATIP-Textile es una marca de arte textil africano contemporáneo creada para contar la historia de África de una manera moderna y auténtica. A través de patrones africanos dibujados a mano, cada obra de arte se convierte en un fragmento de historia, memoria y emoción.',
+      subtitle: 'ATIP-Textile es una marca de arte textil africano contemporáneo, nacida del rechazo de la diáspora a dejar desaparecer un patrimonio. A través de motivos africanos dibujados a mano, cada pieza se convierte en un fragmento de historia que usted acoge en su hogar — y que sigue viviendo allí.',
       introText: 'cuando África se cuenta en patrones.',
       values: {
         v1: {
@@ -685,11 +689,13 @@ export const translations: { [key: string]: any } = {
       },
     },
     about: {
-      title: 'Sobre ATIP Textile',
-      p1: 'Bienvenido a ATIP Textile, donde el arte y la tela se entrelazan para crear piezas únicas que inspiran. Fundada sobre el principio de llevar un diseño excepcional a los espacios cotidianos, nos especializamos en lienzos impresos de alta calidad que transforman las paredes en galerías.',
-      p2: 'Nuestro nombre, ATIP, significa "Art That Inspires People" (Arte Que Inspira a la Gente), y esta filosofía es el núcleo de todo lo que hacemos. Creemos que el arte debe ser accesible, personal y evocador. Cada uno de nuestros diseños est cuidadosamente seleccionado y elaborado, reflejando una pasión por la creatividad y un compromiso con la calidad.',
-      p3: 'Utilizamos algodón satinado de primera calidad para nuestros lienzos de 20x20 cm, un material elegido por su sutil brillo y excelente reproducción del color. Esto asegura que cada tono sea vibrante, cada detalle sea nítido y cada pieza tenga un acabado de lujo que resistirá el paso del tiempo.',
-      p4: 'Gracias por visitar ATIP Textile. Esperamos que nuestra colección resuene contigo y que encuentres la pieza perfecta para contar tu historia.',
+      title: 'El Origen de ATIP',
+      manifesto: 'No creamos una marca. Nos negamos a dejar desaparecer un patrimonio.',
+      p1: 'Crecer entre dos mundos es aprender a sostener África en la memoria. Lejos del continente pero nunca del todo ausente — historias escuchadas en un idioma, gestos aprendidos en una cocina, motivos vistos en telas usadas durante las celebraciones — que desaparecen silenciosamente, generación tras generación. ATIP nació de un rechazo a dejar que eso ocurra.',
+      p2: 'No como un museo que conserva el pasado bajo cristal, sino como una creación viva que lo reinterpreta para hoy. Cada motivo dibujado a mano es un acto de memoria. Cada obra, un fragmento de historia que sigue viviendo en su pared — cargando el peso de culturas que merecen ser vistas, no como curiosidades, sino como fuentes de belleza y sabiduría.',
+      p3: 'Cuando acoge una obra de ATIP en su hogar, no se convierte simplemente en propietario de un objeto decorativo. Se convierte en guardián(a) de un patrimonio vivo. Elige dar espacio — en su vida cotidiana — a algo que tardó siglos en ser tejido, y que solo existe hoy porque alguien se negó a dejarlo desaparecer.',
+      p4: 'ATIP — Art That Inspires People. Pero detrás de esas palabras, una convicción: el arte africano contemporáneo no necesita ser explicado para ser sentido. No necesita ser exotizado para ser apreciado. Solo necesita espacio — en su interior, y quizás un poco en usted.',
+      p5: 'La pieza signature de ATIP — 60×20 cm, enmarcada — está diseñada para imponerse. Un formato vertical que ocupa la pared sin abrumarla. Elegido no por convención, sino porque algunas cosas merecen estar de pie.',
     },
     contact: {
       title: 'Contáctanos',
@@ -923,11 +929,13 @@ export const translations: { [key: string]: any } = {
       fullscreen: { open: 'Immergiti a schermo intero', close: 'Chiudi vista dettagliata' },
     },
     about: {
-      title: 'La Nostra Storia: La Memoria delle Mani',
-      p1: 'ATIP Textile nasce dall\'incontro tra l\'artigianato ancestrale africano e gli standard esigenti del design contemporaneo di lusso.',
-      p2: 'ATIP significa "Art That Inspires People". Questa visione guida la nostra ricerca di un\'eleganza senza tempo.',
-      p3: 'Il nostro formato firma di 20x20 cm, stampato su cotone satinato eccezionale, offre una luminosità unica.',
-      p4: 'Scopri un patrimonio tessile d\'eccezione, pensato per chi cerca un\'arte che risuoni con la propria anima.',
+      title: 'L\'Origine di ATIP',
+      manifesto: 'Non abbiamo creato un marchio. Abbiamo rifiutato di lasciare scomparire un patrimonio.',
+      p1: 'Crescere tra due mondi significa imparare a tenere l\'Africa nella memoria. Lontano dal continente ma mai del tutto assenti — storie ascoltate in una lingua, gesti imparati in una cucina, motivi visti su tessuti indossati nelle celebrazioni — che scompaiono in silenzio, generazione dopo generazione. ATIP è nato dal rifiuto di lasciare che ciò accada.',
+      p2: 'Non come un museo che conserva il passato sotto vetro, ma come una creazione viva che lo reinterpreta per oggi. Ogni motivo disegnato a mano è un atto di memoria. Ogni opera, un frammento di storia che continua a vivere sulla vostra parete.',
+      p3: 'Quando accogliete un\'opera ATIP nella vostra casa, non diventate semplicemente proprietari di un oggetto decorativo. Diventate custodi di un patrimonio vivente. Scegliete di dare spazio — nella vostra vita quotidiana — a qualcosa che ha impiegato secoli per essere tessuto.',
+      p4: 'ATIP — Art That Inspires People. Ma dietro queste parole, una convinzione: l\'arte africana contemporanea non ha bisogno di essere spiegata per essere sentita. Ha solo bisogno di spazio — nel vostro interno, e forse un poco in voi.',
+      p5: 'Il pezzo signature ATIP — 60×20 cm, incorniciato — è costruito per imporsi. Un formato verticale che occupa la parete senza sopraffarla. Scelto non per convenzione, ma perché alcune cose meritano di stare in piedi.',
     },
     contact: {
       title: 'Richiesta di Informazioni',
@@ -1082,11 +1090,13 @@ export const translations: { [key: string]: any } = {
       fullscreen: { open: 'Im Vollbild eintauchen', close: 'Detailansicht schließen' },
     },
     about: {
-      title: 'Unser Erbe: Das Gedächtnis der Hände',
-      p1: 'ATIP Textile entsteht aus der Begegnung zwischen dem afrikanischen Handwerk und den anspruchsvollen Standards des zeitgenössischen Luxusdesigns.',
-      p2: 'ATIP steht für "Art That Inspires People". Diese Vision leitet unsere Suche nach zeitloser Eleganz.',
-      p3: 'Unser Signaturformat von 20x20 cm, gedruckt auf außergewöhnlichem Satin-Baumwollstoff, bietet eine einzigartige Leuchtkraft.',
-      p4: 'Entdecken Sie ein außergewöhnliches Textilarbe, das für jene gestaltet wurde, die Kunst suchen, die mit ihrer Seele resoniert.',
+      title: 'Der Ursprung von ATIP',
+      manifesto: 'Wir haben keine Marke gegründet. Wir haben uns geweigert, ein Erbe verschwinden zu lassen.',
+      p1: 'Zwischen zwei Welten aufzuwachsen bedeutet, Afrika in der Erinnerung zu tragen. Weit vom Kontinent entfernt, aber nie wirklich abwesend — Geschichten, die in einer Sprache gehört wurden, Gesten, die in einer Küche gelernt wurden, Muster auf Stoffen bei Festen — die still verschwinden, Generation für Generation. ATIP entstand aus der Weigerung, das zuzulassen.',
+      p2: 'Nicht als Museum, das die Vergangenheit hinter Glas bewahrt, sondern als lebendige Schöpfung, die sie für heute neu interpretiert. Jedes von Hand gezeichnete Muster ist ein Akt der Erinnerung. Jedes Werk, ein Geschichtsfragment, das an Ihrer Wand weiterlebt.',
+      p3: 'Wenn Sie ein ATIP-Werk in Ihr Zuhause aufnehmen, werden Sie nicht einfach Eigentümer eines Dekorationsobjekts. Sie werden Hüter eines lebendigen Erbes. Sie entscheiden sich, in Ihrem Alltag Raum zu schaffen für etwas, das Jahrhunderte brauchte, um gewoben zu werden.',
+      p4: 'ATIP — Art That Inspires People. Aber hinter diesen Worten steckt eine Überzeugung: Zeitgenössische afrikanische Kunst muss nicht erklärt werden, um gespürt zu werden. Sie braucht nur Raum — in Ihrem Interieur und vielleicht ein wenig in Ihnen.',
+      p5: 'Das ATIP-Signaturstück — 60×20 cm, gerahmt — ist für Präsenz gemacht. Ein vertikales Format, das eine Wand einnimmt, ohne sie zu erdrücken. Gewählt nicht aus Konvention, sondern weil manche Dinge das Recht haben, aufrecht zu stehen.',
     },
     contact: {
       title: 'Anfrage zu unseren Werken',
@@ -1241,11 +1251,13 @@ export const translations: { [key: string]: any } = {
       fullscreen: { open: 'Mergulhar em ecrã inteiro', close: 'Fechar vista detalhada' },
     },
     about: {
-      title: 'A Nossa História: A Memória das Mãos',
-      p1: 'A ATIP Textile nasce do encontro entre o artesanato ancestral africano e os padrões exigentes do design de luxo contemporâneo.',
-      p2: 'ATIP significa "Art That Inspires People". Esta visão orienta a nossa busca por uma elegância intemporal.',
-      p3: 'O nosso formato de assinatura de 20x20 cm, impresso em algodão acetinado excecional, oferece uma luminosidade única.',
-      p4: 'Descubra um património têxtil de exceção, concebido para quem procura arte que ressoa com a sua alma.',
+      title: 'A Origem da ATIP',
+      manifesto: 'Não criámos uma marca. Recusámos deixar um património desaparecer.',
+      p1: 'Crescer entre dois mundos é aprender a guardar África na memória. Longe do continente mas nunca verdadeiramente ausente — histórias ouvidas numa língua, gestos aprendidos numa cozinha, motivos vistos em tecidos usados nas celebrações — que desaparecem silenciosamente, geração após geração. A ATIP nasceu de uma recusa a deixar isso acontecer.',
+      p2: 'Não como um museu que conserva o passado sob vidro, mas como uma criação viva que o reinterpreta para hoje. Cada motivo desenhado à mão é um ato de memória. Cada obra, um fragmento de história que continua a viver na sua parede.',
+      p3: 'Quando acolhe uma obra ATIP em sua casa, não se torna simplesmente proprietário de um objeto decorativo. Torna-se guardião(ã) de um património vivo. Escolhe dar espaço — no seu quotidiano — a algo que demorou séculos a ser tecido.',
+      p4: 'ATIP — Art That Inspires People. Mas por trás dessas palavras, uma convicção: a arte africana contemporânea não precisa de ser explicada para ser sentida. Só precisa de espaço — no seu interior, e talvez um pouco em si.',
+      p5: 'A peça signature ATIP — 60×20 cm, emoldurada — foi feita para se impor. Um formato vertical que ocupa a parede sem a esmagar. Escolhido não por convenção, mas porque algumas coisas merecem estar de pé.',
     },
     contact: {
       title: 'Pedido de Informações',
@@ -1400,11 +1412,13 @@ export const translations: { [key: string]: any } = {
       fullscreen: { open: 'Onderdompelen op volledig scherm', close: 'Detailweergave sluiten' },
     },
     about: {
-      title: 'Ons Erfgoed: Het Geheugen van de Handen',
-      p1: 'ATIP Textile ontstaat uit de ontmoeting tussen het Afrikaans ambacht en de veeleisende normen van hedendaags luxedesign.',
-      p2: 'ATIP staat voor "Art That Inspires People". Deze visie leidt onze zoektocht naar tijdloze elegantie.',
-      p3: 'Ons handtekeningformaat van 20x20 cm, gedrukt op uitzonderlijk satijnen katoen, biedt een unieke helderheid.',
-      p4: 'Ontdek een uitzonderlijk textielerfgoed, ontworpen voor wie kunst zoekt die resoneert met hun ziel.',
+      title: 'De Oorsprong van ATIP',
+      manifesto: 'We hebben geen merk gecreëerd. We hebben geweigerd een erfgoed te laten verdwijnen.',
+      p1: 'Opgroeien tussen twee werelden betekent leren Afrika in de herinnering te dragen. Ver van het continent maar nooit echt afwezig — verhalen gehoord in één taal, gebaren geleerd in een keuken, patronen gezien op stoffen bij vieringen — die stilletjes verdwijnen, generatie na generatie. ATIP is geboren uit een weigering dat te laten gebeuren.',
+      p2: 'Niet als een museum dat het verleden achter glas bewaart, maar als een levende creatie die het herinterpreteert voor vandaag. Elk handgetekend patroon is een daad van herinnering. Elk werk, een fragment van geschiedenis dat blijft leven op uw muur.',
+      p3: 'Wanneer u een ATIP-werk in uw huis verwelkomt, wordt u niet zomaar eigenaar van een decoratief object. U wordt hoeder van een levend erfgoed. U kiest ervoor om ruimte te geven — in uw dagelijks leven — aan iets dat eeuwen nodig had om geweven te worden.',
+      p4: 'ATIP — Art That Inspires People. Maar achter die woorden schuilt een overtuiging: hedendaagse Afrikaanse kunst hoeft niet uitgelegd te worden om gevoeld te worden. Ze heeft alleen ruimte nodig — in uw interieur, en misschien een beetje in uzelf.',
+      p5: 'Het ATIP signature stuk — 60×20 cm, ingelijst — is gemaakt voor aanwezigheid. Een verticaal formaat dat een muur vult zonder hem te overstelpen. Niet gekozen uit conventie, maar omdat sommige dingen het recht hebben om rechtop te staan.',
     },
     contact: {
       title: 'Informatie Aanvragen',
