@@ -39,7 +39,7 @@ const CollectionPage: React.FC = () => {
         <h1 className="text-3xl md:text-5xl font-aboreto text-title tracking-[0.1em] uppercase leading-tight mb-6">
           Collection
         </h1>
-        <div className="w-16 h-px bg-red-button/40 mx-auto"></div>
+
       </ScrollReveal>
 
       {/* Filtres */}

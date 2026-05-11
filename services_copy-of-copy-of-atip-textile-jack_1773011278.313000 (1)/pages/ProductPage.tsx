@@ -115,7 +115,7 @@ const ProductPage: React.FC = () => {
             </div>
           )}
           <div className="flex-1">
-            <div className="h-[500px] md:h-[700px] rounded-sm overflow-hidden shadow-2xl bg-black-button/10 relative">
+            <div className="h-[360px] md:h-[480px] rounded-sm overflow-hidden shadow-2xl bg-black-button/10 relative">
                 <ImageCarousel images={product.images} currentIndex={currentImageIndex} onIndexChange={setCurrentImageIndex} onFullScreenToggle={() => setIsFullScreen(true)} objectFit="contain" />
             </div>
           </div>

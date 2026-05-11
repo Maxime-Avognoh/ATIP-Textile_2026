@@ -145,7 +145,7 @@ const HomePage: React.FC = () => {
               </div>
 
               <div className="lg:col-span-7 flex flex-col items-start text-left">
-                  <div className="w-20 h-px bg-red-button/30 mb-6 mt-2 hidden lg:block"></div>
+
                   <p className="text-lg md:text-2xl text-red-button font-playfair italic leading-relaxed max-w-2xl">
                       {t('home.subtitle')}
                   </p>
