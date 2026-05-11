@@ -147,7 +147,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
                  <p className="text-sm md:text-base font-playfair italic text-white/80 mt-2 font-medium drop-shadow-md text-center transition-transform duration-700 delay-75 group-hover:translate-y-[-8px]">
                     € {product.price.toFixed(2)}
                  </p>
-                 <div className="mt-4 w-12 h-px bg-white/30 group-hover:w-24 transition-all duration-700"></div>
+
             </div>
             
             <div className={`absolute top-3 right-3 z-30 transition-opacity duration-500 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`} ref={menuRef}>
