@@ -88,7 +88,7 @@ const ProductPage: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-[56%_44%] items-start">
 
         {/* ── LEFT: sticky image ───────────────────────────────────────── */}
-        <div className="lg:sticky lg:top-20 h-[72vw] max-h-[88vh] lg:h-[calc(100vh-5rem)] overflow-hidden relative bg-[#f0ebe2]">
+        <div className="lg:sticky lg:top-20 mt-[15px] h-[72vw] max-h-[88vh] lg:h-[calc(100vh-5rem)] overflow-hidden relative bg-[#f0ebe2]">
 
           <ImageCarousel
             images={product.images}
