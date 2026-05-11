@@ -367,7 +367,7 @@ export const translations: { [key: string]: any } = {
     home: {
       tagline: 'Héritage Contemporain',
       title: 'Des fragments d\'histoires pour sublimer vos murs',
-      subtitle: ‘ATIP-Textile est une marque d’art textile africain contemporain, née du refus de la diaspora de laisser un héritage disparaître. À travers des motifs africains dessinés à la main, chaque pièce devient un fragment d’histoire que vous accueillez chez vous — et qui continue d’y vivre.’,
+      subtitle: "ATIP-Textile est une marque d’art textile africain contemporain, née du refus de la diaspora de laisser un héritage disparaître. À travers des motifs africains dessinés à la main, chaque pièce devient un fragment d’histoire que vous accueillez chez vous — et qui continue d’y vivre.",
       introText: 'quand l\'Afrique se raconte en motifs.',
       values: {
         v1: {
