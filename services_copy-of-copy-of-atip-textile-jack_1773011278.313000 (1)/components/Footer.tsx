@@ -104,7 +104,6 @@ const Footer: React.FC = () => {
              <Link to="/terms" className="hover:text-title transition-colors">{t('footer.terms')}</Link>
              <Link to="/shipping" className="hover:text-title transition-colors">{t('footer.shipping')}</Link>
              <Link to="/returns" className="hover:text-title transition-colors">{t('footer.returns')}</Link>
-             <Link to="/asset-manager" className="hover:text-title transition-colors">{t('footer.manageAssets')}</Link>
            </nav>
         </div>
       </div>

@@ -126,11 +126,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
             
             <div className={`absolute top-3 left-3 z-30 transition-opacity duration-500 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`}>
                 <button
-                    onClick={toggleFavorite}
-                    className={`p-2 rounded-full backdrop-blur-md transition-all duration-300 shadow-sm border border-white/20 hover:bg-white/20 bg-black/10 text-white/80 opacity-0 group-hover:opacity-100 ${isFavorite ? 'text-red-500 opacity-100' : ''}`}
+                    onClick={(e) => { e.preventDefault(); handleShare(e); }}
+                    className="p-2 rounded-full backdrop-blur-md transition-all duration-300 shadow-sm border border-white/20 hover:bg-white/20 bg-black/10 text-white/80 opacity-0 group-hover:opacity-100"
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 w-6 transition-colors duration-300 ${isFavorite ? 'fill-current' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12s-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.368a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
                     </svg>
                 </button>
             </div>
