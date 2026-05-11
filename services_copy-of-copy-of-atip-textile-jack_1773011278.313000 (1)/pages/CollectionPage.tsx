@@ -78,9 +78,7 @@ const CollectionPage: React.FC = () => {
       </div>
 
       {filtered.length === 0 && (
-        <div className="text-center py-24 text-subtitle/50 font-playfair italic text-lg">
-          —
-        </div>
+        <div className="text-center py-24 text-subtitle/50 font-playfair italic text-lg" />
       )}
     </div>
   );

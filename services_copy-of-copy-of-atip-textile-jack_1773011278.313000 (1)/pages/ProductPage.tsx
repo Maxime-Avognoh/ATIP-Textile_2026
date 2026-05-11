@@ -115,9 +115,8 @@ const ProductPage: React.FC = () => {
             </div>
           )}
           <div className="flex-1">
-            <div className="aspect-[3/4] rounded-sm overflow-hidden shadow-2xl bg-black-button/10 relative">
-                <div className="absolute inset-0 bg-title/5 animate-pulse-soft z-0" />
-                <ImageCarousel images={product.images} currentIndex={currentImageIndex} onIndexChange={setCurrentImageIndex} onFullScreenToggle={() => setIsFullScreen(true)} objectFit="cover" />
+            <div className="h-[500px] md:h-[700px] rounded-sm overflow-hidden shadow-2xl bg-black-button/10 relative">
+                <ImageCarousel images={product.images} currentIndex={currentImageIndex} onIndexChange={setCurrentImageIndex} onFullScreenToggle={() => setIsFullScreen(true)} objectFit="contain" />
             </div>
           </div>
         </div>
@@ -190,12 +189,27 @@ const ProductPage: React.FC = () => {
       </div>
 
       {isFullScreen && (
-        <div className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] flex items-center justify-center p-4 animate-fade-in" onClick={() => setIsFullScreen(false)} role="dialog" aria-modal="true">
-          <button onClick={() => setIsFullScreen(false)} className="absolute top-6 right-6 text-white/80 hover:text-red-button transition-colors z-[101]">
+        <div className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] overflow-y-auto animate-fade-in" onClick={() => setIsFullScreen(false)} role="dialog" aria-modal="true">
+          <button onClick={() => setIsFullScreen(false)} className="fixed top-6 right-6 text-white/80 hover:text-red-button transition-colors z-[101]">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
           </button>
-          <div className="relative w-full h-full max-w-7xl flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
-             <ImageCarousel images={product.images} currentIndex={currentImageIndex} onIndexChange={setCurrentImageIndex} objectFit="contain" />
+          <div className="flex flex-col items-center py-16 px-4 gap-4" onClick={(e) => e.stopPropagation()}>
+            <img
+              src={product.images[currentImageIndex]}
+              alt={product.images[currentImageIndex]}
+              className="max-w-4xl w-full h-auto object-contain"
+            />
+            {product.images.length > 1 && (
+              <div className="flex gap-3 mt-4">
+                {product.images.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentImageIndex(i)}
+                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === currentImageIndex ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/70'}`}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       )}
