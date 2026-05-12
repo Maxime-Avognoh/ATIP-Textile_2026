@@ -109,6 +109,7 @@ const ProductPage: React.FC = () => {
             onFullScreenToggle={() => setIsFullScreen(true)}
             objectFit="cover"
             showDots={false}
+            showArrows={showThumbs}
           />
 
           {/* Image counter — top right */}
