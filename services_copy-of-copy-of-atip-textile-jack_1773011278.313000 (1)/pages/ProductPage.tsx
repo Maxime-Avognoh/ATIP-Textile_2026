@@ -25,6 +25,14 @@ const ProductPage: React.FC = () => {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
+  const [showThumbs, setShowThumbs] = useState(true);
+  const thumbsTimer = React.useRef<number | null>(null);
+
+  const handleImageMouseMove = () => {
+    setShowThumbs(true);
+    if (thumbsTimer.current) clearTimeout(thumbsTimer.current);
+    thumbsTimer.current = window.setTimeout(() => setShowThumbs(false), 1000);
+  };
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
@@ -88,7 +96,11 @@ const ProductPage: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-[56%_44%] items-start">
 
         {/* ── LEFT: sticky image ───────────────────────────────────────── */}
-        <div className="lg:sticky lg:top-20 h-[72vw] max-h-[88vh] lg:h-[calc(100vh-5rem)] overflow-hidden relative bg-[#f0ebe2]">
+        <div
+          className="lg:sticky lg:top-20 mt-[30px] h-[72vw] max-h-[88vh] lg:h-[calc(100vh-5rem)] overflow-hidden relative bg-[#f0ebe2]"
+          onMouseMove={handleImageMouseMove}
+          onMouseLeave={() => setShowThumbs(false)}
+        >
 
           <ImageCarousel
             images={product.images}
@@ -104,9 +116,9 @@ const ProductPage: React.FC = () => {
             {currentImageIndex + 1} / {product.images.length}
           </div>
 
-          {/* Thumbnails — bottom strip */}
+          {/* Thumbnails — bottom strip (auto-hide after 1s inactivity) */}
           {product.images.length > 1 && (
-            <div className="absolute bottom-5 left-0 right-0 flex justify-center gap-2 px-4 z-20">
+            <div className={`absolute bottom-5 left-0 right-0 flex justify-center gap-2 px-4 z-20 transition-opacity duration-500 ${showThumbs ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               {product.images.map((img, index) => (
                 <button
                   key={img}
@@ -244,23 +256,12 @@ const ProductPage: React.FC = () => {
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <div className="flex flex-col items-center py-16 px-4 gap-6" onClick={(e) => e.stopPropagation()}>
+          <div className="flex flex-col items-center py-16 px-4" onClick={(e) => e.stopPropagation()}>
             <img
               src={product.images[currentImageIndex]}
               alt={getLocalized(product.name, locale)}
               className="max-w-4xl w-full h-auto object-contain"
             />
-            {product.images.length > 1 && (
-              <div className="flex gap-3">
-                {product.images.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrentImageIndex(i)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${i === currentImageIndex ? 'bg-white scale-125' : 'bg-white/30 hover:bg-white/60'}`}
-                  />
-                ))}
-              </div>
-            )}
           </div>
         </div>
       )}
