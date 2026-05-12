@@ -76,7 +76,7 @@ const ProductPage: React.FC = () => {
     );
   }
 
-  const suggestedProducts = products.filter(p => p.id !== id).slice(0, 2);
+  const suggestedProducts = products.filter(p => p.id !== id);
 
   if (!isReady) return <div className="min-h-screen bg-background" />;
 
@@ -110,9 +110,9 @@ const ProductPage: React.FC = () => {
             {currentImageIndex + 1} / {product.images.length}
           </div>
 
-          {/* Thumbnails — bottom strip (auto-hide after 1s inactivity) */}
+          {/* Thumbnails — bottom strip (desktop only, auto-hide after 1s inactivity) */}
           {product.images.length > 1 && (
-            <div className={`absolute bottom-5 left-0 right-0 flex justify-center gap-2 px-4 z-20 transition-opacity duration-500 ${showThumbs ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute bottom-5 left-0 right-0 hidden lg:flex justify-center gap-2 px-4 z-20 transition-opacity duration-500 ${showThumbs ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               {product.images.map((img, index) => (
                 <button
                   key={img}
@@ -132,11 +132,11 @@ const ProductPage: React.FC = () => {
         </div>
 
         {/* ── RIGHT: product info ──────────────────────────────────────── */}
-        <div className="flex flex-col px-8 lg:px-14 pt-16 lg:pt-20 pb-20">
+        <div className="flex flex-col px-8 lg:px-14 pt-8 lg:pt-20 pb-20">
           <div className="max-w-sm mx-auto lg:mx-0 w-full">
 
-            {/* Back link */}
-            <div className="mb-6">
+            {/* Back link — desktop only */}
+            <div className="hidden lg:block mb-6">
               <BackToCollectionLink />
             </div>
 
@@ -237,11 +237,20 @@ const ProductPage: React.FC = () => {
 
       {/* ── SUGGESTIONS ───────────────────────────────────────────────── */}
       {suggestedProducts.length > 0 && (
-        <div className="container mx-auto px-6 lg:px-16 py-24 border-t border-subtitle/10">
-          <p className="text-[9px] font-montserrat font-semibold tracking-[0.55em] text-subtitle/40 uppercase text-center mb-12">
+        <div className="py-14 border-t border-subtitle/10">
+          <p className="text-[9px] font-montserrat font-semibold tracking-[0.55em] text-subtitle/40 uppercase text-center mb-8 px-6">
             {t('product.suggestions.title')}
           </p>
-          <div className="grid grid-cols-2 max-w-2xl mx-auto gap-6 md:gap-10">
+          {/* Mobile: horizontal scroll */}
+          <div className="flex lg:hidden gap-4 overflow-x-auto pb-4 px-6 snap-x snap-mandatory scrollbar-hide">
+            {suggestedProducts.map((p, index) => (
+              <div key={p.id} className="flex-shrink-0 w-[58vw] snap-start">
+                <ProductCard product={p} index={index} />
+              </div>
+            ))}
+          </div>
+          {/* Desktop: grid */}
+          <div className="hidden lg:grid container mx-auto px-16 grid-cols-4 gap-6">
             {suggestedProducts.map((p, index) => (
               <ProductCard key={p.id} product={p} index={index} />
             ))}
