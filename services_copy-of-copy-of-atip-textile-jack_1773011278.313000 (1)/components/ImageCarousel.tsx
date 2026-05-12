@@ -10,6 +10,7 @@ interface ImageCarouselProps {
   onFullScreenToggle?: () => void;
   objectFit?: 'cover' | 'contain';
   showDots?: boolean;
+  showArrows?: boolean;
 }
 
 const ImageCarousel: React.FC<ImageCarouselProps> = ({
@@ -19,6 +20,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   onFullScreenToggle,
   objectFit = 'cover',
   showDots = true,
+  showArrows = true,
 }) => {
   const { t } = useLocale();
   const touchStartRef = useRef<number | null>(null);
@@ -90,7 +92,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
       </div>
       <button
         onClick={goToPrevious}
-        className="absolute top-1/2 left-4 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors focus:outline-none z-20"
+        className={`absolute top-1/2 left-4 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 focus:outline-none z-20 transition-all duration-500 ${showArrows ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         aria-label="Previous image"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -99,7 +101,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
       </button>
       <button
         onClick={goToNext}
-        className="absolute top-1/2 right-4 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors focus:outline-none z-20"
+        className={`absolute top-1/2 right-4 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 focus:outline-none z-20 transition-all duration-500 ${showArrows ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         aria-label="Next image"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

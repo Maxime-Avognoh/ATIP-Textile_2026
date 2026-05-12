@@ -38,14 +38,18 @@ const Header: React.FC<HeaderProps> = ({ onTitleClick }) => {
 
   const currentLanguage = languages.find(l => l.code === locale) || languages[0];
 
+  const isProductPage = location.pathname.startsWith('/product/');
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPos = window.scrollY;
       setScrolled(scrollPos > 20);
-      
+
       if (location.pathname === '/') {
-        const threshold = window.innerHeight * 0.7; 
+        const threshold = window.innerHeight * 0.7;
         setIsVisible(scrollPos > threshold);
+      } else if (isProductPage) {
+        setIsVisible(scrollPos > 80);
       } else {
         setIsVisible(true);
       }
@@ -54,17 +58,19 @@ const Header: React.FC<HeaderProps> = ({ onTitleClick }) => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [location.pathname]);
+  }, [location.pathname, isProductPage]);
 
   useEffect(() => {
-    if (location.pathname !== '/') {
+    if (location.pathname !== '/' && !isProductPage) {
       const timeout = setTimeout(() => setIsVisible(true), 100);
       return () => clearTimeout(timeout);
-    } else {
+    } else if (location.pathname === '/') {
       const threshold = window.innerHeight * 0.7;
       setIsVisible(window.scrollY > threshold);
+    } else {
+      setIsVisible(window.scrollY > 80);
     }
-  }, [location.pathname]);
+  }, [location.pathname, isProductPage]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
