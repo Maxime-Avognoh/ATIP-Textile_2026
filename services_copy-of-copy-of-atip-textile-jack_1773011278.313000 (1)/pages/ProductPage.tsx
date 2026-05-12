@@ -22,7 +22,6 @@ const ProductPage: React.FC = () => {
 
   const [added, setAdded] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isFullScreen, setIsFullScreen] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
   const [showThumbs, setShowThumbs] = useState(true);
@@ -39,11 +38,6 @@ const ProductPage: React.FC = () => {
     const timer = setTimeout(() => setIsReady(true), 50);
     return () => clearTimeout(timer);
   }, [id]);
-
-  useEffect(() => {
-    document.body.style.overflow = isFullScreen ? 'hidden' : 'unset';
-    return () => { document.body.style.overflow = 'unset'; };
-  }, [isFullScreen]);
 
   const handleAddToCart = () => {
     if (product) {
@@ -97,7 +91,7 @@ const ProductPage: React.FC = () => {
 
         {/* ── LEFT: sticky image ───────────────────────────────────────── */}
         <div
-          className="lg:sticky lg:top-20 mt-[30px] h-[72vw] max-h-[88vh] lg:h-[calc(100vh-5rem)] overflow-hidden relative bg-[#f0ebe2]"
+          className="lg:sticky lg:top-0 h-[80vw] max-h-[90vh] lg:h-screen overflow-hidden relative bg-[#f0ebe2]"
           onMouseMove={handleImageMouseMove}
           onMouseLeave={() => setShowThumbs(false)}
         >
@@ -106,7 +100,6 @@ const ProductPage: React.FC = () => {
             images={product.images}
             currentIndex={currentImageIndex}
             onIndexChange={setCurrentImageIndex}
-            onFullScreenToggle={() => setIsFullScreen(true)}
             objectFit="cover"
             showDots={false}
             showArrows={showThumbs}
@@ -139,16 +132,16 @@ const ProductPage: React.FC = () => {
         </div>
 
         {/* ── RIGHT: product info ──────────────────────────────────────── */}
-        <div className="flex flex-col px-8 lg:px-14 pt-32 lg:pt-36 pb-20">
+        <div className="flex flex-col px-8 lg:px-14 pt-16 lg:pt-20 pb-20">
           <div className="max-w-sm mx-auto lg:mx-0 w-full">
 
             {/* Back link */}
-            <div className="mb-10">
+            <div className="mb-6">
               <BackToCollectionLink />
             </div>
 
             {/* Tagline */}
-            <p className="text-[9px] font-montserrat font-semibold tracking-[0.55em] text-red-button uppercase mb-4">
+            <p className="text-[9px] font-montserrat font-semibold tracking-[0.55em] text-red-button uppercase mb-3">
               {t('product.tagline')}
             </p>
 
@@ -166,18 +159,18 @@ const ProductPage: React.FC = () => {
 
             {/* Subtitle */}
             {product.subtitle && (
-              <p className="text-[10px] font-montserrat font-medium tracking-[0.35em] uppercase text-red-button/60 mb-8">
+              <p className="text-[10px] font-montserrat font-medium tracking-[0.35em] uppercase text-red-button/60 mb-5">
                 {getLocalized(product.subtitle, locale)}
               </p>
             )}
 
             {/* Price */}
-            <p className="text-3xl font-playfair italic text-title mb-10">
+            <p className="text-3xl font-playfair italic text-title mb-7">
               € {product.price.toFixed(2)}
             </p>
 
             {/* ── CTAs ── */}
-            <div className="flex flex-col gap-3 mb-10">
+            <div className="flex flex-col gap-3 mb-7">
               {/* Primary */}
               <button
                 onClick={handleAddToCart}
@@ -200,10 +193,10 @@ const ProductPage: React.FC = () => {
             </div>
 
             {/* Divider */}
-            <div className="border-t border-subtitle/10 mb-8" />
+            <div className="border-t border-subtitle/10 mb-6" />
 
             {/* Story */}
-            <div className="mb-8">
+            <div className="mb-6">
               <p className="text-[9px] font-montserrat font-semibold tracking-[0.55em] text-subtitle/40 uppercase mb-4">
                 {t('product.story')}
               </p>
@@ -241,31 +234,6 @@ const ProductPage: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* ── FULLSCREEN MODAL ──────────────────────────────────────────── */}
-      {isFullScreen && (
-        <div
-          className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] overflow-y-auto animate-fade-in"
-          onClick={() => setIsFullScreen(false)}
-          role="dialog" aria-modal="true"
-        >
-          <button
-            onClick={() => setIsFullScreen(false)}
-            className="fixed top-6 right-6 text-white/70 hover:text-white transition-colors z-[101]"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-          <div className="flex flex-col items-center py-16 px-4" onClick={(e) => e.stopPropagation()}>
-            <img
-              src={product.images[currentImageIndex]}
-              alt={getLocalized(product.name, locale)}
-              className="max-w-4xl w-full h-auto object-contain"
-            />
-          </div>
-        </div>
-      )}
 
       {/* ── SUGGESTIONS ───────────────────────────────────────────────── */}
       {suggestedProducts.length > 0 && (
