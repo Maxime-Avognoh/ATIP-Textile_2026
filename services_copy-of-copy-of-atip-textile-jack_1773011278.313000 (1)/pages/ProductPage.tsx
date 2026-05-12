@@ -132,11 +132,11 @@ const ProductPage: React.FC = () => {
         </div>
 
         {/* ── RIGHT: product info ──────────────────────────────────────── */}
-        <div className="flex flex-col px-8 lg:px-14 pt-8 lg:pt-20 pb-20">
+        <div className="flex flex-col px-8 lg:px-14 pt-8 lg:pt-5 pb-20">
           <div className="max-w-sm mx-auto lg:mx-0 w-full">
 
             {/* Back link — desktop only */}
-            <div className="hidden lg:block mb-6">
+            <div className="hidden lg:block mb-8">
               <BackToCollectionLink />
             </div>
 

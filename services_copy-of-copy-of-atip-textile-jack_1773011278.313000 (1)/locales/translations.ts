@@ -88,7 +88,7 @@ export const translations: { [key: string]: any } = {
     home: {
       tagline: "Contemporary Heritage",
       title: "Fragments of stories to enhance your walls",
-      subtitle: "ATIP-Textile is a contemporary African textile art brand created to tell Africa's story in a modern and authentic way. Through hand-drawn African patterns, each artwork becomes a fragment of history, memory, and emotion.",
+      subtitle: "ATIP-Textile is a contemporary African textile art brand, born from the diaspora's refusal to let a heritage disappear. Through hand-drawn African patterns, each piece becomes a fragment of history that you carry into your home, and that continues to live there.",
       introText: "when Africa is told in patterns.",
       values: {
         v1: {
@@ -365,7 +365,7 @@ export const translations: { [key: string]: any } = {
     home: {
       tagline: 'Héritage Contemporain',
       title: 'Des fragments d\'histoires pour sublimer vos murs',
-      subtitle: 'ATIP-Textile est une marque d’art textile africain contemporain créée pour raconter l’histoire de l’Afrique de manière moderne et authentique. À travers des motifs africains dessinés à la main, chaque œuvre devient un fragment d’histoire, de mémoire et d’émotion.',
+      subtitle: ‘ATIP-Textile est une marque d’art textile africain contemporain, née du refus de la diaspora de laisser disparaître un héritage. À travers des motifs africains dessinés à la main, chaque pièce devient un fragment d’histoire que vous portez chez vous, et qui continue d’y vivre.’,
       introText: 'quand l\'Afrique se raconte en motifs.',
       values: {
         v1: {
@@ -618,7 +618,7 @@ export const translations: { [key: string]: any } = {
     },
     home: {
       title: 'Fragmentos de historias para realzar sus paredes',
-      subtitle: 'ATIP-Textile es una marca de arte textil africano contemporáneo creada para contar la historia de África de una manera moderna y auténtica. A través de patrones africanos dibujados a mano, cada obra de arte se convierte en un fragmento de historia, memoria y emoción.',
+      subtitle: 'ATIP-Textile es una marca de arte textil africano contemporáneo, nacida del rechazo de la diáspora a dejar desaparecer una herencia. A través de motivos africanos dibujados a mano, cada pieza se convierte en un fragmento de historia que llevas a tu hogar, y que sigue viviendo allí.',
       introText: 'cuando África se cuenta en patrones.',
       values: {
         v1: {
@@ -884,7 +884,7 @@ export const translations: { [key: string]: any } = {
     },
     home: {
       title: 'Frammenti di storie per valorizzare i tuoi muri',
-      subtitle: 'ATIP-Textile è un marchio di arte tessile africana contemporanea creato per raccontare la storia dell\'Africa in modo moderno e autentico. Attraverso motivi africani disegnati a mano, ogni opera diventa un frammento di storia, memoria ed emozione.',
+      subtitle: 'ATIP-Textile è un marchio di arte tessile africana contemporanea, nato dal rifiuto della diaspora di lasciar scomparire un patrimonio. Attraverso motivi africani disegnati a mano, ogni pezzo diventa un frammento di storia che porti nella tua casa, e che continua a viverci.',
       introText: 'quando l\'Africa si racconta in motivi.',
       values: {
         v1: { tagline: 'Autenticità', title: 'Sincerità Culturale', text: 'Raccontare l\'Africa con rispetto. Motivi pensati come frammenti di storie, lontani dai cliché, per una visione contemporanea e plurale.' },
@@ -1043,7 +1043,7 @@ export const translations: { [key: string]: any } = {
     },
     home: {
       title: 'Fragmente von Geschichten für Ihre Wände',
-      subtitle: 'ATIP-Textile ist eine zeitgenössische afrikanische Textilkunstmarke, die gegründet wurde, um Afrikas Geschichte auf moderne und authentische Weise zu erzählen. Durch handgezeichnete afrikanische Muster wird jedes Kunstwerk zu einem Fragment aus Geschichte, Erinnerung und Emotion.',
+      subtitle: 'ATIP-Textile ist eine zeitgenössische afrikanische Textilkunstmarke, geboren aus der Weigerung der Diaspora, ein Erbe verschwinden zu lassen. Durch handgezeichnete afrikanische Muster wird jedes Stück zu einem Fragment der Geschichte, das du in dein Zuhause trägst, und das dort weiterlebt.',
       introText: 'wenn Afrika in Mustern erzählt wird.',
       values: {
         v1: { tagline: 'Authentizität', title: 'Kulturelle Aufrichtigkeit', text: 'Afrika mit Respekt erzählen. Muster als Fragmente von Geschichten, weit entfernt von Klischees, für eine zeitgenössische und plurale Vision.' },
@@ -1202,7 +1202,7 @@ export const translations: { [key: string]: any } = {
     },
     home: {
       title: 'Fragmentos de histórias para valorizar as suas paredes',
-      subtitle: 'A ATIP-Textile é uma marca de arte têxtil africana contemporânea criada para contar a história de África de forma moderna e autêntica. Através de padrões africanos desenhados à mão, cada obra torna-se um fragmento de história, memória e emoção.',
+      subtitle: 'A ATIP-Textile é uma marca de arte têxtil africana contemporânea, nascida da recusa da diáspora em deixar um património desaparecer. Através de padrões africanos desenhados à mão, cada peça torna-se um fragmento de história que levas para a tua casa, e que continua a viver lá.',
       introText: 'quando África se conta em padrões.',
       values: {
         v1: { tagline: 'Autenticidade', title: 'Sinceridade Cultural', text: 'Contar África com respeito. Padrões concebidos como fragmentos de histórias, longe dos clichés, para uma visão contemporânea e plural.' },
@@ -1361,7 +1361,7 @@ export const translations: { [key: string]: any } = {
     },
     home: {
       title: 'Fragmenten van verhalen voor uw muren',
-      subtitle: 'ATIP-Textile is een hedendaags Afrikaans textielkunstmerk, opgericht om het verhaal van Afrika op een moderne en authentieke manier te vertellen. Door handgetekende Afrikaanse patronen wordt elk kunstwerk een fragment van geschiedenis, herinnering en emotie.',
+      subtitle: 'ATIP-Textile is een hedendaags Afrikaans textielkunstmerk, geboren uit de weigering van de diaspora om een erfgoed te laten verdwijnen. Door handgetekende Afrikaanse patronen wordt elk stuk een fragment van geschiedenis dat je mee naar huis neemt, en dat daar blijft leven.',
       introText: 'wanneer Afrika verteld wordt in patronen.',
       values: {
         v1: { tagline: 'Authenticiteit', title: 'Culturele Oprechtheid', text: 'Afrika vertellen met respect. Patronen als fragmenten van verhalen, ver van clichés, voor een hedendaagse en plurale visie.' },
