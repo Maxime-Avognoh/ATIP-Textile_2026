@@ -3,6 +3,32 @@ import { Product } from './types';
 
 export const PRODUCTS: Product[] = [
   {
+    id: '5',
+    name: {
+      en: 'Wax and Honey',
+      fr: 'Wax and Honey',
+      es: 'Wax and Honey'
+    },
+    subtitle: {
+      en: '60x20 cm | unframed',
+      fr: '60x20 cm | sans cadre',
+      es: '60x20 cm | sin marco'
+    },
+    price: 76.00,
+    description: {
+      en: '',
+      fr: '',
+      es: ''
+    },
+    images: [
+      'https://storage.googleapis.com/atip_storage/W%26H_face.jpg',
+      'https://storage.googleapis.com/atip_storage/W%26H_side.jpg',
+      'https://storage.googleapis.com/atip_storage/W%26H_side_side.jpg',
+      'https://storage.googleapis.com/atip_storage/W%26H_zoom.jpg',
+      'https://storage.googleapis.com/atip_storage/W%26H_zoom_face.jpg',
+    ],
+  },
+  {
     id: '4',
     name: {
       en: 'Aloe Flowers',
@@ -104,32 +130,6 @@ export const PRODUCTS: Product[] = [
       'https://storage.googleapis.com/atip_storage/ATIP_Framing_side.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_Framing_pano_vert.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_Framing_wall_vert.jpg',
-    ],
-  },
-  {
-    id: '5',
-    name: {
-      en: 'Wax and Honey',
-      fr: 'Wax and Honey',
-      es: 'Wax and Honey'
-    },
-    subtitle: {
-      en: '60x20 cm | unframed',
-      fr: '60x20 cm | sans cadre',
-      es: '60x20 cm | sin marco'
-    },
-    price: 76.00,
-    description: {
-      en: '',
-      fr: '',
-      es: ''
-    },
-    images: [
-      'https://storage.googleapis.com/atip_storage/W%26H_face.jpg',
-      'https://storage.googleapis.com/atip_storage/W%26H_side.jpg',
-      'https://storage.googleapis.com/atip_storage/W%26H_side_side.jpg',
-      'https://storage.googleapis.com/atip_storage/W%26H_zoom.jpg',
-      'https://storage.googleapis.com/atip_storage/W%26H_zoom_face.jpg',
     ],
   },
 ];
