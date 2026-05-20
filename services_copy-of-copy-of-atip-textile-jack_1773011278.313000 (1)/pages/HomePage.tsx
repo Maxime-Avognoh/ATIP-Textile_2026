@@ -84,7 +84,7 @@ const HomePage: React.FC = () => {
   }, []);
 
   // ❤️ MODIFIER ICI POUR CHANGER LE NOMBRE DE PRODUITS AFFICHÉS
-  const allFeatured = products.filter(p => p.id === '1' || p.id === '2' || p.id === '3' || p.id === '4');
+  const allFeatured = products.filter(p => p.id === '5' || p.id === '1' || p.id === '2' || p.id === '3' || p.id === '4');
   const isFramed = (subtitle: { [key: string]: string }) => !subtitle.en?.toLowerCase().includes('unframed');
   const featuredProducts = allFeatured.filter(p => {
     if (activeFilter === 'framed') return isFramed(p.subtitle);
