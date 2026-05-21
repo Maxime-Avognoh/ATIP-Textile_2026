@@ -21,6 +21,8 @@ export const PRODUCTS: Product[] = [
       es: ''
     },
     images: [
+      'https://storage.googleapis.com/atip_storage/W%26H_Vert_face.JPG',
+      'https://storage.googleapis.com/atip_storage/W%26H_Vert_side.JPG',
       'https://storage.googleapis.com/atip_storage/W%26H_face.jpg',
       'https://storage.googleapis.com/atip_storage/W%26H_side.jpg',
       'https://storage.googleapis.com/atip_storage/W%26H_side_side.jpg',
