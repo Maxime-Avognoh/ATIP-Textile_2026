@@ -3,6 +3,31 @@ import { Product } from './types';
 
 export const PRODUCTS: Product[] = [
   {
+    id: '6',
+    name: {
+      en: 'Festive Night',
+      fr: 'Nuit Festive',
+      es: 'Noche Festiva'
+    },
+    subtitle: {
+      en: '20x20 cm | framed',
+      fr: '20x20 cm | encadré',
+      es: '20x20 cm | enmarcado'
+    },
+    price: 76.00,
+    description: {
+      en: '',
+      fr: '',
+      es: ''
+    },
+    images: [
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_NF_Front.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_NF_Bellow.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_NF_Corner_Top.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_NF_Corner_BR.jpg',
+    ],
+  },
+  {
     id: '5',
     name: {
       en: 'Wax and Honey',
