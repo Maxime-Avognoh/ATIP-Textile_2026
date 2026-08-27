@@ -14,7 +14,7 @@ export const PRODUCTS: Product[] = [
       fr: '20x20 cm | encadré',
       es: '20x20 cm | enmarcado'
     },
-    price: 76.00,
+    price: 39.90,
     description: {
       en: '',
       fr: '',
@@ -25,6 +25,56 @@ export const PRODUCTS: Product[] = [
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_NF_%20Bellow.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_NF_%20Corner_top.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_NF_%20Corner_BR.jpg',
+    ],
+  },
+  {
+    id: '8',
+    name: {
+      en: 'Dragonflies',
+      fr: 'Libellules',
+      es: 'Libélulas'
+    },
+    subtitle: {
+      en: '20x20 cm | framed',
+      fr: '20x20 cm | encadré',
+      es: '20x20 cm | enmarcado'
+    },
+    price: 39.90,
+    description: {
+      en: '',
+      fr: '',
+      es: ''
+    },
+    images: [
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_DF_Front.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_DF_Bellow.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_DF_Corner_BL.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_DF_Bellow_CL.jpg',
+    ],
+  },
+  {
+    id: '7',
+    name: {
+      en: 'Aloe Flowers',
+      fr: 'Aloe Flowers',
+      es: 'Aloe Flowers'
+    },
+    subtitle: {
+      en: '20x20 cm | framed',
+      fr: '20x20 cm | encadré',
+      es: '20x20 cm | enmarcado'
+    },
+    price: 39.90,
+    description: {
+      en: '',
+      fr: '',
+      es: ''
+    },
+    images: [
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_AF_Front.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_AF_Bellow.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_AF_Corner_TR.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_AF_Inclined.jpg',
     ],
   },
   {
