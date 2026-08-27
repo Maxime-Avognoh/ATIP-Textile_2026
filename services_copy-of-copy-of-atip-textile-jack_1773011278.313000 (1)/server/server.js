@@ -1640,6 +1640,8 @@ app.get('/', (req, res) => {
         if (injectedHtml.includes('<head>')) {
             injectedHtml = injectedHtml.replace('<head>', `<head>${webSocketInterceptorScriptTag}${serviceWorkerRegistrationScript}`);
         }
+        res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+        res.setHeader('Pragma', 'no-cache');
         res.send(injectedHtml);
     });
 });
