@@ -145,7 +145,7 @@ const HomePage: React.FC = () => {
                 <span className="text-xs font-montserrat font-semibold tracking-[0.4em] text-subtitle/50 uppercase whitespace-nowrap">60 × 20 cm</span>
                 <div className="flex-1 h-px bg-subtitle/10" />
               </div>
-              <div className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 lg:-mx-16 lg:px-16">
+              <div className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-6 px-4 lg:mx-0 lg:px-0">
                 {products60x20.map((product, index) => (
                   <div key={product.id} className="flex-shrink-0 w-72 snap-start flex flex-col gap-3">
                     <div className="transition-transform duration-700 hover:-translate-y-4">
@@ -164,7 +164,7 @@ const HomePage: React.FC = () => {
                 <span className="text-xs font-montserrat font-semibold tracking-[0.4em] text-subtitle/50 uppercase whitespace-nowrap">20 × 20 cm</span>
                 <div className="flex-1 h-px bg-subtitle/10" />
               </div>
-              <div className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 lg:-mx-16 lg:px-16">
+              <div className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-6 px-4 lg:mx-0 lg:px-0">
                 {products20x20.map((product, index) => (
                   <div key={product.id} className="flex-shrink-0 w-72 snap-start flex flex-col gap-3">
                     <div className="transition-transform duration-700 hover:-translate-y-4">
