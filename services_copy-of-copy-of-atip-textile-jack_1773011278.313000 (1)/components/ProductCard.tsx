@@ -122,7 +122,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
                 />
             </div>
             
-            <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent transition-opacity duration-700 ${isImageLoaded ? 'opacity-90 group-hover:opacity-100' : 'opacity-0'}`} />
+            <div className={`absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent transition-opacity duration-700 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`} />
             
             <div className={`absolute top-3 left-3 z-30 transition-opacity duration-500 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`}>
                 <button

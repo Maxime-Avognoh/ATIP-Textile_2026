@@ -138,52 +138,38 @@ const HomePage: React.FC = () => {
               </div>
           </ScrollReveal>
 
-          {/* Catégorie 20x20 cm */}
-          {products20x20.length > 0 && (
+          {/* Catégorie 60x20 cm */}
+          {products60x20.length > 0 && (
             <div className="w-full">
-              <div className="flex items-center gap-6 mb-10">
-                <span className="text-[10px] font-montserrat font-semibold tracking-[0.5em] text-subtitle/40 uppercase whitespace-nowrap">20 × 20 cm</span>
+              <div className="flex items-center gap-8 mb-10">
+                <span className="text-xs font-montserrat font-semibold tracking-[0.4em] text-subtitle/50 uppercase whitespace-nowrap">60 × 20 cm</span>
                 <div className="flex-1 h-px bg-subtitle/10" />
               </div>
-              <div className="flex gap-8 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 lg:-mx-16 lg:px-16">
-                {products20x20.map((product, index) => (
-                  <div key={product.id} className="flex-shrink-0 w-64 snap-start flex flex-col gap-4">
+              <div className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 lg:-mx-16 lg:px-16">
+                {products60x20.map((product, index) => (
+                  <div key={product.id} className="flex-shrink-0 w-72 snap-start flex flex-col gap-3">
                     <div className="transition-transform duration-700 hover:-translate-y-4">
                       <ProductCard product={product} index={index} />
                     </div>
-                    {product.subtitle && (
-                      <div className="text-center">
-                        <p className="text-[10px] font-montserrat font-bold tracking-[0.3em] uppercase text-red-button/80">
-                          {getLocalized(product.subtitle, locale)}
-                        </p>
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>
             </div>
           )}
 
-          {/* Catégorie 60x20 cm */}
-          {products60x20.length > 0 && (
+          {/* Catégorie 20x20 cm */}
+          {products20x20.length > 0 && (
             <div className="w-full">
-              <div className="flex items-center gap-6 mb-10">
-                <span className="text-[10px] font-montserrat font-semibold tracking-[0.5em] text-subtitle/40 uppercase whitespace-nowrap">60 × 20 cm</span>
+              <div className="flex items-center gap-8 mb-10">
+                <span className="text-xs font-montserrat font-semibold tracking-[0.4em] text-subtitle/50 uppercase whitespace-nowrap">20 × 20 cm</span>
                 <div className="flex-1 h-px bg-subtitle/10" />
               </div>
-              <div className="flex gap-8 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 lg:-mx-16 lg:px-16">
-                {products60x20.map((product, index) => (
-                  <div key={product.id} className="flex-shrink-0 w-72 snap-start flex flex-col gap-4">
+              <div className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 lg:-mx-16 lg:px-16">
+                {products20x20.map((product, index) => (
+                  <div key={product.id} className="flex-shrink-0 w-72 snap-start flex flex-col gap-3">
                     <div className="transition-transform duration-700 hover:-translate-y-4">
                       <ProductCard product={product} index={index} />
                     </div>
-                    {product.subtitle && (
-                      <div className="text-center">
-                        <p className="text-[10px] font-montserrat font-bold tracking-[0.3em] uppercase text-red-button/80">
-                          {getLocalized(product.subtitle, locale)}
-                        </p>
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>
