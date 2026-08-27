@@ -1,6 +1,6 @@
 import { getLocalized } from '../types';
 
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import ScrollReveal from '../components/ScrollReveal';
 import { useLocale } from '../context/LocaleContext';
@@ -16,15 +16,6 @@ const HomePage: React.FC = () => {
   const mainContentRef = useRef<HTMLDivElement>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
-  const [activeFilter, setActiveFilter] = useState<'all' | 'framed' | 'unframed'>('all');
-
-  const FILTER_LABELS: Record<'all' | 'framed' | 'unframed', Record<string, string>> = {
-    all:      { en: 'All', fr: 'Tous', es: 'Todos', it: 'Tutti', de: 'Alle', pt: 'Todos', nl: 'Alle' },
-    framed:   { en: 'Framed', fr: 'Encadrés', es: 'Enmarcados', it: 'Incorniciati', de: 'Gerahmt', pt: 'Emoldurados', nl: 'Ingelijst' },
-    unframed: { en: 'Unframed', fr: 'Sans cadre', es: 'Sin marco', it: 'Senza cornice', de: 'Ohne Rahmen', pt: 'Sem moldura', nl: 'Zonder lijst' },
-  };
-  const filterLabel = useCallback((key: 'all' | 'framed' | 'unframed') =>
-    FILTER_LABELS[key][locale] ?? FILTER_LABELS[key].en, [locale]);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 767px)');
@@ -83,14 +74,9 @@ const HomePage: React.FC = () => {
     };
   }, []);
 
-  // ❤️ MODIFIER ICI POUR CHANGER LE NOMBRE DE PRODUITS AFFICHÉS
   const allFeatured = products.filter(p => p.id === '6' || p.id === '5' || p.id === '1' || p.id === '2' || p.id === '3' || p.id === '4');
-  const isFramed = (subtitle: { [key: string]: string }) => !subtitle.en?.toLowerCase().includes('unframed');
-  const featuredProducts = allFeatured.filter(p => {
-    if (activeFilter === 'framed') return isFramed(p.subtitle);
-    if (activeFilter === 'unframed') return !isFramed(p.subtitle);
-    return true;
-  });
+  const products20x20 = allFeatured.filter(p => p.subtitle.en?.includes('20x20'));
+  const products60x20 = allFeatured.filter(p => !p.subtitle.en?.includes('20x20'));
 
   return (
     <div className="pb-12">
@@ -152,42 +138,57 @@ const HomePage: React.FC = () => {
               </div>
           </ScrollReveal>
 
-          {/* Filtres encadré / sans cadre */}
-          <div className="flex justify-center gap-3 flex-wrap -mt-8">
-            {(['all', 'framed', 'unframed'] as const).map(key => (
-              <button
-                key={key}
-                onClick={() => setActiveFilter(key)}
-                className={`px-6 py-2.5 text-xs font-montserrat font-medium tracking-[0.3em] uppercase rounded-sm border transition-all duration-300 ${
-                  activeFilter === key
-                    ? 'bg-red-button text-white border-red-button'
-                    : 'bg-transparent text-subtitle border-subtitle/30 hover:border-red-button hover:text-red-button'
-                }`}
-              >
-                {filterLabel(key)}
-              </button>
-            ))}
-          </div>
-
-          {/* ❤️ MODIFIER ICI POUR CHANGER LA GRILLE (ex: lg:grid-cols-2 pour 2 colonnes) */}
-          <div className="w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12 lg:gap-16">
-              {featuredProducts.map((product, index) => (
-                <ScrollReveal key={product.id} delay={index * 120} className="flex flex-col gap-4">
-                  <div className="transition-transform duration-700 hover:-translate-y-4">
+          {/* Catégorie 20x20 cm */}
+          {products20x20.length > 0 && (
+            <div className="w-full">
+              <div className="flex items-center gap-6 mb-10">
+                <span className="text-[10px] font-montserrat font-semibold tracking-[0.5em] text-subtitle/40 uppercase whitespace-nowrap">20 × 20 cm</span>
+                <div className="flex-1 h-px bg-subtitle/10" />
+              </div>
+              <div className="flex gap-8 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 lg:-mx-16 lg:px-16">
+                {products20x20.map((product, index) => (
+                  <div key={product.id} className="flex-shrink-0 w-64 snap-start flex flex-col gap-4">
+                    <div className="transition-transform duration-700 hover:-translate-y-4">
                       <ProductCard product={product} index={index} />
-                  </div>
-                  {product.subtitle && (
-                    <div className="text-center">
-                      <p className="text-[10px] md:text-xs font-montserrat font-bold tracking-[0.3em] uppercase text-red-button/80">
-                        {getLocalized(product.subtitle, locale)}
-                      </p>
                     </div>
-                  )}
-                </ScrollReveal>
-              ))}
+                    {product.subtitle && (
+                      <div className="text-center">
+                        <p className="text-[10px] font-montserrat font-bold tracking-[0.3em] uppercase text-red-button/80">
+                          {getLocalized(product.subtitle, locale)}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
+
+          {/* Catégorie 60x20 cm */}
+          {products60x20.length > 0 && (
+            <div className="w-full">
+              <div className="flex items-center gap-6 mb-10">
+                <span className="text-[10px] font-montserrat font-semibold tracking-[0.5em] text-subtitle/40 uppercase whitespace-nowrap">60 × 20 cm</span>
+                <div className="flex-1 h-px bg-subtitle/10" />
+              </div>
+              <div className="flex gap-8 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 lg:-mx-16 lg:px-16">
+                {products60x20.map((product, index) => (
+                  <div key={product.id} className="flex-shrink-0 w-72 snap-start flex flex-col gap-4">
+                    <div className="transition-transform duration-700 hover:-translate-y-4">
+                      <ProductCard product={product} index={index} />
+                    </div>
+                    {product.subtitle && (
+                      <div className="text-center">
+                        <p className="text-[10px] font-montserrat font-bold tracking-[0.3em] uppercase text-red-button/80">
+                          {getLocalized(product.subtitle, locale)}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* 3. VALEURS (Authenticité, Artisanat, Design) */}
           <section className="w-full border-t border-subtitle/10 pt-24 pb-12">
