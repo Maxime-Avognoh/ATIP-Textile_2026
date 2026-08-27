@@ -24,13 +24,21 @@ const ProductPage: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isReady, setIsReady] = useState(false);
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
-  const [showThumbs, setShowThumbs] = useState(true);
+  const [showThumbs, setShowThumbs] = useState(false);
+  const [showArrows, setShowArrows] = useState(false);
   const thumbsTimer = React.useRef<number | null>(null);
 
   const handleImageMouseMove = () => {
+    setShowArrows(true);
     setShowThumbs(true);
     if (thumbsTimer.current) clearTimeout(thumbsTimer.current);
     thumbsTimer.current = window.setTimeout(() => setShowThumbs(false), 1000);
+  };
+
+  const handleImageMouseLeave = () => {
+    setShowArrows(false);
+    setShowThumbs(false);
+    if (thumbsTimer.current) clearTimeout(thumbsTimer.current);
   };
 
   useLayoutEffect(() => {
@@ -93,7 +101,7 @@ const ProductPage: React.FC = () => {
         <div
           className="lg:sticky lg:top-0 h-[80vw] max-h-[90vh] lg:h-screen overflow-hidden relative bg-[#f0ebe2] lg:pt-16"
           onMouseMove={handleImageMouseMove}
-          onMouseLeave={() => setShowThumbs(false)}
+          onMouseLeave={handleImageMouseLeave}
         >
 
           <ImageCarousel
@@ -102,7 +110,7 @@ const ProductPage: React.FC = () => {
             onIndexChange={setCurrentImageIndex}
             objectFit="cover"
             showDots={false}
-            showArrows={showThumbs}
+            showArrows={showArrows}
           />
 
           {/* Image counter — top right */}
