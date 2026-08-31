@@ -1,4 +1,5 @@
 import { getLocalized } from '../types';
+import { getSeptemberPromo } from '../utils/promo';
 
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -19,6 +20,7 @@ const ProductPage: React.FC = () => {
   const navigate = useNavigate();
 
   const product = id ? getProductById(id) : undefined;
+  const { isOnSale, salePrice, discountPct } = getSeptemberPromo(product?.price ?? 0);
 
   const [added, setAdded] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -173,9 +175,25 @@ const ProductPage: React.FC = () => {
             )}
 
             {/* Price */}
-            <p className="text-3xl font-playfair italic text-title mb-7">
-              € {product.price.toFixed(2)}
-            </p>
+            <div className="mb-7">
+              {isOnSale ? (
+                <div className="flex items-center gap-3 flex-wrap">
+                  <span className="text-lg font-playfair italic text-subtitle/40 line-through">
+                    € {product.price.toFixed(2)}
+                  </span>
+                  <span className="text-3xl font-playfair italic text-title">
+                    € {salePrice.toFixed(2)}
+                  </span>
+                  <span className="text-[10px] font-montserrat font-bold tracking-[0.3em] uppercase bg-[#7D5134] text-white px-2.5 py-1 rounded-full">
+                    -{discountPct}%
+                  </span>
+                </div>
+              ) : (
+                <p className="text-3xl font-playfair italic text-title">
+                  € {product.price.toFixed(2)}
+                </p>
+              )}
+            </div>
 
             {/* ── CTAs ── */}
             <div className="flex flex-col gap-3 mb-7">

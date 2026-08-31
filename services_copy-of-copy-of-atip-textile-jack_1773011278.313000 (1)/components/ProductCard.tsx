@@ -5,6 +5,7 @@ import { Product, getLocalized} from '../types';
 import { useCart } from '../context/CartContext';
 import { useLocale } from '../context/LocaleContext';
 import ProtectedImage from './ProtectedImage';
+import { getSeptemberPromo } from '../utils/promo';
 
 interface ProductCardProps {
   product: Product;
@@ -14,6 +15,7 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
   const { addToCart } = useCart();
   const { locale, t } = useLocale();
+  const { isOnSale, salePrice, discountPct } = getSeptemberPromo(product.price);
   const [added, setAdded] = useState(false);
   const [copied, setCopied] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -123,7 +125,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
             </div>
             
             <div className={`absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent transition-opacity duration-700 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`} />
-            
+
+            {/* Sale badge */}
+            {isOnSale && isImageLoaded && (
+              <div className="absolute top-3 left-1/2 -translate-x-1/2 z-20 bg-[#7D5134] text-white text-[9px] font-montserrat font-bold tracking-[0.3em] uppercase px-3 py-1 rounded-full shadow-md whitespace-nowrap">
+                -{discountPct}% SEPTEMBRE
+              </div>
+            )}
+
             <div className={`absolute top-3 left-3 z-30 transition-opacity duration-500 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`}>
                 <button
                     onClick={(e) => { e.preventDefault(); handleShare(e); }}
@@ -144,9 +153,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
                         {getLocalized(product.subtitle, locale)}
                     </p>
                  )}
-                 <p className="text-sm md:text-base font-playfair italic text-white/80 mt-2 font-medium drop-shadow-md text-center transition-transform duration-700 delay-75 group-hover:translate-y-[-8px]">
-                    € {product.price.toFixed(2)}
-                 </p>
+                 <div className="flex items-center justify-center gap-2 mt-2 transition-transform duration-700 delay-75 group-hover:translate-y-[-8px]">
+                    {isOnSale && (
+                      <span className="text-xs font-playfair italic text-white/50 line-through drop-shadow-md">
+                        € {product.price.toFixed(2)}
+                      </span>
+                    )}
+                    <span className="text-sm md:text-base font-playfair italic text-white/90 font-medium drop-shadow-md">
+                      € {salePrice.toFixed(2)}
+                    </span>
+                 </div>
 
             </div>
             

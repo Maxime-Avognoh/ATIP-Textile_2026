@@ -29,6 +29,7 @@ import { AuthProvider } from './context/AuthContext';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import AddToCartToast from './components/AddToCartToast';
+import PromoBanner from './components/PromoBanner';
 
 function AppContent() {
   const navigate = useNavigate();
@@ -61,6 +62,7 @@ function AppContent() {
 
   return (
     <div className="min-h-screen flex flex-col font-playfair text-subtitle overflow-x-hidden">
+      <PromoBanner />
       <Header onTitleClick={handleShowIntro} />
       <main className="flex-grow">
         {/* L'animation globale est maintenant uniquement un fondu (animate-fade-in) sans mouvement */}
