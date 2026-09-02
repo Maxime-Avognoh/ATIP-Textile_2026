@@ -58,6 +58,24 @@ const BASE_CATALOG = {
     baseCents: 3990,
     imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_DF_Front.jpg",
   },
+  "9": {
+    name: "Wax & Honey",
+    format: "20x20 cm | framed",
+    baseCents: 3990,
+    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_WH.jpg",
+  },
+  "10": {
+    name: "Vines",
+    format: "20x20 cm | framed",
+    baseCents: 3990,
+    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_Gap.jpg",
+  },
+  "11": {
+    name: "Sun Bath",
+    format: "20x20 cm | framed",
+    baseCents: 3990,
+    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_SB.jpg",
+  },
 };
 
 // Export with unitCents computed at runtime (applies September discount automatically)
