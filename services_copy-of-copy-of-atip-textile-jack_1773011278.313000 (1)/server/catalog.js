@@ -68,7 +68,7 @@ const BASE_CATALOG = {
     name: "Vines",
     format: "20x20 cm | framed",
     baseCents: 3990,
-    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_Gap.jpg",
+    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES.jpg",
   },
   "11": {
     name: "Sun Bath",

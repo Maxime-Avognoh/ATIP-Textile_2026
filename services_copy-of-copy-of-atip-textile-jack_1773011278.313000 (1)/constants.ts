@@ -21,7 +21,7 @@ export const PRODUCTS: Product[] = [
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_Bellow.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_CBL.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_Inclined.jpg',
-      'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_Gap.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES.jpg',
     ],
   },
   {
@@ -39,7 +39,7 @@ export const PRODUCTS: Product[] = [
     price: 39.90,
     description: { en: '', fr: '', es: '' },
     images: [
-      'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_Gap.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES_Bellow.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES_CTL.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES_Incln.jpg',
