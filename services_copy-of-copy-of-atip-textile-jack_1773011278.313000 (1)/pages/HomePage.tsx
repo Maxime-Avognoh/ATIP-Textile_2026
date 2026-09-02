@@ -74,7 +74,7 @@ const HomePage: React.FC = () => {
     };
   }, []);
 
-  const allFeatured = products.filter(p => ['1','2','3','4','5','6','7','8'].includes(p.id));
+  const allFeatured = products.filter(p => ['1','2','3','4','5','6','7','8','9','10','11'].includes(p.id));
   const products20x20 = allFeatured.filter(p => p.subtitle.en?.includes('20x20'));
   const products60x20 = allFeatured.filter(p => !p.subtitle.en?.includes('20x20'));
 

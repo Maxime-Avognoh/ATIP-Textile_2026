@@ -58,6 +58,10 @@ export const translations: { [key: string]: any } = {
       shareTextTitle: 'Check out: {productName}',
       shareTextBody: 'Discover this exceptional textile piece "{productName}" at ATIP Textile!',
     },
+    promo: {
+      banner: 'SEPTEMBER — 20% off the entire collection',
+      endsIn: 'Ends in',
+    },
     confirmation: {
   title: "Order Confirmed",
   subtitle: "Thank you for your order. Your artwork is now being carefully prepared.",
@@ -337,6 +341,10 @@ export const translations: { [key: string]: any } = {
       shareTextTitle: 'Découvrez : {productName}',
       shareTextBody: 'J\'ai sélectionné cette pièce d\'exception "{productName}" chez ATIP Textile !',
     },
+    promo: {
+      banner: 'SEPTEMBRE — 20% sur toute la collection',
+      endsIn: 'Se termine dans',
+    },
     confirmation: {
   title: "Commande confirmée",
   subtitle: "Merci pour votre acquisition. Votre œuvre est en cours de préparation.",
@@ -609,6 +617,10 @@ export const translations: { [key: string]: any } = {
       shareTextTitle: 'Echa un vistazo: {productName}',
       shareTextBody: '¡He encontrado este hermoso lienzo "{productName}" en ATIP Textile!',
     },
+    promo: {
+      banner: 'SEPTIEMBRE — 20% de descuento en toda la colección',
+      endsIn: 'Termina en',
+    },
     footer: {
       rights: 'ATIP Textile. Todos los derechos reservados.',
       creator: 'Creaciones de una IA de clase mondial',
@@ -868,6 +880,10 @@ export const translations: { [key: string]: any } = {
       shareTextTitle: 'Scopri: {productName}',
       shareTextBody: 'Ho trovato questo pezzo straordinario "{productName}" da ATIP Textile!',
     },
+    promo: {
+      banner: 'SETTEMBRE — 20% su tutta la collezione',
+      endsIn: 'Termina tra',
+    },
     confirmation: {
       title: 'Ordine Confermato',
       subtitle: 'Grazie per il tuo ordine. La tua opera è in fase di preparazione.',
@@ -1028,6 +1044,10 @@ export const translations: { [key: string]: any } = {
       copied: 'Link kopiert!',
       shareTextTitle: 'Entdecke: {productName}',
       shareTextBody: 'Ich habe dieses außergewöhnliche Stück "{productName}" bei ATIP Textile gefunden!',
+    },
+    promo: {
+      banner: 'SEPTEMBER — 20% auf die gesamte Kollektion',
+      endsIn: 'Endet in',
     },
     confirmation: {
       title: 'Bestellung bestätigt',
@@ -1190,6 +1210,10 @@ export const translations: { [key: string]: any } = {
       shareTextTitle: 'Descubra: {productName}',
       shareTextBody: 'Encontrei esta peça extraordinária "{productName}" na ATIP Textile!',
     },
+    promo: {
+      banner: 'SETEMBRO — 20% em toda a coleção',
+      endsIn: 'Termina em',
+    },
     confirmation: {
       title: 'Encomenda Confirmada',
       subtitle: 'Obrigado pela sua encomenda. A sua obra está a ser preparada com cuidado.',
@@ -1350,6 +1374,10 @@ export const translations: { [key: string]: any } = {
       copied: 'Link gekopieerd!',
       shareTextTitle: 'Ontdek: {productName}',
       shareTextBody: 'Ik heb dit uitzonderlijke stuk "{productName}" gevonden bij ATIP Textile!',
+    },
+    promo: {
+      banner: 'SEPTEMBER — 20% korting op de hele collectie',
+      endsIn: 'Eindigt over',
     },
     confirmation: {
       title: 'Bestelling Bevestigd',

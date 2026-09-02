@@ -3,6 +3,70 @@ import { Product } from './types';
 
 export const PRODUCTS: Product[] = [
   {
+    id: '9',
+    name: {
+      en: 'Wax & Honey',
+      fr: 'Wax & Honey',
+      es: 'Wax & Honey'
+    },
+    subtitle: {
+      en: '20x20 cm | framed',
+      fr: '20x20 cm | encadré',
+      es: '20x20 cm | enmarcado'
+    },
+    price: 39.90,
+    description: { en: '', fr: '', es: '' },
+    images: [
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_Bellow.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_CBL.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_Inclined.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_Gap.jpg',
+    ],
+  },
+  {
+    id: '10',
+    name: {
+      en: 'Vines',
+      fr: 'Lianes',
+      es: 'Lianas'
+    },
+    subtitle: {
+      en: '20x20 cm | framed',
+      fr: '20x20 cm | encadré',
+      es: '20x20 cm | enmarcado'
+    },
+    price: 39.90,
+    description: { en: '', fr: '', es: '' },
+    images: [
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_Gap.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES_Bellow.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES_CTL.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES_Incln.jpg',
+    ],
+  },
+  {
+    id: '11',
+    name: {
+      en: 'Sun Bath',
+      fr: 'Bain de Soleil',
+      es: 'Baño de Sol'
+    },
+    subtitle: {
+      en: '20x20 cm | framed',
+      fr: '20x20 cm | encadré',
+      es: '20x20 cm | enmarcado'
+    },
+    price: 39.90,
+    description: { en: '', fr: '', es: '' },
+    images: [
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_SB.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_SB_Bellow.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_SB_CT.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_SB_Inclined.jpg',
+    ],
+  },
+  {
     id: '6',
     name: {
       en: 'Festive Night',
