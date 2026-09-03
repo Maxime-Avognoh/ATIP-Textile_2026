@@ -43,20 +43,14 @@ const ContactPage: React.FC = () => {
           </form>
         </div>
         <div className="text-lg text-subtitle/90 font-playfair leading-loose">
-           <h2 className="text-3xl font-aboreto text-title mb-6">{t('contact.info.title')}</h2>
            <div className="space-y-4">
              <p>
                <strong>{t('contact.info.email')}</strong><br />
                <a href="mailto:contact@atiptextile.com" className="hover:text-red-button transition-colors">contact@atiptextile.com</a>
              </p>
              <p>
-               <strong>{t('contact.info.phone')}</strong><br />
-               +1 (234) 567-890
-             </p>
-             <p>
-               <strong>{t('contact.info.address')}</strong><br />
-               123 Art Avenue,<br/>
-               Creative City, 10101
+               <strong>{t('contact.info.instagram')}</strong><br />
+               <a href="https://www.instagram.com/atip_textile" target="_blank" rel="noopener noreferrer" className="hover:text-red-button transition-colors">@atip_textile</a>
              </p>
            </div>
         </div>
