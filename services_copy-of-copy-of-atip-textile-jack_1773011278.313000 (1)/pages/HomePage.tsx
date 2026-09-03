@@ -14,8 +14,14 @@ const HomePage: React.FC = () => {
   const { products } = useProducts();
   const { introLogo, introVideo } = useAsset();
   const mainContentRef = useRef<HTMLDivElement>(null);
+  const scroll60Ref = useRef<HTMLDivElement>(null);
+  const scroll20Ref = useRef<HTMLDivElement>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+
+  const scrollRow = (ref: React.RefObject<HTMLDivElement>, dir: 'left' | 'right') => {
+    ref.current?.scrollBy({ left: dir === 'right' ? 320 : -320, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 767px)');
@@ -144,8 +150,16 @@ const HomePage: React.FC = () => {
               <div className="flex items-center gap-8 mb-10">
                 <span className="text-xs font-montserrat font-semibold tracking-[0.4em] text-subtitle/50 uppercase whitespace-nowrap">60 × 20 cm</span>
                 <div className="flex-1 h-px bg-subtitle/10" />
+                <div className="hidden lg:flex gap-2 flex-shrink-0">
+                  <button onClick={() => scrollRow(scroll60Ref, 'left')} className="w-8 h-8 flex items-center justify-center border border-subtitle/20 hover:border-subtitle/60 text-subtitle/40 hover:text-subtitle transition-all rounded-full">
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                  </button>
+                  <button onClick={() => scrollRow(scroll60Ref, 'right')} className="w-8 h-8 flex items-center justify-center border border-subtitle/20 hover:border-subtitle/60 text-subtitle/40 hover:text-subtitle transition-all rounded-full">
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
+                  </button>
+                </div>
               </div>
-              <div className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-6 px-4 lg:mx-0 lg:px-0">
+              <div ref={scroll60Ref} className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-6 px-4 lg:mx-0 lg:px-0">
                 {products60x20.map((product, index) => (
                   <div key={product.id} className="flex-shrink-0 w-72 snap-start flex flex-col gap-3">
                     <div className="transition-transform duration-700 hover:-translate-y-4">
@@ -163,8 +177,16 @@ const HomePage: React.FC = () => {
               <div className="flex items-center gap-8 mb-10">
                 <span className="text-xs font-montserrat font-semibold tracking-[0.4em] text-subtitle/50 uppercase whitespace-nowrap">20 × 20 cm</span>
                 <div className="flex-1 h-px bg-subtitle/10" />
+                <div className="hidden lg:flex gap-2 flex-shrink-0">
+                  <button onClick={() => scrollRow(scroll20Ref, 'left')} className="w-8 h-8 flex items-center justify-center border border-subtitle/20 hover:border-subtitle/60 text-subtitle/40 hover:text-subtitle transition-all rounded-full">
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                  </button>
+                  <button onClick={() => scrollRow(scroll20Ref, 'right')} className="w-8 h-8 flex items-center justify-center border border-subtitle/20 hover:border-subtitle/60 text-subtitle/40 hover:text-subtitle transition-all rounded-full">
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
+                  </button>
+                </div>
               </div>
-              <div className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-6 px-4 lg:mx-0 lg:px-0">
+              <div ref={scroll20Ref} className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-6 px-4 lg:mx-0 lg:px-0">
                 {products20x20.map((product, index) => (
                   <div key={product.id} className="flex-shrink-0 w-72 snap-start flex flex-col gap-3">
                     <div className="transition-transform duration-700 hover:-translate-y-4">

@@ -160,7 +160,7 @@ export const translations: { [key: string]: any } = {
     },
     contact: {
       title: 'Enquire About Our Pieces',
-      subtitle: 'Our advisors are available for your bespoke requests and interior design consultations.',
+      subtitle: 'I am at your disposal for any bespoke request and question about my textile creations.',
       form: {
         title: 'Bespoke Inquiry',
         name: 'Full Name',
@@ -170,10 +170,8 @@ export const translations: { [key: string]: any } = {
         success: 'Thank you. A brand advisor will reach out to you shortly.',
       },
       info: {
-        title: 'The Studio',
         email: 'Email:',
-        phone: 'Phone:',
-        address: 'Studio Address:',
+        instagram: 'Instagram:',
       },
     },
     cart: {
@@ -443,7 +441,7 @@ export const translations: { [key: string]: any } = {
     },
     contact: {
       title: 'Demande d\'Informations',
-      subtitle: 'Nos conseillers sont à votre disposition pour vos demandes sur-mesure et conseils en décoration d\'intérieur.',
+      subtitle: 'Je reste à votre disposition pour toute demande sur mesure et question sur mes créations textiles.',
       form: {
         title: 'Votre Demande',
         name: 'Nom Complet',
@@ -453,10 +451,8 @@ export const translations: { [key: string]: any } = {
         success: 'Merci. Un conseiller de la marque vous contactera très prochainement.',
       },
       info: {
-        title: 'Le Studio',
         email: 'Email :',
-        phone: 'Téléphone :',
-        address: 'Adresse du Studio :',
+        instagram: 'Instagram :',
       },
     },
     cart: {
@@ -711,7 +707,7 @@ export const translations: { [key: string]: any } = {
     },
     contact: {
       title: 'Contáctanos',
-      subtitle: '¿Tienes alguna pregunta o una solicitud especial? Nos encantaría saber de ti.',
+      subtitle: 'Estoy a su disposición para cualquier solicitud a medida y pregunta sobre mis creaciones textiles.',
       form: {
         title: 'Enviar un Mensaje',
         name: 'Nombre',
@@ -721,10 +717,8 @@ export const translations: { [key: string]: any } = {
         success: '¡Gracias por tu mensaje! Nos pondremos en contacto contigo en breve.',
       },
       info: {
-        title: 'Nuestra Información',
         email: 'Correo:',
-        phone: 'Teléfono:',
-        address: 'Dirección:',
+        instagram: 'Instagram:',
       },
     },
     cart: {
@@ -955,9 +949,9 @@ export const translations: { [key: string]: any } = {
     },
     contact: {
       title: 'Richiesta di Informazioni',
-      subtitle: 'I nostri consulenti sono disponibili per le vostre richieste su misura.',
+      subtitle: 'Sono a vostra disposizione per qualsiasi richiesta su misura e domanda sulle mie creazioni tessili.',
       form: { title: 'La Tua Richiesta', name: 'Nome Completo', email: 'Email', message: 'Il Tuo Messaggio', send: 'Invia Richiesta', success: 'Grazie. Un consulente vi contatterà a breve.' },
-      info: { title: 'Lo Studio', email: 'Email:', phone: 'Telefono:', address: 'Indirizzo Studio:' },
+      info: { email: 'Email:', instagram: 'Instagram:' },
     },
     cart: {
       title: 'La Tua Selezione',
@@ -1120,9 +1114,9 @@ export const translations: { [key: string]: any } = {
     },
     contact: {
       title: 'Anfrage zu unseren Werken',
-      subtitle: 'Unsere Berater stehen Ihnen für Ihre maßgeschneiderten Anfragen zur Verfügung.',
+      subtitle: 'Ich stehe Ihnen für alle Sonderanfertigungen und Fragen zu meinen Textilkreationen zur Verfügung.',
       form: { title: 'Ihre Anfrage', name: 'Vollständiger Name', email: 'E-Mail', message: 'Ihre Anfrage', send: 'Anfrage senden', success: 'Vielen Dank. Ein Markenberater wird sich in Kürze bei Ihnen melden.' },
-      info: { title: 'Das Studio', email: 'E-Mail:', phone: 'Telefon:', address: 'Studio-Adresse:' },
+      info: { email: 'E-Mail:', instagram: 'Instagram:' },
     },
     cart: {
       title: 'Ihre Auswahl',
@@ -1285,9 +1279,9 @@ export const translations: { [key: string]: any } = {
     },
     contact: {
       title: 'Pedido de Informações',
-      subtitle: 'Os nossos consultores estão disponíveis para os seus pedidos personalizados.',
+      subtitle: 'Estou à sua disposição para qualquer pedido personalizado e questão sobre as minhas criações têxteis.',
       form: { title: 'O Seu Pedido', name: 'Nome Completo', email: 'Email', message: 'A Sua Mensagem', send: 'Enviar Pedido', success: 'Obrigado. Um consultor da marca entrará em contacto em breve.' },
-      info: { title: 'O Estúdio', email: 'Email:', phone: 'Telefone:', address: 'Morada do Estúdio:' },
+      info: { email: 'Email:', instagram: 'Instagram:' },
     },
     cart: {
       title: 'A Sua Seleção',
@@ -1450,9 +1444,9 @@ export const translations: { [key: string]: any } = {
     },
     contact: {
       title: 'Informatie Aanvragen',
-      subtitle: 'Onze adviseurs staan klaar voor uw maatwerk verzoeken.',
+      subtitle: 'Ik sta u ter beschikking voor elk op maat gemaakt verzoek en vragen over mijn textielcreaties.',
       form: { title: 'Uw Aanvraag', name: 'Volledige naam', email: 'E-mail', message: 'Uw Bericht', send: 'Aanvraag sturen', success: 'Dank u. Een merkadviseur neemt binnenkort contact met u op.' },
-      info: { title: 'Het Atelier', email: 'E-mail:', phone: 'Telefoon:', address: 'Atelieradres:' },
+      info: { email: 'E-mail:', instagram: 'Instagram:' },
     },
     cart: {
       title: 'Uw Selectie',

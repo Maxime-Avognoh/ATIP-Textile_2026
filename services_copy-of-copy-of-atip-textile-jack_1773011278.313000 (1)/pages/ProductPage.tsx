@@ -101,7 +101,7 @@ const ProductPage: React.FC = () => {
 
         {/* ── LEFT: sticky image ───────────────────────────────────────── */}
         <div
-          className="lg:sticky lg:top-0 h-[80vw] max-h-[90vh] lg:h-screen overflow-hidden relative bg-[#f0ebe2] lg:pt-16"
+          className="lg:sticky lg:top-16 h-[80vw] max-h-[90vh] lg:h-[calc(100vh-4rem)] overflow-hidden relative bg-[#f0ebe2]"
           onMouseMove={handleImageMouseMove}
           onMouseLeave={handleImageMouseLeave}
         >
