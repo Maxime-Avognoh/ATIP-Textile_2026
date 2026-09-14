@@ -44,19 +44,19 @@ const BASE_CATALOG = {
     name: "Festive Night",
     format: "20x20 cm | framed",
     baseCents: 3990,
-    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_NF_%20Front.jpg",
+    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_NF.jpg",
   },
   "7": {
     name: "Aloe Flowers",
     format: "20x20 cm | framed",
     baseCents: 3990,
-    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_AF_Front.jpg",
+    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_AF.JPG",
   },
   "8": {
     name: "Dragonflies",
     format: "20x20 cm | framed",
     baseCents: 3990,
-    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_DF_Front.jpg",
+    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_DF.JPG",
   },
   "9": {
     name: "Wax & Honey",
