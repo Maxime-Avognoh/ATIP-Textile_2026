@@ -44,37 +44,37 @@ const BASE_CATALOG = {
     name: "Festive Night",
     format: "20x20 cm | framed",
     baseCents: 3990,
-    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_NF.jpg?v=2",
+    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_NF.jpg?v=3",
   },
   "7": {
     name: "Aloe Flowers",
     format: "20x20 cm | framed",
     baseCents: 3990,
-    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_AF.JPG?v=2",
+    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_AF.JPG?v=3",
   },
   "8": {
     name: "Dragonflies",
     format: "20x20 cm | framed",
     baseCents: 3990,
-    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_DF.JPG?v=2",
+    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_DF.JPG?v=3",
   },
   "9": {
     name: "Wax & Honey",
     format: "20x20 cm | framed",
     baseCents: 3990,
-    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_WH.jpg?v=2",
+    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_WH.jpg?v=3",
   },
   "10": {
     name: "Vines",
     format: "20x20 cm | framed",
     baseCents: 3990,
-    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES.jpg?v=2",
+    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES.jpg?v=3",
   },
   "11": {
     name: "Sun Bath",
     format: "20x20 cm | framed",
     baseCents: 3990,
-    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_SB.jpg?v=2",
+    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_SB.jpg?v=3",
   },
 };
 
