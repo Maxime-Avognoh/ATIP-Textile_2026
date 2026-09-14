@@ -17,7 +17,7 @@ export const PRODUCTS: Product[] = [
     price: 39.90,
     description: { en: '', fr: '', es: '' },
     images: [
-      'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH.jpg?v=2',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_Bellow.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_CBL.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_Inclined.jpg',
@@ -39,7 +39,7 @@ export const PRODUCTS: Product[] = [
     price: 39.90,
     description: { en: '', fr: '', es: '' },
     images: [
-      'https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES.jpg?v=2',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES_Bellow.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES_CTL.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES_Incln.jpg',
@@ -60,7 +60,7 @@ export const PRODUCTS: Product[] = [
     price: 39.90,
     description: { en: '', fr: '', es: '' },
     images: [
-      'https://storage.googleapis.com/atip_storage/ATIP_SQ_SB.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_SB.jpg?v=2',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_SB_Bellow.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_SB_CT.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_SB_Inclined.jpg',
@@ -85,7 +85,7 @@ export const PRODUCTS: Product[] = [
       es: ''
     },
     images: [
-      'https://storage.googleapis.com/atip_storage/ATIP_SQ_NF.jpg',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_NF.jpg?v=2',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_NF_%20Bellow.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_NF_%20Corner_top.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_NF_%20Corner_BR.jpg',
@@ -110,7 +110,7 @@ export const PRODUCTS: Product[] = [
       es: ''
     },
     images: [
-      'https://storage.googleapis.com/atip_storage/ATIP_SQ_DF.JPG',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_DF.JPG?v=2',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_DF_Bellow.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_DF_Corner_BL.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_DF_Bellow_CL.jpg',
@@ -135,7 +135,7 @@ export const PRODUCTS: Product[] = [
       es: ''
     },
     images: [
-      'https://storage.googleapis.com/atip_storage/ATIP_SQ_AF.JPG',
+      'https://storage.googleapis.com/atip_storage/ATIP_SQ_AF.JPG?v=2',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_AF_Bellow.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_AF_Corner_TR.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_AF_Inclined.jpg',
