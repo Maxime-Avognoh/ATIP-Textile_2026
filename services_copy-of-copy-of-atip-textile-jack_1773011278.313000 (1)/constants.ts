@@ -21,7 +21,6 @@ export const PRODUCTS: Product[] = [
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_Bellow.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_CBL.jpg',
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH_Inclined.jpg',
-      'https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES.jpg',
     ],
   },
   {
