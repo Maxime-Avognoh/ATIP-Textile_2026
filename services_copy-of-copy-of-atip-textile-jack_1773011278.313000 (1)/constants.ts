@@ -84,10 +84,10 @@ export const PRODUCTS: Product[] = [
       es: ''
     },
     images: [
-      'https://storage.googleapis.com/atip_storage/ATIP_SQ_NF.jpg?v=3',
-      'https://storage.googleapis.com/atip_storage/ATIP_SQ_NF_%20Bellow.jpg',
-      'https://storage.googleapis.com/atip_storage/ATIP_SQ_NF_%20Corner_top.jpg',
-      'https://storage.googleapis.com/atip_storage/ATIP_SQ_NF_%20Corner_BR.jpg',
+      'https://storage.googleapis.com/atip_storage/FESTIVE_NIGHT_FRONT_M.jpg',
+      'https://storage.googleapis.com/atip_storage/FESTIVE_NIGHT_CORNER_L.jpg',
+      'https://storage.googleapis.com/atip_storage/FESTIVE_NIGHT_INCLINED_M.jpg',
+      'https://storage.googleapis.com/atip_storage/FESTIVE_NIGHT_SIDE_R.jpg',
     ],
   },
   {

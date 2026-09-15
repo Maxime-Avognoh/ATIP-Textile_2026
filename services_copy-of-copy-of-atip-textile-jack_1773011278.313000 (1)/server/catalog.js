@@ -44,7 +44,7 @@ const BASE_CATALOG = {
     name: "Festive Night",
     format: "20x20 cm | framed",
     baseCents: 3990,
-    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_SQ_NF.jpg?v=3",
+    imageUrl: "https://storage.googleapis.com/atip_storage/FESTIVE_NIGHT_FRONT_M.jpg",
   },
   "7": {
     name: "Aloe Flowers",
