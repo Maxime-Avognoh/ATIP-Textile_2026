@@ -200,6 +200,18 @@
       .scrollbar-hide::-webkit-scrollbar { display: none; }
       .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
+      /* Subtle horizontal scrollbar — desktop only */
+      .scrollbar-desktop::-webkit-scrollbar { height: 3px; }
+      .scrollbar-desktop::-webkit-scrollbar-track { background: transparent; }
+      .scrollbar-desktop::-webkit-scrollbar-thumb { background: var(--color-subtitle); opacity: 0.25; border-radius: 10px; }
+      @media (max-width: 1023px) {
+        .scrollbar-desktop::-webkit-scrollbar { display: none; }
+        .scrollbar-desktop { -ms-overflow-style: none; scrollbar-width: none; }
+      }
+      @media (min-width: 1024px) {
+        .scrollbar-desktop { scrollbar-width: thin; scrollbar-color: var(--color-subtitle) transparent; }
+      }
+
       /* Landscape blocker on mobile */
       #rotate-overlay {
         display: none;
