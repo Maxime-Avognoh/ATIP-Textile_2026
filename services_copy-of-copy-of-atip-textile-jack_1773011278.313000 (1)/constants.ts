@@ -240,7 +240,7 @@ export const PRODUCTS: Product[] = [
       es: "En este primer día del año, bajo el resplandor de los fuegos artificiales que iluminan el cielo nocturno, los Sapeurs celebran y se adornan de rojo. Un rojo que, liberado del prisma occidental, no señala peligro, sino que invoca la vida y el éxito.\n\nEn las culturas Yoruba y Ashanti, la transición entre el 31 de diciembre y el 1 de enero representa un momento de gran vulnerabilidad, cuando las energías negativas del año pasado buscan abrirse camino en el nuevo. Para protegerse contra esto, es costumbre marcar la entrada de las casas o la frente de los niños con laterita o madera de cam antes de la celebración. Reconocibles por sus profundos tonos rojos y conocidos por sus propiedades protectoras.\n\nA través de esta obra de arte, nuestro deseo es que este textil haga más que simplemente adornar su espacio, que traiga consigo un aura de protección y vitalidad renovada. Al dar la bienvenida a \"Noche Festiva\" en su hogar, invita a la fuerza de una herencia que vela por cada nuevo comienzo."
     },
     images: [
-      'https://storage.googleapis.com/atip_storage/FESTIVE_NIGHT_FRONT_M.jpg',
+      'https://storage.googleapis.com/atip_storage/FESTIVE_NIGHT_FRONT_M-2.jpg',
       'https://storage.googleapis.com/atip_storage/FESTIVE_NIGHT_CORNER_L.jpg',
       'https://storage.googleapis.com/atip_storage/FESTIVE_NIGHT_INCLINED_M.jpg',
       'https://storage.googleapis.com/atip_storage/FESTIVE_NIGHT_SIDE_R.jpg',
