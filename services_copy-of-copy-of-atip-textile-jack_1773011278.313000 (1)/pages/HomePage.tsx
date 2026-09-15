@@ -82,7 +82,10 @@ const HomePage: React.FC = () => {
 
   const allFeatured = products.filter(p => ['1','2','3','4','5','6','7','8','9','10','11'].includes(p.id));
   const products20x20 = allFeatured.filter(p => p.subtitle.en?.includes('20x20'));
-  const products60x20 = allFeatured.filter(p => !p.subtitle.en?.includes('20x20'));
+  const isFramed = (p: typeof products[0]) => p.subtitle.en?.includes('framed') && !p.subtitle.en?.includes('unframed');
+  const products60x20 = allFeatured
+    .filter(p => !p.subtitle.en?.includes('20x20'))
+    .sort((a, b) => (isFramed(a) ? 0 : 1) - (isFramed(b) ? 0 : 1));
 
   return (
     <div className="pb-12">
@@ -159,7 +162,7 @@ const HomePage: React.FC = () => {
                   </button>
                 </div>
               </div>
-              <div ref={scroll60Ref} className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-6 px-4 lg:mx-0 lg:px-0">
+              <div ref={scroll60Ref} className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-desktop -mx-6 px-4 lg:mx-0 lg:px-0">
                 {products60x20.map((product, index) => (
                   <div key={product.id} className="flex-shrink-0 w-72 snap-start flex flex-col gap-3">
                     <div className="transition-transform duration-700 hover:-translate-y-4">
@@ -186,7 +189,7 @@ const HomePage: React.FC = () => {
                   </button>
                 </div>
               </div>
-              <div ref={scroll20Ref} className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide -mx-6 px-4 lg:mx-0 lg:px-0">
+              <div ref={scroll20Ref} className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-desktop -mx-6 px-4 lg:mx-0 lg:px-0">
                 {products20x20.map((product, index) => (
                   <div key={product.id} className="flex-shrink-0 w-72 snap-start flex flex-col gap-3">
                     <div className="transition-transform duration-700 hover:-translate-y-4">
