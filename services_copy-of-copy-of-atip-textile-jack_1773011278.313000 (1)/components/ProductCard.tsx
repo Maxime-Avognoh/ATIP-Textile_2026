@@ -124,7 +124,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
                 />
             </div>
             
-            <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-opacity duration-700 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`} />
+            <div className={`absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent transition-opacity duration-700 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`} />
 
             {/* Sale badge */}
             {isOnSale && isImageLoaded && (
