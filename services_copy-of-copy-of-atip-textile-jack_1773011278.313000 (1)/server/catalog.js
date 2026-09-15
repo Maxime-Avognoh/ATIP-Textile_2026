@@ -14,7 +14,7 @@ const BASE_CATALOG = {
     name: "Festive Night",
     format: "60x20 cm | unframed",
     baseCents: 7600,
-    imageUrl: "https://storage.googleapis.com/atip_storage/FESTIVE_NIGHT_FRONT_M.jpg",
+    imageUrl: "https://storage.googleapis.com/atip_storage/ATIP_Framing_side.jpg",
   },
   "2": {
     name: "Festive Night",
