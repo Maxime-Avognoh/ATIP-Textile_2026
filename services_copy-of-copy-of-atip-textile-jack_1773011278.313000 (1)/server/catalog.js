@@ -32,7 +32,7 @@ const BASE_CATALOG = {
     name: "Aloe Flowers",
     format: "60x20 cm | framed",
     baseCents: 8990,
-    imageUrl: "https://storage.googleapis.com/atip_storage/Face_F_Aloe_Flowers.jpg",
+    imageUrl: "https://storage.googleapis.com/atip_storage/ALOE_FLOWERS_FRONT.jpg",
   },
   "5": {
     name: "Wax and Honey",
