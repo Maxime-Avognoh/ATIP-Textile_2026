@@ -273,6 +273,7 @@ const SquarePaymentForm = forwardRef<SquarePaymentFormRef, SquarePaymentFormProp
             const payments = window.Square.payments(SQUARE_APP_ID, SQUARE_LOCATION_ID);
             const cardInstance = await payments.card({ collectPostalCode: false });
             await cardInstance.attach('#card-container');
+            await cardInstance.configure({ collectPostalCode: false });
 
 
             cardRef.current = cardInstance;
