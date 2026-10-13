@@ -1497,7 +1497,7 @@ app.post('/paypal/capture-order', async (req, res) => {
 });
 
 app.post('/process-payment', async (req, res) => {
-  const { sourceId, idempotencyKey, email, cartItems, customer } = req.body;
+  const { sourceId, verificationToken, idempotencyKey, email, cartItems, customer } = req.body;
 
   try {
     const { emailItems, totalCents } = buildServerCartItems(cartItems);
@@ -1507,6 +1507,7 @@ app.post('/process-payment', async (req, res) => {
       sourceId,
       idempotencyKey,
       amountMoney: { amount: totalCents, currency: 'EUR' },
+      ...(verificationToken ? { verificationToken } : {}),
       note: 'Achat ATIP Textile - Mode Production',
     });
 
