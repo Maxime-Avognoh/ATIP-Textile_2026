@@ -221,8 +221,7 @@ declare global {
 }
 
 
-// --- 💳 SQUARE SDK CONFIGURATION ---
-// Ces identifiants sont pour le mode Sandbox (test)
+// --- 💳 SQUARE SDK CONFIGURATION --- PRODUCTION
 const SQUARE_APP_ID = 'sq0idp-XH9zLazYmWvpBOQmDgUT-Q';
 const SQUARE_LOCATION_ID = 'LCH74A955F6NE';
 
@@ -249,6 +248,7 @@ const SquarePaymentForm = forwardRef<SquarePaymentFormRef, SquarePaymentFormProp
     const [initializationError, setInitializationError] = useState<string | null>(null);
     const { t } = useLocale();
     const cardRef = useRef<any>(null);
+    const paymentsRef = useRef<any>(null);
     const isInitializing = useRef(false);
 
 
@@ -276,6 +276,7 @@ const SquarePaymentForm = forwardRef<SquarePaymentFormRef, SquarePaymentFormProp
             await cardInstance.configure({ collectPostalCode: false });
 
 
+            paymentsRef.current = payments;
             cardRef.current = cardInstance;
             setCard(cardInstance);
           } catch (error) {
@@ -319,25 +320,51 @@ const SquarePaymentForm = forwardRef<SquarePaymentFormRef, SquarePaymentFormProp
       if (!card || isProcessingTransaction) {
         return;
       }
-     
-      setIsProcessingTransaction(true);
-     
-      try {
-        const result = await card.tokenize();
-        if (result.status === 'OK') {
-          console.log('Payment Token generated:', result.token);
 
+      setIsProcessingTransaction(true);
+
+      try {
+        const tokenResult = await card.tokenize();
+        if (tokenResult.status === 'OK') {
+          console.log('Payment Token generated:', tokenResult.token);
+
+          // --- SCA / verifyBuyer (required for EEA cards under PSD2) ---
+          let verificationToken: string | undefined;
+          if (paymentsRef.current) {
+            const billing = orderContext?.billingInfo || orderContext?.shippingInfo || {};
+            const nameParts = (billing.fullName || '').trim().split(/\s+/);
+            const verificationDetails = {
+              amount: (amount / 100).toFixed(2),
+              currencyCode: 'EUR',
+              intent: 'CHARGE' as const,
+              billingContact: {
+                givenName: nameParts[0] || '',
+                familyName: nameParts.slice(1).join(' ') || '',
+                email: billing.email || orderContext?.email || '',
+                countryCode: (billing.country || 'FR').slice(0, 2).toUpperCase(),
+                postalCode: billing.postalCode || '',
+              },
+            };
+            try {
+              const verifyResult = await paymentsRef.current.verifyBuyer(tokenResult.token, verificationDetails);
+              verificationToken = verifyResult.token;
+              console.log('SCA verification token obtained');
+            } catch (scaError: any) {
+              console.error('SCA verifyBuyer failed:', scaError);
+              throw new Error(scaError?.message || 'Strong customer authentication failed. Please try again.');
+            }
+          }
 
           // Generate unique idempotency key to prevent duplicate charges
           const idempotencyKey = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 
-
-          const customerEmail = orderContext?.shippingInfo?.email || orderContext?.email || '';
+          const customerEmail = orderContext?.shippingInfo?.email || orderContext?.billingInfo?.email || orderContext?.email || '';
           const response = await fetch('/process-payment', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              sourceId: result.token,
+              sourceId: tokenResult.token,
+              verificationToken,
               amount,
               idempotencyKey,
               email: customerEmail,
@@ -345,7 +372,6 @@ const SquarePaymentForm = forwardRef<SquarePaymentFormRef, SquarePaymentFormProp
               customer: orderContext,
             })
           });
-
 
           const contentType = response.headers.get("content-type");
           if (contentType && contentType.indexOf("application/json") !== -1) {
@@ -363,13 +389,12 @@ const SquarePaymentForm = forwardRef<SquarePaymentFormRef, SquarePaymentFormProp
             throw new Error("Backend not available. Make sure the server is running.");
           }
 
-
         } else {
-          let errorMessage = `Tokenization failed: ${result.status}`;
-          if (result.errors) {
-            errorMessage += ` - ${result.errors[0].message}`;
-          }
-          throw new Error(errorMessage);
+          const allErrors = tokenResult.errors
+            ?.map((e: any) => `[${e.field || e.type || 'unknown'}] ${e.message}`)
+            .join('; ');
+          console.error('Tokenization failed — status:', tokenResult.status, '— errors:', allErrors || '(no details)');
+          throw new Error(allErrors || `Tokenization failed: ${tokenResult.status}`);
         }
       } catch (error: any) {
         console.error("Payment error:", error);
