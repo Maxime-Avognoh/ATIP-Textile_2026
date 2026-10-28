@@ -1,0 +1,53 @@
+name: Resend Order Receipt
+
+on:
+  workflow_dispatch:
+    inputs:
+      payment_id:
+        description: "Square Payment ID (visible dans l'URL de la transaction)"
+        required: true
+        default: "lZjKotLUmfjJaXuTrKMklOc8pzRZY"
+      to_email:
+        description: "Email de destination"
+        required: true
+        default: "doline@squareup.com"
+      dry_run:
+        description: "Dry-run (affiche le reçu sans envoyer)"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+
+jobs:
+  send-receipt:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "services_copy-of-copy-of-atip-textile-jack_1773011278.313000 (1)/server"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: "services_copy-of-copy-of-atip-textile-jack_1773011278.313000 (1)/server/package-lock.json"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Send receipt
+        env:
+          Square_PROD_Access_Token: ${{ secrets.SQUARE_PROD_ACCESS_TOKEN }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: |
+          ARGS="--payment-id ${{ github.event.inputs.payment_id }} --to ${{ github.event.inputs.to_email }}"
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          node resend-receipt.js $ARGS
