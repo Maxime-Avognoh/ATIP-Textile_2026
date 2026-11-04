@@ -796,7 +796,7 @@ function formatMoneyEUR(amount) {
   return `EUR ${n.toFixed(2)}`;
 }
 
-async function buildInvoicePdfBuffer({ brandName, orderNumber, date, customerEmail, products, subtotal, shipping, total }) {
+async function buildInvoicePdfBuffer({ brandName, orderNumber, date, customerEmail, customerAddress, products, subtotal, shipping, total }) {
   return new Promise(async (resolve, reject) => {
     if (!PDFDocument) {
       return reject(new Error('pdfkit_not_installed'));
@@ -900,10 +900,21 @@ async function buildInvoicePdfBuffer({ brandName, orderNumber, date, customerEma
     let y = dividerY + 14;
     doc.fillColor(colorText).font('Helvetica-Bold').fontSize(10).text('BILL TO', left, y);
     y += 14;
-    doc.fillColor(colorText).font('Helvetica').fontSize(10).text(customerEmail || 'Customer', left, y);
-    y += 14;
- /*   doc.fillColor(colorMuted).font('Helvetica').fontSize(9).text('If you have any questions, reply to this email.', left, y);
-    y += 18; */
+    const billLines = [
+      customerAddress?.fullName,
+      customerEmail,
+      customerAddress?.address,
+      [customerAddress?.city, customerAddress?.postalCode].filter(Boolean).join(', '),
+      customerAddress?.country,
+    ].filter(Boolean);
+    billLines.forEach(line => {
+      doc.fillColor(colorText).font('Helvetica').fontSize(10).text(String(line), left, y);
+      y += 14;
+    });
+    if (!billLines.length) {
+      doc.fillColor(colorText).font('Helvetica').fontSize(10).text('Customer', left, y);
+      y += 14;
+    }
 
     // ====== TABLE ======
     const colItem = left;
@@ -1012,7 +1023,7 @@ function buildServerCartItems(cartItems = []) {
 }
 
 
-async function sendOrderConfirmationEmail({ email, paymentId, emailItems, totalCents }) {
+async function sendOrderConfirmationEmail({ email, paymentId, emailItems, totalCents, customer }) {
   if (!email) {
     console.warn('Skipping confirmation email: missing email');
     return;
@@ -1033,6 +1044,7 @@ async function sendOrderConfirmationEmail({ email, paymentId, emailItems, totalC
       orderNumber: paymentId,
       date: dateStr,
       customerEmail: email,
+      customerAddress: normalizeContactInfo(customer?.shippingInfo || customer?.billingInfo || {}),
       products,
       subtotal,
       shipping,
@@ -1355,7 +1367,7 @@ async function sendOrderEmails({ email, paymentId, emailItems, totalCents, payme
 
   if (email) {
     jobs.push(
-      sendOrderConfirmationEmail({ email, paymentId, emailItems, totalCents })
+      sendOrderConfirmationEmail({ email, paymentId, emailItems, totalCents, customer })
         .catch((e) => console.error('Customer confirmation email failed:', e?.message || e))
     );
   }
