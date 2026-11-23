@@ -389,6 +389,40 @@ const CheckoutPage: React.FC = () => {
     const [paymentError, setPaymentError] = useState<string | null>(null);
     const [orderCompleting, setOrderCompleting] = useState(false);
 
+    const [promoCode, setPromoCode] = useState('');
+    const [promoApplied, setPromoApplied] = useState<{ code: string; discountPct: number } | null>(null);
+    const [promoError, setPromoError] = useState<string | null>(null);
+    const [promoLoading, setPromoLoading] = useState(false);
+
+
+    const rawTotal = getCartTotal();
+    const discountAmount = promoApplied ? rawTotal * (promoApplied.discountPct / 100) : 0;
+    const finalTotal = rawTotal - discountAmount;
+
+    const handleApplyPromo = async () => {
+        setPromoError(null);
+        if (!promoCode.trim()) return;
+        setPromoLoading(true);
+        try {
+            const res = await fetch('/validate-promo', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ code: promoCode.trim() }),
+            });
+            const data = await res.json();
+            if (data.valid) {
+                setPromoApplied({ code: promoCode.trim().toUpperCase(), discountPct: data.discountPct });
+                setPromoError(null);
+            } else {
+                setPromoApplied(null);
+                setPromoError(data.error || 'Invalid promo code.');
+            }
+        } catch {
+            setPromoError('Could not validate promo code. Please try again.');
+        } finally {
+            setPromoLoading(false);
+        }
+    };
 
     const orderCustomerContext = {
         shippingInfo,
@@ -499,7 +533,7 @@ const CheckoutPage: React.FC = () => {
     if (cartItems.length === 0) return null;
 
 
-    const totalInCents = Math.round(getCartTotal() * 100);
+    const totalInCents = Math.round(finalTotal * 100);
 
 
     return (
@@ -619,10 +653,55 @@ const CheckoutPage: React.FC = () => {
                                 </div>
                             ))}
                         </div>
-                        <div className="mt-6 pt-6 border-t border-subtitle/20 space-y-2">
-                            <div className="flex justify-between text-subtitle/90"><span>{t('checkout.orderSummary.subtotal')}</span><span>€{getCartTotal().toFixed(2)}</span></div>
+                        {/* Promo code */}
+                        <div className="mt-6 pt-6 border-t border-subtitle/20">
+                            <div className="flex gap-2">
+                                <input
+                                    type="text"
+                                    value={promoCode}
+                                    onChange={e => { setPromoCode(e.target.value); setPromoError(null); }}
+                                    onKeyDown={e => e.key === 'Enter' && (e.preventDefault(), handleApplyPromo())}
+                                    placeholder="Promo code"
+                                    disabled={!!promoApplied}
+                                    className="flex-1 h-[44px] bg-white dark:bg-black-button border border-subtitle/20 rounded-md px-3 text-title text-sm focus:outline-none focus:ring-1 focus:ring-red-button focus:border-red-button disabled:opacity-50"
+                                />
+                                {promoApplied ? (
+                                    <button
+                                        type="button"
+                                        onClick={() => { setPromoApplied(null); setPromoCode(''); }}
+                                        className="h-[44px] px-4 text-sm font-medium border border-subtitle/20 rounded-md text-subtitle hover:border-subtitle/50 transition-colors"
+                                    >
+                                        Remove
+                                    </button>
+                                ) : (
+                                    <button
+                                        type="button"
+                                        onClick={handleApplyPromo}
+                                        disabled={promoLoading || !promoCode.trim()}
+                                        className="h-[44px] px-4 text-sm font-medium bg-title text-white rounded-md hover:opacity-80 transition-opacity disabled:opacity-40"
+                                    >
+                                        {promoLoading ? '…' : 'Apply'}
+                                    </button>
+                                )}
+                            </div>
+                            {promoError && <p className="mt-2 text-sm text-red-500">{promoError}</p>}
+                            {promoApplied && (
+                                <p className="mt-2 text-sm text-green-600 dark:text-green-400">
+                                    ✓ <span className="font-mono font-semibold">{promoApplied.code}</span> — {promoApplied.discountPct}% off applied
+                                </p>
+                            )}
+                        </div>
+
+                        <div className="mt-4 space-y-2">
+                            <div className="flex justify-between text-subtitle/90"><span>{t('checkout.orderSummary.subtotal')}</span><span>€{rawTotal.toFixed(2)}</span></div>
+                            {promoApplied && (
+                                <div className="flex justify-between text-green-600 dark:text-green-400">
+                                    <span>Discount ({promoApplied.discountPct}%)</span>
+                                    <span>−€{discountAmount.toFixed(2)}</span>
+                                </div>
+                            )}
                             <div className="flex justify-between text-subtitle/90"><span>{t('checkout.orderSummary.shipping')}</span><span>{t('checkout.orderSummary.shippingFree')}</span></div>
-                            <div className="flex justify-between text-2xl font-bold text-title pt-2"><span>{t('checkout.orderSummary.total')}</span><span>€{getCartTotal().toFixed(2)}</span></div>
+                            <div className="flex justify-between text-2xl font-bold text-title pt-2"><span>{t('checkout.orderSummary.total')}</span><span>€{finalTotal.toFixed(2)}</span></div>
                         </div>
                     </div>
                 </div>
