@@ -1033,8 +1033,9 @@ async function sendOrderConfirmationEmail({ email, paymentId, emailItems, totalC
   const first = emailItems[0] || {};
   const dateStr = new Date().toISOString().slice(0, 10);
   const products = buildBrevoProducts(emailItems, 'EUR');
-  const subtotal = (totalCents / 100).toFixed(2);
-  const shipping = (0).toFixed(2);
+  const SHIPPING_EUR = 5;
+  const subtotal = (totalCents / 100 - SHIPPING_EUR).toFixed(2);
+  const shipping = SHIPPING_EUR.toFixed(2);
   const total = (totalCents / 100).toFixed(2);
 
   let invoiceAttachment = null;
@@ -1185,8 +1186,9 @@ async function sendAdminOrderAlertEmail({ paymentId, paymentMethod, emailItems, 
   const customerEmail = shippingInfo.email || billingInfo.email || customer?.email || '';
   const customerPhone = shippingInfo.phone || billingInfo.phone || 'N/A';
   const dateStr = new Date().toISOString().slice(0, 10);
-  const subtotal = (totalCents / 100).toFixed(2);
-  const shipping = (0).toFixed(2);
+  const SHIPPING_EUR = 5;
+  const subtotal = (totalCents / 100 - SHIPPING_EUR).toFixed(2);
+  const shipping = SHIPPING_EUR.toFixed(2);
   const total = (totalCents / 100).toFixed(2);
   const destinationCountry = shippingInfo.country || 'Non renseigné';
   const shippingAddressHtml = formatContactBlockHtml(shippingInfo);

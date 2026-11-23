@@ -395,9 +395,10 @@ const CheckoutPage: React.FC = () => {
     const [promoLoading, setPromoLoading] = useState(false);
 
 
+    const SHIPPING_EUR = 5;
     const rawTotal = getCartTotal();
     const discountAmount = promoApplied ? rawTotal * (promoApplied.discountPct / 100) : 0;
-    const finalTotal = rawTotal - discountAmount;
+    const finalTotal = rawTotal - discountAmount + SHIPPING_EUR;
 
     const handleApplyPromo = async () => {
         setPromoError(null);
@@ -693,14 +694,14 @@ const CheckoutPage: React.FC = () => {
                         </div>
 
                         <div className="mt-4 space-y-2">
-                            <div className="flex justify-between text-subtitle/90"><span>{t('checkout.orderSummary.subtotal')}</span><span>€{rawTotal.toFixed(2)}</span></div>
+                            <div className="flex justify-between text-subtitle/90"><span>{t('checkout.orderSummary.subtotal')}</span><span>€{(rawTotal - discountAmount).toFixed(2)}</span></div>
                             {promoApplied && (
                                 <div className="flex justify-between text-green-600 dark:text-green-400">
                                     <span>Discount ({promoApplied.discountPct}%)</span>
                                     <span>−€{discountAmount.toFixed(2)}</span>
                                 </div>
                             )}
-                            <div className="flex justify-between text-subtitle/90"><span>{t('checkout.orderSummary.shipping')}</span><span>{t('checkout.orderSummary.shippingFree')}</span></div>
+                            <div className="flex justify-between text-subtitle/90"><span>{t('checkout.orderSummary.shipping')}</span><span>€{SHIPPING_EUR.toFixed(2)}</span></div>
                             <div className="flex justify-between text-2xl font-bold text-title pt-2"><span>{t('checkout.orderSummary.total')}</span><span>€{finalTotal.toFixed(2)}</span></div>
                         </div>
                     </div>

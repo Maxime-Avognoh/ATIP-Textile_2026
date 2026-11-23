@@ -14,7 +14,7 @@ export const PRODUCTS: Product[] = [
       fr: '20x20 cm | encadré',
       es: '20x20 cm | enmarcado'
     },
-    price: 39.90,
+    price: 44.00,
     description: { en: '', fr: '', es: '' },
     images: [
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_WH.jpg?v=3',
@@ -35,7 +35,7 @@ export const PRODUCTS: Product[] = [
       fr: '20x20 cm | encadré',
       es: '20x20 cm | enmarcado'
     },
-    price: 39.90,
+    price: 44.00,
     description: { en: '', fr: '', es: '' },
     images: [
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_VINES.jpg?v=3',
@@ -56,7 +56,7 @@ export const PRODUCTS: Product[] = [
       fr: '20x20 cm | encadré',
       es: '20x20 cm | enmarcado'
     },
-    price: 39.90,
+    price: 44.00,
     description: { en: '', fr: '', es: '' },
     images: [
       'https://storage.googleapis.com/atip_storage/ATIP_SQ_SB.jpg?v=3',
@@ -77,7 +77,7 @@ export const PRODUCTS: Product[] = [
       fr: '20x20 cm | encadré',
       es: '20x20 cm | enmarcado'
     },
-    price: 39.90,
+    price: 44.00,
     description: {
       en: '',
       fr: '',
@@ -102,7 +102,7 @@ export const PRODUCTS: Product[] = [
       fr: '20x20 cm | encadré',
       es: '20x20 cm | enmarcado'
     },
-    price: 39.90,
+    price: 44.00,
     description: {
       en: '',
       fr: '',
@@ -127,7 +127,7 @@ export const PRODUCTS: Product[] = [
       fr: '20x20 cm | encadré',
       es: '20x20 cm | enmarcado'
     },
-    price: 39.90,
+    price: 44.00,
     description: {
       en: '',
       fr: '',
@@ -152,7 +152,7 @@ export const PRODUCTS: Product[] = [
       fr: '60x20 cm | sans cadre',
       es: '60x20 cm | sin marco'
     },
-    price: 76.00,
+    price: 56.00,
     description: {
       en: '',
       fr: '',
@@ -180,7 +180,7 @@ export const PRODUCTS: Product[] = [
       fr: '60x20 cm | encadré',
       es: '60x20 cm | enmarcado'
     },
-    price: 89.90,
+    price: 64.00,
     description: {
       en: "In sub-Saharan Africa, when the dry season gives way to the first rains, the aloe bursts into bloom. Its torches of orange and red rise above the savanna like a flame that refuses to go out, a silent signal that life persists, even in the harshest conditions.\n\nAmong the Zulu, the aloe has long been more than a plant. Around the kraal, that sacred enclosure where family, livestock and ancestors coexist, aloes are planted in tight rows to form living fences. These izindonga zezitshalo are impenetrable barriers: their rigid, thorny leaves keep predators out and hold the community within a protected, defined space. But they are also living walls, which flower every year, reminding the inhabitants that the boundary between inside and outside is not a wall of stone or wood, but a pact between human beings and nature.\n\nBy bringing \"Aloe Flowers\" into your home, you welcome this ancestral wisdom: that the most enduring boundaries are those that grow, that bloom, and that protect without enclosing.",
       fr: "En Afrique subsaharienne, quand la saison sèche cède la place aux premières pluies, l'aloès explose en fleurs. Ses torches orangées et rouges s'élèvent au-dessus de la savane comme une flamme qui refuse de s'éteindre, signal silencieux que la vie persiste, même dans les conditions les plus rudes.\n\nChez les Zulu, l'aloès est depuis longtemps bien plus qu'une plante. Autour du kraal, cet enclos sacré où cohabitent la famille, le bétail et les ancêtres, les aloès sont plantés en rangs serrés pour former des clôtures vivantes. Ces izindonga zezitshalo sont des barrières infranchissables : leurs feuilles rigides et épineuses tiennent les prédateurs à l'écart et maintiennent la communauté dans un espace protégé et délimité. Mais ce sont aussi des murs vivants, qui fleurissent chaque année, rappelant aux habitants que la frontière entre l'intérieur et l'extérieur n'est pas un mur de pierre ou de bois, mais un pacte entre les êtres humains et la nature.\n\nEn accueillant « Aloe Flowers » chez vous, vous accueillez cette sagesse ancestrale : que les frontières les plus durables sont celles qui poussent, qui fleurissent, et qui protègent sans enfermer.",
@@ -207,7 +207,7 @@ export const PRODUCTS: Product[] = [
       fr: '60x20 cm | sans cadre',
       es: '60x20 cm | sin marco'
     },
-    price: 76.00,
+    price: 56.00,
     description: {
       en: "In sub-Saharan Africa, when the dry season gives way to the first rains, the aloe bursts into bloom. Its torches of orange and red rise above the savanna like a flame that refuses to go out, a silent signal that life persists, even in the harshest conditions.\n\nAmong the Zulu, the aloe has long been more than a plant. Around the kraal, that sacred enclosure where family, livestock and ancestors coexist, aloes are planted in tight rows to form living fences. These izindonga zezitshalo are impenetrable barriers: their rigid, thorny leaves keep predators out and hold the community within a protected, defined space. But they are also living walls, which flower every year, reminding the inhabitants that the boundary between inside and outside is not a wall of stone or wood, but a pact between human beings and nature.\n\nBy bringing \"Aloe Flowers\" into your home, you welcome this ancestral wisdom: that the most enduring boundaries are those that grow, that bloom, and that protect without enclosing.",
       fr: "En Afrique subsaharienne, quand la saison sèche cède la place aux premières pluies, l'aloès explose en fleurs. Ses torches orangées et rouges s'élèvent au-dessus de la savane comme une flamme qui refuse de s'éteindre, signal silencieux que la vie persiste, même dans les conditions les plus rudes.\n\nChez les Zulu, l'aloès est depuis longtemps bien plus qu'une plante. Autour du kraal, cet enclos sacré où cohabitent la famille, le bétail et les ancêtres, les aloès sont plantés en rangs serrés pour former des clôtures vivantes. Ces izindonga zezitshalo sont des barrières infranchissables : leurs feuilles rigides et épineuses tiennent les prédateurs à l'écart et maintiennent la communauté dans un espace protégé et délimité. Mais ce sont aussi des murs vivants, qui fleurissent chaque année, rappelant aux habitants que la frontière entre l'intérieur et l'extérieur n'est pas un mur de pierre ou de bois, mais un pacte entre les êtres humains et la nature.\n\nEn accueillant « Aloe Flowers » chez vous, vous accueillez cette sagesse ancestrale : que les frontières les plus durables sont celles qui poussent, qui fleurissent, et qui protègent sans enfermer.",
@@ -227,12 +227,12 @@ export const PRODUCTS: Product[] = [
       es: 'Noche festiva'
     },
     subtitle: {
-      en: '20x60 cm | framed',
-      fr: '20x60 cm | encadré',
-      es: '20x60 cm | enmarcado'
+      en: '60x20 cm | framed',
+      fr: '60x20 cm | encadré',
+      es: '60x20 cm | enmarcado'
     },
     // Fix: removed leading zero from numeric literal to resolve parsing error
-    price: 89.90,
+    price: 64.00,
     paymentLink: 'https://buy.stripe.com/test_festive_night_framed',
     description: {
       en: "On this first day of the year, beneath the glow of fireworks lighting up the night sky, the Sapeurs celebrate and adorn themselves in red. A red that, freed from the Western prism, does not signal danger, but calls forth life and success.\n\nIn Yoruba and Ashanti cultures, the transition between December 31st and January 1st represents a moment of great vulnerability, when the negative energies of the past year seek to make their way into the new one. To guard against this, it is customary to mark the entrance of homes or the foreheads of children with laterite or camwood before the celebration. Recognizable for their deep red tones and known for their protective properties.\n\nThrough this artwork, our wish is that this textile does more than simply adorn your space,  that it brings with it an aura of protection and renewed vitality. By welcoming \"Festive Night\" into your home, you invite the strength of a heritage that watches over every new beginning.",
@@ -255,12 +255,12 @@ export const PRODUCTS: Product[] = [
       es: 'Noche festiva'
     },
     subtitle: {
-      en: '20x60 cm | unframed',
-      fr: '20x60 cm | sans cadre',
-      es: '20x60 cm | sin marco'
+      en: '60x20 cm | unframed',
+      fr: '60x20 cm | sans cadre',
+      es: '60x20 cm | sin marco'
     },
     // Fix: removed leading zero from numeric literal to resolve parsing error
-    price: 76.00,
+    price: 56.00,
     paymentLink: 'https://buy.stripe.com/test_festive_night_unframed',
     description: {
       en: "On this first day of the year, beneath the glow of fireworks lighting up the night sky, the Sapeurs celebrate and adorn themselves in red. A red that, freed from the Western prism, does not signal danger, but calls forth life and success.\n\nIn Yoruba and Ashanti cultures, the transition between December 31st and January 1st represents a moment of great vulnerability, when the negative energies of the past year seek to make their way into the new one. To guard against this, it is customary to mark the entrance of homes or the foreheads of children with laterite or camwood before the celebration. Recognizable for their deep red tones and known for their protective properties.\n\nThrough this artwork, our wish is that this textile does more than simply adorn your space,  that it brings with it an aura of protection and renewed vitality. By welcoming \"Festive Night\" into your home, you invite the strength of a heritage that watches over every new beginning.",
