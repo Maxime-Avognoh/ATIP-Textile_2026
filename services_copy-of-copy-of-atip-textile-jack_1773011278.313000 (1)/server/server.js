@@ -1473,6 +1473,7 @@ async function capturePayPalOrder({ orderID, cartItems, email, customer }) {
 
 const PROMO_CODES = {
   'ATIP-DREAM-25': { discountPct: 25 },
+  'PIOU-PIOU-30':  { discountPct: 30 },
 };
 
 app.post('/validate-promo', (req, res) => {
