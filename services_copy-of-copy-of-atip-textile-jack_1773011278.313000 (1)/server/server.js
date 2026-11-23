@@ -1469,6 +1469,19 @@ async function capturePayPalOrder({ orderID, cartItems, email, customer }) {
   return { raw: response.data, captureId, totalCents };
 }
 
+const PROMO_CODES = {
+  'ATIP-DREAM-25': { discountPct: 25 },
+};
+
+app.post('/validate-promo', (req, res) => {
+  const code = (req.body?.code || '').trim().toUpperCase();
+  const promo = PROMO_CODES[code];
+  if (!promo) {
+    return res.status(404).json({ valid: false, error: 'Invalid promo code.' });
+  }
+  res.json({ valid: true, discountPct: promo.discountPct });
+});
+
 app.get('/paypal/config', (req, res) => {
   if (!process.env.PAYPAL_CLIENT_ID) {
     return res.status(500).json({ error: 'PAYPAL_CLIENT_ID is missing on the server.' });
