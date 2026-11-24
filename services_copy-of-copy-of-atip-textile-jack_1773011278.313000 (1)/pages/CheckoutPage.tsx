@@ -395,10 +395,13 @@ const CheckoutPage: React.FC = () => {
     const [promoLoading, setPromoLoading] = useState(false);
 
 
-    const SHIPPING_EUR = 5;
+    const FREE_SHIPPING_THRESHOLD = 60;
+    const SHIPPING_FLAT = 5;
     const rawTotal = getCartTotal();
     const discountAmount = promoApplied ? rawTotal * (promoApplied.discountPct / 100) : 0;
-    const finalTotal = rawTotal - discountAmount + SHIPPING_EUR;
+    const discountedSubtotal = rawTotal - discountAmount;
+    const shippingCost = discountedSubtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FLAT;
+    const finalTotal = discountedSubtotal + shippingCost;
 
     const handleApplyPromo = async () => {
         setPromoError(null);
@@ -430,6 +433,7 @@ const CheckoutPage: React.FC = () => {
         billingInfo: sameAsShipping ? shippingInfo : billingInfo,
         sameAsShipping,
         paymentMethod,
+        shippingCents: Math.round(shippingCost * 100),
     };
 
 
@@ -694,14 +698,23 @@ const CheckoutPage: React.FC = () => {
                         </div>
 
                         <div className="mt-4 space-y-2">
-                            <div className="flex justify-between text-subtitle/90"><span>{t('checkout.orderSummary.subtotal')}</span><span>€{(rawTotal - discountAmount).toFixed(2)}</span></div>
+                            <div className="flex justify-between text-subtitle/90"><span>{t('checkout.orderSummary.subtotal')}</span><span>€{discountedSubtotal.toFixed(2)}</span></div>
                             {promoApplied && (
                                 <div className="flex justify-between text-green-600 dark:text-green-400">
                                     <span>Discount ({promoApplied.discountPct}%)</span>
                                     <span>−€{discountAmount.toFixed(2)}</span>
                                 </div>
                             )}
-                            <div className="flex justify-between text-subtitle/90"><span>{t('checkout.orderSummary.shipping')}</span><span>€{SHIPPING_EUR.toFixed(2)}</span></div>
+                            <div className="flex justify-between text-subtitle/90">
+                                <span>{t('checkout.orderSummary.shipping')}</span>
+                                {shippingCost === 0
+                                    ? <span className="text-green-600 dark:text-green-400 font-medium">Free</span>
+                                    : <span>€{shippingCost.toFixed(2)}</span>
+                                }
+                            </div>
+                            {shippingCost > 0 && (
+                                <p className="text-xs text-subtitle/50 text-right">Free shipping on orders over €{FREE_SHIPPING_THRESHOLD}</p>
+                            )}
                             <div className="flex justify-between text-2xl font-bold text-title pt-2"><span>{t('checkout.orderSummary.total')}</span><span>€{finalTotal.toFixed(2)}</span></div>
                         </div>
                     </div>
